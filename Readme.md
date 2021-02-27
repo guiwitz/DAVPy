@@ -1,3 +1,4 @@
+[![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/guiwitz/ISDAwPython_day2/master?urlpath=lab)
 [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/guiwitz/ISDAwPython_day2/blob/master)
 
 # Introduction to Statistical Data Analysis and Visualization with Python ISDAwPython_day2
