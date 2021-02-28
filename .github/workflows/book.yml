@@ -22,7 +22,7 @@ jobs:
     # Install pip dependencies
     - name: Install dependencies
       run: |
-        $CONDA/bin/pip install -r requirements.txt
+        $CONDA/bin/pip install -r book/requirements.txt
 
     # Show packages
     - name: Show packages
@@ -32,7 +32,7 @@ jobs:
     # Build the book
     - name: Build the book
       run: |
-        $CONDA/bin/jupyter-book build .
+        $CONDA/bin/jupyter-book build book/
     
     # Push the book's HTML to github-pages
     - name: GitHub Pages action
