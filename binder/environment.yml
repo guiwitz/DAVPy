@@ -18,3 +18,4 @@ dependencies:
     - ipydatagrid
     - lckr-jupyterlab-variableinspector
     - jupyterlab-spellchecker
+    - openpyxl
