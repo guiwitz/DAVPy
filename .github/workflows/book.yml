@@ -32,7 +32,7 @@ jobs:
     # Build the book
     - name: Build the book
       run: |
-        $CONDA/bin/jupyter-book build book/
+        $CONDA/bin/jupyter-book build .
     
     # Push the book's HTML to github-pages
     - name: GitHub Pages action
