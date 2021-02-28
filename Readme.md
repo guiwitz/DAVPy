@@ -24,7 +24,7 @@ To run Python and Jupyter we strongly recommend to install the necessary softwar
 You can either download or clone this GitHub repository to your computer. For download you can use the green "Code" button at the top right of this page and then unzip the downloaded folder. If you know git you can also type this is your terminal:
 
 ```
-git clone https://github.com/guiwitz/MorphoDynamics.git
+git clone https://github.com/guiwitz/ISDAwPython_day2.git
 ```
 
 ### Installing the environment
