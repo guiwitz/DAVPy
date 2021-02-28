@@ -11,7 +11,7 @@ After a first session covering the basics of Python and programming, this second
 
 ## Interactive material
 
-All the course material is offered in the form of interactive notebooks that can be executed via Jupyter or its Google equivalent Colab. As Colab doesn't require any installation, participants are expected to run their notebooks from there, and no support is provided *during* the course for local Jupyter installations. Participants who try a [local installation](##installation) and encounter problems are welcome to get in touch with the course organizers.
+All the course material is offered in the form of interactive notebooks that can be executed via Jupyter or its Google equivalent Colab. As Colab doesn't require any installation, participants are expected to run their notebooks from there, and no support is provided *during* the course for local Jupyter installations. Participants who try a [local installation](#installation) and encounter problems are welcome to get in touch with the course organizers.
 
 You can open the notebooks in Colab directly by clicking on the badge at the top left of this page. Beware that you should **save a copy to your Google Drive** if you want to preserve your changes. You can also run all notebooks in the Jupyter environment by clicking on the Binder badge. Beware that the Binder sessions are only **temporary**, so download any modification you wish to keep.
 
