@@ -1,0 +1,357 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Introduction to Statistical Data Analysis and Visualization with Python ISDAwPython_day2 &#8212; Introduction to Statistical Data Analysis and Visualization with Python Day 2</title>
+    
+  <link rel="stylesheet" href="_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
+
+    
+  <link rel="stylesheet"
+    href="_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+  <link rel="stylesheet"
+    href="_static/vendor/open-sans_all/1.44.1/index.css">
+  <link rel="stylesheet"
+    href="_static/vendor/lato_latin-ext/1.44.1/index.css">
+
+    
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="_static/sphinx-book-theme.37f24b989f4638ff9c27c22dc7559d4f.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="_static/js/index.d3f166471bb80abb5163.js">
+
+    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/togglebutton.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="_static/sphinx-book-theme.7d483ff0a819d6edff12ce0b1ead3928.js"></script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="&lt;no title&gt;" href="00-Introduction.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="index.html">
+  
+  
+  <h1 class="site-logo" id="site-title">Introduction to Statistical Data Analysis and Visualization with Python Day 2</h1>
+  
+</a>
+</div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <ul class="nav sidenav_l1">
+ <li class="toctree-l1 current active">
+  <a class="reference internal" href="#">
+   Introduction to Statistical Data Analysis and Visualization with Python ISDAwPython_day2
+  </a>
+ </li>
+</ul>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="01-Intro_Pandas_Numpy.html">
+   1. Pandas and Numpy
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="02-Numpy_arrays.html">
+   2. Numpy arrays
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="03-Numpy_maths.html">
+   3. Numpy for mathematics
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="04-Numpy_indexing.html">
+   4. Numpy indexing
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="05-Minimal_plotting.html">
+   5. Minimal plotting
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="06-Back_to_Pandas.html">
+   6. Back to Pandas
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="07-Operate_on_DataFrames.html">
+   7. Operating on DataFrames
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="08-DataFrame_indexing.html">
+   8. DataFrame indexing
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="09-Pandas_combine.html">
+   9. Combining and grouping DataFrames
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="10-Real_world.html">
+   Real-world problems and additional topics
+  </a>
+ </li>
+</ul>
+
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="_sources/Readme.md"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.md</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+            <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                    data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+                    title="Fullscreen mode"><i
+                        class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i> Contents
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#content">
+   Content
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#interactive-material">
+   Interactive material
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#installation">
+   Installation
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#using-conda">
+     Using conda
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#getting-the-course-material">
+     Getting the course material
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#installing-the-environment">
+     Installing the environment
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+        </nav>
+        
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <p><a class="reference external" href="https://mybinder.org/v2/gh/guiwitz/ISDAwPython_day2/master?urlpath=lab"><img alt="Binder" src="https://mybinder.org/badge_logo.svg" /></a>
+<a class="reference external" href="https://colab.research.google.com/github/guiwitz/ISDAwPython_day2/blob/master"><img alt="Open In Colab" src="https://colab.research.google.com/assets/colab-badge.svg" /></a></p>
+<div class="section" id="introduction-to-statistical-data-analysis-and-visualization-with-python-isdawpython-day2">
+<h1>Introduction to Statistical Data Analysis and Visualization with Python ISDAwPython_day2<a class="headerlink" href="#introduction-to-statistical-data-analysis-and-visualization-with-python-isdawpython-day2" title="Permalink to this headline">¶</a></h1>
+<p>This repository contains the course material for the second day of the course “Introduction to Statistical Data Analysis and Visualization with Python” given at Bern University by the Science IT Support unit in the frame of the <a class="reference external" href="https://www.unibe.ch/forschung/nachwuchsfoerderung/ts/ts/ressource_veranstaltungen/fs21/python_fs21/python_fs21/index_ger.html#pane1014835">Transferable Skills</a> program of Bern University’s Vice-Rectorate for Development.</p>
+<div class="section" id="content">
+<h2>Content<a class="headerlink" href="#content" title="Permalink to this headline">¶</a></h2>
+<p>After a first session covering the basics of Python and programming, this second lecture focuses on the core Python packages used for scientific computation and data science: Numpy and Pandas. Given the time-constraint, the course attempts to give an overview of essential concepts and data structures in these packages, so that participants have an entry-point in the Python scientific software stack.</p>
+</div>
+<div class="section" id="interactive-material">
+<h2>Interactive material<a class="headerlink" href="#interactive-material" title="Permalink to this headline">¶</a></h2>
+<p>All the course material is offered in the form of interactive notebooks that can be executed via Jupyter or its Google equivalent Colab. As Colab doesn’t require any installation, participants are expected to run their notebooks from there, and no support is provided <em>during</em> the course for local Jupyter installations. Participants who try a <a class="reference external" href="#installation">local installation</a> and encounter problems are welcome to get in touch with the course organizers.</p>
+<p>You can open the notebooks in Colab directly by clicking on the badge at the top left of this page. Beware that you should <strong>save a copy to your Google Drive</strong> if you want to preserve your changes. You can also run all notebooks in the Jupyter environment by clicking on the Binder badge. Beware that the Binder sessions are only <strong>temporary</strong>, so download any modification you wish to keep.</p>
+</div>
+<div class="section" id="installation">
+<h2>Installation<a class="headerlink" href="#installation" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="using-conda">
+<h3>Using conda<a class="headerlink" href="#using-conda" title="Permalink to this headline">¶</a></h3>
+<p>To run Python and Jupyter we strongly recommend to install the necessary software via conda. Conda is an environment manager that allows you to create for each of your projects a specific environment on your computer in which you can then install combinations of Python packages without interference between projects. If you don’t have conda installed, follow <a class="reference external" href="https://docs.conda.io/en/latest/miniconda.html">these instructions</a> to install a minimal version called miniconda. You can also install <a class="reference external" href="https://docs.anaconda.com/anaconda/install/">Anaconda</a> which on top of conda also installs a graphical interface and a long list of useful software (including non-Python software like RStudio). It takes however quite some space on disk.</p>
+</div>
+<div class="section" id="getting-the-course-material">
+<h3>Getting the course material<a class="headerlink" href="#getting-the-course-material" title="Permalink to this headline">¶</a></h3>
+<p>You can either download or clone this GitHub repository to your computer. For download you can use the green “Code” button at the top right of this page and then unzip the downloaded folder. If you know git you can also type this is your terminal:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">clone</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">github</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">guiwitz</span><span class="o">/</span><span class="n">ISDAwPython_day2</span><span class="o">.</span><span class="n">git</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="installing-the-environment">
+<h3>Installing the environment<a class="headerlink" href="#installing-the-environment" title="Permalink to this headline">¶</a></h3>
+<p>Now you need to create a conda environment where then you can install the necessary packages for this course. You can do this by using the provided <span class="xref myst">environment.yml</span> file. If you look into it you will see that it lists a series of packages, including e.g. Numpy and Pandas, and creates an environment called <code class="docutils literal notranslate"><span class="pre">numpypandas</span></code> (top of the file). To create this environment, open a terminal, move to binder folder of the downloaded repository and type:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">conda</span> <span class="n">env</span> <span class="n">create</span> <span class="o">-</span><span class="n">f</span> <span class="n">environment</span><span class="o">.</span><span class="n">yml</span>
+</pre></div>
+</div>
+<p>To use the environment, you then have to activate it:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">conda</span> <span class="n">activate</span> <span class="n">numpypandas</span>
+</pre></div>
+</div>
+<p>Finally, you can start Jupyter by typing:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">jupyter</span> <span class="n">notebook</span>
+</pre></div>
+</div>
+<div class="toctree-wrapper compound">
+</div>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        
+        <div class='prev-next-bottom'>
+            
+    <a class='right-next' id="next-link" href="00-Introduction.html" title="next page">&lt;no title&gt;</a>
+
+        </div>
+        
+        </div>
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By Guillaume Witz<br/>
+        
+            &copy; Copyright 2020.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    
+  <script src="_static/js/index.d3f166471bb80abb5163.js"></script>
+
+
+    
+  </body>
+</html>

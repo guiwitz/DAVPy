@@ -1,0 +1,1001 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>1. Pandas and Numpy &#8212; Introduction to Statistical Data Analysis and Visualization with Python Day 2</title>
+    
+  <link rel="stylesheet" href="_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
+
+    
+  <link rel="stylesheet"
+    href="_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+  <link rel="stylesheet"
+    href="_static/vendor/open-sans_all/1.44.1/index.css">
+  <link rel="stylesheet"
+    href="_static/vendor/lato_latin-ext/1.44.1/index.css">
+
+    
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="_static/sphinx-book-theme.37f24b989f4638ff9c27c22dc7559d4f.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="_static/js/index.d3f166471bb80abb5163.js">
+
+    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/togglebutton.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="_static/sphinx-book-theme.7d483ff0a819d6edff12ce0b1ead3928.js"></script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="2. Numpy arrays" href="02-Numpy_arrays.html" />
+    <link rel="prev" title="&lt;no title&gt;" href="00-Introduction.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="index.html">
+  
+  
+  <h1 class="site-logo" id="site-title">Introduction to Statistical Data Analysis and Visualization with Python Day 2</h1>
+  
+</a>
+</div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="Readme.html">
+   Introduction to Statistical Data Analysis and Visualization with Python ISDAwPython_day2
+  </a>
+ </li>
+</ul>
+<ul class="current nav sidenav_l1">
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   1. Pandas and Numpy
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="02-Numpy_arrays.html">
+   2. Numpy arrays
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="03-Numpy_maths.html">
+   3. Numpy for mathematics
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="04-Numpy_indexing.html">
+   4. Numpy indexing
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="05-Minimal_plotting.html">
+   5. Minimal plotting
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="06-Back_to_Pandas.html">
+   6. Back to Pandas
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="07-Operate_on_DataFrames.html">
+   7. Operating on DataFrames
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="08-DataFrame_indexing.html">
+   8. DataFrame indexing
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="09-Pandas_combine.html">
+   9. Combining and grouping DataFrames
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="10-Real_world.html">
+   Real-world problems and additional topics
+  </a>
+ </li>
+</ul>
+
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="_sources/01-Intro_Pandas_Numpy.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+            <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                    data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+                    title="Fullscreen mode"><i
+                        class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/01-Intro_Pandas_Numpy.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i> Contents
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#importing-data">
+   Importing data
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#read-functions">
+     read_*** functions
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#methods-attached-to-dataframes">
+   Methods attached to dataframes
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#accessing-columns">
+   Accessing columns
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#what-is-underlying-pandas">
+   What is underlying Pandas
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#exercise">
+   Exercise
+  </a>
+ </li>
+</ul>
+
+        </nav>
+        
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="pandas-and-numpy">
+<h1>1. Pandas and Numpy<a class="headerlink" href="#pandas-and-numpy" title="Permalink to this headline">¶</a></h1>
+<p>Python has several built-in types of data structures such as lists and dictionaries, but none of them allows you to efficiently do computations on large lists or tables of data. The Numpy and Pandas libraries fill this gap by providing 1) specific data structures on which one can efficiently compute and 2) functions to perform the computations on these structures.</p>
+<p>Numpy is the core scientific computing library on which virtually all other scientific Python packages are building (except for deep learning libraries). This includes notably Scipy, a package offering numerical routines for optimization, regression etc. that will be used in the last series of lectures.</p>
+<p>Pandas, which itself builds on top of Numpy, is the core data science library on which higher level libraries (e.g. for plotting) are building.</p>
+<p>Here we briefly present the main data structure offered by Pandas, the <strong>DataFrame</strong> and then show how the data in DataFrames are actually <strong>arrays</strong>, the main data structure of Numpy. This allows us in the next notebooks to explore Numpy before coming back at the end of the course to Pandas.</p>
+<p>Let’s first import both Pandas and Numpy. Both have very commonly used abbreviations <code class="docutils literal notranslate"><span class="pre">np</span></code> and <code class="docutils literal notranslate"><span class="pre">pd</span></code> that you should use as well to simplify your life. Note that most sub-modules are directly accessible and you won’t have to import specific ones as migth be the case for other libraries.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="importing-data">
+<h2>Importing data<a class="headerlink" href="#importing-data" title="Permalink to this headline">¶</a></h2>
+<p>Just like any other library, Pandas offers functionality through the <em>dot-notation</em> (as e.g. in <code class="docutils literal notranslate"><span class="pre">math.cos()</span></code>). When surveying usage of Pandas in places like GitHub, it turns out that the most used function is the one allowing one to import a CSV (comma-separated values). Indeed while we could import tabular data with the <code class="docutils literal notranslate"><span class="pre">read</span></code> function, this becomes quickly cumbersome for complex data and Pandas takes care of all details for us.</p>
+<div class="section" id="read-functions">
+<h3>read_*** functions<a class="headerlink" href="#read-functions" title="Permalink to this headline">¶</a></h3>
+<p>As an example we import here the file available <a class="reference external" href="https://github.com/KingaS03/Introduction-to-Python/blob/master/Homework/country_vaccinations.xls">here</a>. If we look at the file we see that even though it has an .xls extension, it is in fact just a CSV file. Pandas has many importing functions and we use here <code class="docutils literal notranslate"><span class="pre">read_csv</span></code>. You can see the list of all available importers by typing <code class="docutils literal notranslate"><span class="pre">pd.read_</span></code> and seeing options from autocomplete.</p>
+<p>We can either download the file and indicate the file path or directly <em>read</em> it from the web (<em>Note that on GitHub you need to use the <a class="reference external" href="https://raw.githubusercontent.com/KingaS03/Introduction-to-Python/master/Homework/country_vaccinations.xls">raw</a> version of the file to download it</em>)</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">vaccine</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;https://raw.githubusercontent.com/KingaS03/Introduction-to-Python/master/Homework/country_vaccinations.xls&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Let’s first see what this object is:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">type</span><span class="p">(</span><span class="n">vaccine</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>pandas.core.frame.DataFrame
+</pre></div>
+</div>
+</div>
+</div>
+<p>We see that we are dealing with a DataFrame, the two-dimensional data structure offered by Pandas. If we just execute a cell with that variable we can display the first lines:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">vaccine</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>country</th>
+      <th>iso_code</th>
+      <th>date</th>
+      <th>total_vaccinations</th>
+      <th>people_vaccinated</th>
+      <th>people_fully_vaccinated</th>
+      <th>daily_vaccinations_raw</th>
+      <th>daily_vaccinations</th>
+      <th>total_vaccinations_per_hundred</th>
+      <th>people_vaccinated_per_hundred</th>
+      <th>people_fully_vaccinated_per_hundred</th>
+      <th>daily_vaccinations_per_million</th>
+      <th>vaccines</th>
+      <th>source_name</th>
+      <th>source_website</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Albania</td>
+      <td>ALB</td>
+      <td>2021-01-10</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>Pfizer/BioNTech</td>
+      <td>Ministry of Health</td>
+      <td>https://shendetesia.gov.al/covid19-ministria-e...</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Albania</td>
+      <td>ALB</td>
+      <td>2021-01-11</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>64.0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>22.0</td>
+      <td>Pfizer/BioNTech</td>
+      <td>Ministry of Health</td>
+      <td>https://shendetesia.gov.al/covid19-ministria-e...</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>Albania</td>
+      <td>ALB</td>
+      <td>2021-01-12</td>
+      <td>128.0</td>
+      <td>128.0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>64.0</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>NaN</td>
+      <td>22.0</td>
+      <td>Pfizer/BioNTech</td>
+      <td>Ministry of Health</td>
+      <td>https://shendetesia.gov.al/covid19-ministria-e...</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>Albania</td>
+      <td>ALB</td>
+      <td>2021-01-13</td>
+      <td>188.0</td>
+      <td>188.0</td>
+      <td>NaN</td>
+      <td>60.0</td>
+      <td>63.0</td>
+      <td>0.01</td>
+      <td>0.01</td>
+      <td>NaN</td>
+      <td>22.0</td>
+      <td>Pfizer/BioNTech</td>
+      <td>Ministry of Health</td>
+      <td>https://shendetesia.gov.al/covid19-ministria-e...</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>Albania</td>
+      <td>ALB</td>
+      <td>2021-01-14</td>
+      <td>266.0</td>
+      <td>266.0</td>
+      <td>NaN</td>
+      <td>78.0</td>
+      <td>66.0</td>
+      <td>0.01</td>
+      <td>0.01</td>
+      <td>NaN</td>
+      <td>23.0</td>
+      <td>Pfizer/BioNTech</td>
+      <td>Ministry of Health</td>
+      <td>https://shendetesia.gov.al/covid19-ministria-e...</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>3614</th>
+      <td>Wales</td>
+      <td>NaN</td>
+      <td>2021-02-15</td>
+      <td>803178.0</td>
+      <td>795927.0</td>
+      <td>7251.0</td>
+      <td>12967.0</td>
+      <td>24418.0</td>
+      <td>25.47</td>
+      <td>25.24</td>
+      <td>0.23</td>
+      <td>7745.0</td>
+      <td>Oxford/AstraZeneca, Pfizer/BioNTech</td>
+      <td>Government of the United Kingdom</td>
+      <td>https://coronavirus.data.gov.uk/details/health...</td>
+    </tr>
+    <tr>
+      <th>3615</th>
+      <td>Wales</td>
+      <td>NaN</td>
+      <td>2021-02-16</td>
+      <td>820339.0</td>
+      <td>807351.0</td>
+      <td>12988.0</td>
+      <td>17161.0</td>
+      <td>23033.0</td>
+      <td>26.02</td>
+      <td>25.61</td>
+      <td>0.41</td>
+      <td>7305.0</td>
+      <td>Oxford/AstraZeneca, Pfizer/BioNTech</td>
+      <td>Government of the United Kingdom</td>
+      <td>https://coronavirus.data.gov.uk/details/health...</td>
+    </tr>
+    <tr>
+      <th>3616</th>
+      <td>Wales</td>
+      <td>NaN</td>
+      <td>2021-02-17</td>
+      <td>841975.0</td>
+      <td>822633.0</td>
+      <td>19342.0</td>
+      <td>21636.0</td>
+      <td>22012.0</td>
+      <td>26.70</td>
+      <td>26.09</td>
+      <td>0.61</td>
+      <td>6982.0</td>
+      <td>Oxford/AstraZeneca, Pfizer/BioNTech</td>
+      <td>Government of the United Kingdom</td>
+      <td>https://coronavirus.data.gov.uk/details/health...</td>
+    </tr>
+    <tr>
+      <th>3617</th>
+      <td>Wales</td>
+      <td>NaN</td>
+      <td>2021-02-18</td>
+      <td>864498.0</td>
+      <td>839065.0</td>
+      <td>25433.0</td>
+      <td>22523.0</td>
+      <td>20649.0</td>
+      <td>27.42</td>
+      <td>26.61</td>
+      <td>0.81</td>
+      <td>6549.0</td>
+      <td>Oxford/AstraZeneca, Pfizer/BioNTech</td>
+      <td>Government of the United Kingdom</td>
+      <td>https://coronavirus.data.gov.uk/details/health...</td>
+    </tr>
+    <tr>
+      <th>3618</th>
+      <td>Wales</td>
+      <td>NaN</td>
+      <td>2021-02-19</td>
+      <td>885906.0</td>
+      <td>853904.0</td>
+      <td>32002.0</td>
+      <td>21408.0</td>
+      <td>18891.0</td>
+      <td>28.10</td>
+      <td>27.08</td>
+      <td>1.02</td>
+      <td>5992.0</td>
+      <td>Oxford/AstraZeneca, Pfizer/BioNTech</td>
+      <td>Government of the United Kingdom</td>
+      <td>https://coronavirus.data.gov.uk/details/health...</td>
+    </tr>
+  </tbody>
+</table>
+<p>3619 rows × 15 columns</p>
+</div></div></div>
+</div>
+<p>We see that we are dealing with tabular data of various types: we have text (e.g. countries), dates and numbers. Just like in a tabular sheet, each column has a label and each line has an index (column in bold on the left), so that every element can be located with these <em>coordinates</em>.</p>
+</div>
+</div>
+<div class="section" id="methods-attached-to-dataframes">
+<h2>Methods attached to dataframes<a class="headerlink" href="#methods-attached-to-dataframes" title="Permalink to this headline">¶</a></h2>
+<p>We have seen before that every variable in Python has a series of functions attached to it (methods). For example if we have a text variable (string) we can e.g. split it at a given place:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">my_string</span> <span class="o">=</span> <span class="s1">&#39;This is a sentence with spaces.&#39;</span>
+<span class="n">my_string</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39; &#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;This&#39;, &#39;is&#39;, &#39;a&#39;, &#39;sentence&#39;, &#39;with&#39;, &#39;spaces.&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+<p>The same logic applies to Pandas DataFrames and in general to any new variable that is created by a given package: they all come with a series of methods attached to them.</p>
+<p>For example if we only want to display the fist 5 lines of the DataFrame, we can use the <code class="docutils literal notranslate"><span class="pre">head</span></code> method:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">vaccine</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>country</th>
+      <th>iso_code</th>
+      <th>date</th>
+      <th>total_vaccinations</th>
+      <th>people_vaccinated</th>
+      <th>people_fully_vaccinated</th>
+      <th>daily_vaccinations_raw</th>
+      <th>daily_vaccinations</th>
+      <th>total_vaccinations_per_hundred</th>
+      <th>people_vaccinated_per_hundred</th>
+      <th>people_fully_vaccinated_per_hundred</th>
+      <th>daily_vaccinations_per_million</th>
+      <th>vaccines</th>
+      <th>source_name</th>
+      <th>source_website</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Albania</td>
+      <td>ALB</td>
+      <td>2021-01-10</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>Pfizer/BioNTech</td>
+      <td>Ministry of Health</td>
+      <td>https://shendetesia.gov.al/covid19-ministria-e...</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Albania</td>
+      <td>ALB</td>
+      <td>2021-01-11</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>64.0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>22.0</td>
+      <td>Pfizer/BioNTech</td>
+      <td>Ministry of Health</td>
+      <td>https://shendetesia.gov.al/covid19-ministria-e...</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>Albania</td>
+      <td>ALB</td>
+      <td>2021-01-12</td>
+      <td>128.0</td>
+      <td>128.0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>64.0</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>NaN</td>
+      <td>22.0</td>
+      <td>Pfizer/BioNTech</td>
+      <td>Ministry of Health</td>
+      <td>https://shendetesia.gov.al/covid19-ministria-e...</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>Albania</td>
+      <td>ALB</td>
+      <td>2021-01-13</td>
+      <td>188.0</td>
+      <td>188.0</td>
+      <td>NaN</td>
+      <td>60.0</td>
+      <td>63.0</td>
+      <td>0.01</td>
+      <td>0.01</td>
+      <td>NaN</td>
+      <td>22.0</td>
+      <td>Pfizer/BioNTech</td>
+      <td>Ministry of Health</td>
+      <td>https://shendetesia.gov.al/covid19-ministria-e...</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>Albania</td>
+      <td>ALB</td>
+      <td>2021-01-14</td>
+      <td>266.0</td>
+      <td>266.0</td>
+      <td>NaN</td>
+      <td>78.0</td>
+      <td>66.0</td>
+      <td>0.01</td>
+      <td>0.01</td>
+      <td>NaN</td>
+      <td>23.0</td>
+      <td>Pfizer/BioNTech</td>
+      <td>Ministry of Health</td>
+      <td>https://shendetesia.gov.al/covid19-ministria-e...</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>We will learn later how to extract statistics, but just as an example of functions that exsit, you can for example get a basic statistical description of a DataFrame using the <code class="docutils literal notranslate"><span class="pre">describe</span></code> method:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">vaccine</span><span class="o">.</span><span class="n">describe</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>total_vaccinations</th>
+      <th>people_vaccinated</th>
+      <th>people_fully_vaccinated</th>
+      <th>daily_vaccinations_raw</th>
+      <th>daily_vaccinations</th>
+      <th>total_vaccinations_per_hundred</th>
+      <th>people_vaccinated_per_hundred</th>
+      <th>people_fully_vaccinated_per_hundred</th>
+      <th>daily_vaccinations_per_million</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>count</th>
+      <td>2.393000e+03</td>
+      <td>1.981000e+03</td>
+      <td>1.324000e+03</td>
+      <td>2.019000e+03</td>
+      <td>3.483000e+03</td>
+      <td>2393.000000</td>
+      <td>1981.000000</td>
+      <td>1324.000000</td>
+      <td>3483.000000</td>
+    </tr>
+    <tr>
+      <th>mean</th>
+      <td>1.521028e+06</td>
+      <td>1.269657e+06</td>
+      <td>3.888861e+05</td>
+      <td>7.453608e+04</td>
+      <td>5.754796e+04</td>
+      <td>6.174785</td>
+      <td>5.243503</td>
+      <td>1.807364</td>
+      <td>2279.315820</td>
+    </tr>
+    <tr>
+      <th>std</th>
+      <td>5.038410e+06</td>
+      <td>4.148487e+06</td>
+      <td>1.476223e+06</td>
+      <td>2.065813e+05</td>
+      <td>1.784900e+05</td>
+      <td>11.530328</td>
+      <td>8.593589</td>
+      <td>4.604362</td>
+      <td>3788.432525</td>
+    </tr>
+    <tr>
+      <th>min</th>
+      <td>0.000000e+00</td>
+      <td>0.000000e+00</td>
+      <td>1.000000e+00</td>
+      <td>-5.001200e+04</td>
+      <td>1.000000e+00</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+    </tr>
+    <tr>
+      <th>25%</th>
+      <td>2.989300e+04</td>
+      <td>2.702000e+04</td>
+      <td>8.366000e+03</td>
+      <td>2.021000e+03</td>
+      <td>1.207500e+03</td>
+      <td>0.590000</td>
+      <td>0.610000</td>
+      <td>0.130000</td>
+      <td>349.000000</td>
+    </tr>
+    <tr>
+      <th>50%</th>
+      <td>1.917820e+05</td>
+      <td>1.694400e+05</td>
+      <td>3.395450e+04</td>
+      <td>1.164200e+04</td>
+      <td>6.081000e+03</td>
+      <td>2.420000</td>
+      <td>2.370000</td>
+      <td>0.720000</td>
+      <td>1039.000000</td>
+    </tr>
+    <tr>
+      <th>75%</th>
+      <td>7.689500e+05</td>
+      <td>6.324390e+05</td>
+      <td>1.947678e+05</td>
+      <td>5.658950e+04</td>
+      <td>2.922500e+04</td>
+      <td>5.570000</td>
+      <td>4.430000</td>
+      <td>1.512500</td>
+      <td>1978.000000</td>
+    </tr>
+    <tr>
+      <th>max</th>
+      <td>6.128950e+07</td>
+      <td>4.280960e+07</td>
+      <td>1.789567e+07</td>
+      <td>2.242472e+06</td>
+      <td>1.916190e+06</td>
+      <td>87.070000</td>
+      <td>49.750000</td>
+      <td>37.320000</td>
+      <td>30869.000000</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>We see that in this particular case, the returned object is a DataFrame as well!</p>
+</div>
+<div class="section" id="accessing-columns">
+<h2>Accessing columns<a class="headerlink" href="#accessing-columns" title="Permalink to this headline">¶</a></h2>
+<p>If we want to work with only a given column from a dataframe, we can extract it. Just like when we want to extract an element from a regular list, e.g. <code class="docutils literal notranslate"><span class="pre">my_list[3]</span></code>, for Pandas we also use the square parenthesis (brackets) but this time with the name of the column:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">some_column</span> <span class="o">=</span> <span class="n">vaccine</span><span class="p">[</span><span class="s1">&#39;daily_vaccinations&#39;</span><span class="p">]</span>
+<span class="n">some_column</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0           NaN
+1          64.0
+2          64.0
+3          63.0
+4          66.0
+         ...   
+3614    24418.0
+3615    23033.0
+3616    22012.0
+3617    20649.0
+3618    18891.0
+Name: daily_vaccinations, Length: 3619, dtype: float64
+</pre></div>
+</div>
+</div>
+</div>
+<p>As we have a single columns here, we are not dealing with a DataFrame anymore but with a Series:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">type</span><span class="p">(</span><span class="n">some_column</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>pandas.core.series.Series
+</pre></div>
+</div>
+</div>
+</div>
+<p>We won’t explore much the Series object on its own in this course, but know that you can for example create a DataFrame from scratch by combining multiple Series.</p>
+</div>
+<div class="section" id="what-is-underlying-pandas">
+<h2>What is underlying Pandas<a class="headerlink" href="#what-is-underlying-pandas" title="Permalink to this headline">¶</a></h2>
+<p>We see above that <code class="docutils literal notranslate"><span class="pre">some_column</span></code> is composed of and index (0, 1, 2 etc) and the corresponding values (NaN, 64.0, 64.0 etc.). If we want to do mathematics with those values, we don’t really need the index and a list of numbers would be sufficient. We can obtain such a list by asking for the <code class="docutils literal notranslate"><span class="pre">values</span></code> of the series:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">actual_values</span> <span class="o">=</span> <span class="n">some_column</span><span class="o">.</span><span class="n">values</span>
+<span class="n">actual_values</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([   nan,    64.,    64., ..., 22012., 20649., 18891.])
+</pre></div>
+</div>
+</div>
+</div>
+<p>We see that the output is not just a simple Python list. It is in fact called an <code class="docutils literal notranslate"><span class="pre">array</span></code>. If we ask for the type of this object, we get:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">type</span><span class="p">(</span><span class="n">actual_values</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>numpy.ndarray
+</pre></div>
+</div>
+</div>
+</div>
+<p>The lists of values contained in Pandas DataFrame are in fact Numpy arrays. A large part of the computing logic in Pandas is inspired from Numpy, therefore we now make a detour to Numpy before coming back to DataFrames.</p>
+</div>
+<div class="section" id="exercise">
+<h2>Exercise<a class="headerlink" href="#exercise" title="Permalink to this headline">¶</a></h2>
+<ol class="simple">
+<li><p>Try to import this file from GitHub: <a class="reference external" href="https://github.com/allisonhorst/palmerpenguins/blob/master/inst/extdata/penguins.csv">https://github.com/allisonhorst/palmerpenguins/blob/master/inst/extdata/penguins.csv</a></p></li>
+<li><p>Does the import work with the link provided? If not visit the link and see if you can access the <strong>raw data</strong> and the corresponding address.</p></li>
+<li><p>Use the <code class="docutils literal notranslate"><span class="pre">head</span></code> method to see the first 6 elements of the table.</p></li>
+<li><p>Can you find a method (function attached to the object) to calculate only means in the table?</p></li>
+<li><p>What do you observe in the result? Are some columns missing?</p></li>
+</ol>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        
+        <div class='prev-next-bottom'>
+            
+    <a class='left-prev' id="prev-link" href="00-Introduction.html" title="previous page">&lt;no title&gt;</a>
+    <a class='right-next' id="next-link" href="02-Numpy_arrays.html" title="next page">2. Numpy arrays</a>
+
+        </div>
+        
+        </div>
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By Guillaume Witz<br/>
+        
+            &copy; Copyright 2020.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    
+  <script src="_static/js/index.d3f166471bb80abb5163.js"></script>
+
+
+    
+  </body>
+</html>

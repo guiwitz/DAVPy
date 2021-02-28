@@ -1,0 +1,791 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>2. Numpy arrays &#8212; Introduction to Statistical Data Analysis and Visualization with Python Day 2</title>
+    
+  <link rel="stylesheet" href="_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
+
+    
+  <link rel="stylesheet"
+    href="_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+  <link rel="stylesheet"
+    href="_static/vendor/open-sans_all/1.44.1/index.css">
+  <link rel="stylesheet"
+    href="_static/vendor/lato_latin-ext/1.44.1/index.css">
+
+    
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="_static/sphinx-book-theme.37f24b989f4638ff9c27c22dc7559d4f.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="_static/js/index.d3f166471bb80abb5163.js">
+
+    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/togglebutton.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="_static/sphinx-book-theme.7d483ff0a819d6edff12ce0b1ead3928.js"></script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="3. Numpy for mathematics" href="03-Numpy_maths.html" />
+    <link rel="prev" title="1. Pandas and Numpy" href="01-Intro_Pandas_Numpy.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="index.html">
+  
+  
+  <h1 class="site-logo" id="site-title">Introduction to Statistical Data Analysis and Visualization with Python Day 2</h1>
+  
+</a>
+</div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="Readme.html">
+   Introduction to Statistical Data Analysis and Visualization with Python ISDAwPython_day2
+  </a>
+ </li>
+</ul>
+<ul class="current nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="01-Intro_Pandas_Numpy.html">
+   1. Pandas and Numpy
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   2. Numpy arrays
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="03-Numpy_maths.html">
+   3. Numpy for mathematics
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="04-Numpy_indexing.html">
+   4. Numpy indexing
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="05-Minimal_plotting.html">
+   5. Minimal plotting
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="06-Back_to_Pandas.html">
+   6. Back to Pandas
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="07-Operate_on_DataFrames.html">
+   7. Operating on DataFrames
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="08-DataFrame_indexing.html">
+   8. DataFrame indexing
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="09-Pandas_combine.html">
+   9. Combining and grouping DataFrames
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="10-Real_world.html">
+   Real-world problems and additional topics
+  </a>
+ </li>
+</ul>
+
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="_sources/02-Numpy_arrays.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+            <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                    data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+                    title="Fullscreen mode"><i
+                        class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/02-Numpy_arrays.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i> Contents
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#creating-an-array">
+   Creating an array
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#advantages-of-vectorization">
+   Advantages of vectorization
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#array-type">
+   Array type
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#back-to-pandas">
+   Back to Pandas
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#exercise">
+   Exercise
+  </a>
+ </li>
+</ul>
+
+        </nav>
+        
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="numpy-arrays">
+<h1>2. Numpy arrays<a class="headerlink" href="#numpy-arrays" title="Permalink to this headline">¶</a></h1>
+<p>We have seen in the last notebook that the objects underlying the complex DataFrames are Numpy arrays. Why do we need this additional container and why can’t we just use Python lists ?</p>
+<p>Let’s imagine we have a list containing weights in gramms:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">gramms</span> <span class="o">=</span> <span class="p">[</span><span class="mi">5400</span><span class="p">,</span> <span class="mi">3491</span><span class="p">,</span> <span class="mi">2591</span><span class="p">,</span> <span class="mi">14100</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Now we want to transform this list into kilogramms. We don’t have any other choice than using a for loop (or a comprehension list) to divide each element by 1000:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">kilogramms</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">gramms</span><span class="p">)):</span>
+  <span class="n">new_value</span> <span class="o">=</span> <span class="n">gramms</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">/</span><span class="mi">1000</span>
+  <span class="n">kilogramms</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">new_value</span><span class="p">)</span>
+<span class="n">kilogramms</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[5.4, 3.491, 2.591, 14.1]
+</pre></div>
+</div>
+</div>
+</div>
+<p>You can imagine much more complex cases, e.g. where we mix multiple lists, that makes this writing cumbersome and slow. What arrays provide us is <strong>vectorized</strong> computations.</p>
+<div class="section" id="creating-an-array">
+<h2>Creating an array<a class="headerlink" href="#creating-an-array" title="Permalink to this headline">¶</a></h2>
+<p>To see how this works , let’s create a Numpy array (without extracting it from a DataFrame). First of all, let’s import Numpy.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>We can easily turn our previous list into an array using the <code class="docutils literal notranslate"><span class="pre">np.array</span></code> function:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">gramms_array</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">gramms</span><span class="p">)</span>
+<span class="n">gramms_array</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([ 5400,  3491,  2591, 14100])
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Vectorization</strong> means now that we can operate on the list as <strong>one object</strong>, i.e. we can do mathematics with it as with a single number. In our example:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">kilogramms_array</span> <span class="o">=</span> <span class="n">gramms_array</span> <span class="o">/</span> <span class="mi">1000</span>
+<span class="n">kilogramms_array</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([ 5.4  ,  3.491,  2.591, 14.1  ])
+</pre></div>
+</div>
+</div>
+</div>
+<p>As mentioned above, this also works if we need to performe a computation which uses multiple arrays. Let’s imagine we have a list of price/<span class="math notranslate nohighlight">\(m^2\)</span> and surface for a series of appartments:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">price_per_m2</span> <span class="o">=</span> <span class="p">[</span><span class="mi">6</span><span class="p">,</span> <span class="mf">10.3</span><span class="p">,</span> <span class="mf">12.4</span><span class="p">,</span> <span class="mf">10.6</span><span class="p">,</span> <span class="mf">5.7</span><span class="p">,</span> <span class="mf">4.3</span><span class="p">,</span> <span class="mi">14</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="mf">17.8</span><span class="p">,</span> <span class="mf">12.7</span><span class="p">,</span> <span class="mi">16</span><span class="p">,</span> <span class="mf">2.7</span><span class="p">,</span> <span class="mf">17.5</span><span class="p">,</span> <span class="mf">5.2</span><span class="p">,</span> <span class="mf">7.1</span><span class="p">,</span> <span class="mf">1.2</span><span class="p">,</span> <span class="mf">7.2</span><span class="p">,</span> <span class="mf">14.5</span><span class="p">,</span> <span class="mf">11.9</span><span class="p">]</span>
+<span class="n">surface</span> <span class="o">=</span> <span class="p">[</span><span class="mi">238</span><span class="p">,</span> <span class="mi">239</span><span class="p">,</span> <span class="mi">265</span><span class="p">,</span> <span class="mi">212</span><span class="p">,</span> <span class="mi">143</span><span class="p">,</span> <span class="mi">132</span><span class="p">,</span> <span class="mi">142</span><span class="p">,</span> <span class="mi">133</span><span class="p">,</span> <span class="mi">109</span><span class="p">,</span> <span class="mi">291</span><span class="p">,</span> <span class="mi">225</span><span class="p">,</span> <span class="mi">165</span><span class="p">,</span> <span class="mi">141</span><span class="p">,</span> <span class="mi">197</span><span class="p">,</span> <span class="mi">298</span><span class="p">,</span> <span class="mi">289</span><span class="p">,</span> <span class="mi">123</span><span class="p">,</span>  <span class="mi">90</span><span class="p">,</span> <span class="mi">132</span><span class="p">,</span> <span class="mi">203</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Now if we want to calculate the price of the apartment, we can just multiply each price/<span class="math notranslate nohighlight">\(m^2\)</span> by the surface. We can do that by creating a for loop and filling a new list with the values:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">price</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">price_per_m2</span><span class="p">)):</span>
+  <span class="n">current_price</span> <span class="o">=</span> <span class="n">price_per_m2</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">*</span> <span class="n">surface</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+  <span class="n">price</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">current_price</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">price</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[1428,
+ 2461.7000000000003,
+ 3286.0,
+ 2247.2,
+ 815.1,
+ 567.6,
+ 1988,
+ 66.5,
+ 54.5,
+ 5179.8,
+ 2857.5,
+ 2640,
+ 380.70000000000005,
+ 3447.5,
+ 1549.6000000000001,
+ 2051.9,
+ 147.6,
+ 648.0,
+ 1914.0,
+ 2415.7000000000003]
+</pre></div>
+</div>
+</div>
+</div>
+<p>Again we transform the two lists into arrays:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">price_per_m2_array</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">price_per_m2</span><span class="p">)</span>
+<span class="n">surface_array</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">surface</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Instead of having to write a foor loop, Numpy allows us now to just use a standard mathemetical operation where we multiply the two arrays:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">price_array</span> <span class="o">=</span> <span class="n">price_per_m2_array</span> <span class="o">*</span> <span class="n">surface_array</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">price_array</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([1428. , 2461.7, 3286. , 2247.2,  815.1,  567.6, 1988. ,   66.5,
+         54.5, 5179.8, 2857.5, 2640. ,  380.7, 3447.5, 1549.6, 2051.9,
+        147.6,  648. , 1914. , 2415.7])
+</pre></div>
+</div>
+</div>
+</div>
+<p>You see that when multiplying two arrays, <strong>Numpy simply multiplies each element of one array by the equivalent element of the other array</strong>.</p>
+</div>
+<div class="section" id="advantages-of-vectorization">
+<h2>Advantages of vectorization<a class="headerlink" href="#advantages-of-vectorization" title="Permalink to this headline">¶</a></h2>
+<p>There are two main advantages to this approach. First it makes the code much <strong>simpler</strong>: we achieved in a single line, what took an entire for loop with simples lists (there are slightly more efficient ways to do that even in plain Python via comprehension lists).</p>
+<p>Second, it makes our code run much <strong>faster</strong>. When we do a for loop, each operation is done separately, and since Python is dynamically typed (you don’t have to say whether a variable is text or numbers) it has to repeatedly carry out verifications. In the Numpy vectorized version, all multiplications can be done <strong>in parallel</strong> because: 1) the array contains only one type of variables so that no controls have to be done and 2) arrays are efficiently stored as blocks in memory so that individual values don’t have to be “searched” for.</p>
+<p>With this very simple example, we can compare the execution time using the magic command <code class="docutils literal notranslate"><span class="pre">%%timeit</span></code>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="n">timeit</span> <span class="o">-</span><span class="n">n</span> <span class="mi">10000</span> <span class="o">-</span><span class="n">r</span> <span class="mi">5</span> 
+<span class="n">price</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">price_per_m2</span><span class="p">)):</span>
+  <span class="n">current_price</span> <span class="o">=</span> <span class="n">price_per_m2</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">*</span> <span class="n">surface</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+  <span class="n">price</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">current_price</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>10000 loops, best of 5: 3.53 µs per loop
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="n">timeit</span> <span class="o">-</span><span class="n">n</span> <span class="mi">10000</span> <span class="o">-</span><span class="n">r</span> <span class="mi">5</span>
+<span class="n">price_array</span> <span class="o">=</span> <span class="n">price_per_m2_array</span> <span class="o">*</span> <span class="n">surface_array</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>10000 loops, best of 5: 979 ns per loop
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="array-type">
+<h2>Array type<a class="headerlink" href="#array-type" title="Permalink to this headline">¶</a></h2>
+<p>We have mentioned above that computation is fast because the type of the arrays is known. This means that <strong>all the elements of an array</strong> must have the same type. Numpy implements its own types called <code class="docutils literal notranslate"><span class="pre">dtype</span></code>. We can access to the type of an array using this:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">price_per_m2_array</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([ 6. , 10.3, 12.4, 10.6,  5.7,  4.3, 14. ,  0.5,  0.5, 17.8, 12.7,
+       16. ,  2.7, 17.5,  5.2,  7.1,  1.2,  7.2, 14.5, 11.9])
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">price_per_m2_array</span><span class="o">.</span><span class="n">dtype</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>dtype(&#39;float64&#39;)
+</pre></div>
+</div>
+</div>
+</div>
+<p>We see that by default Numpy decided that the price had <code class="docutils literal notranslate"><span class="pre">float64</span></code> dtype because the numbers we used had a comma. Notice it also turned the numbers that <strong>didn’t</strong> have a comma into floats (like the first element <code class="docutils literal notranslate"><span class="pre">6</span></code>). Since all elements of an array need to have the same type, Numpy just selects the <strong>most complex one</strong> for the entire array.</p>
+<p>Let’s see what <code class="docutils literal notranslate"><span class="pre">dtype</span></code> the surface array has:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">surface_array</span><span class="o">.</span><span class="n">dtype</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>dtype(&#39;int64&#39;)
+</pre></div>
+</div>
+</div>
+</div>
+<p>We <strong>only</strong> used integerer numbers in that list, and therefore Numpy can use a “simpler” <code class="docutils literal notranslate"><span class="pre">dtype</span></code> for that array.</p>
+<p>Finally let’s see the result of our multiplication:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">price_array</span><span class="o">.</span><span class="n">dtype</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>dtype(&#39;float64&#39;)
+</pre></div>
+</div>
+</div>
+</div>
+<p>When combining multiple arrays, Numpy always <strong>selects</strong> the most complex <code class="docutils literal notranslate"><span class="pre">dtype</span></code> for the output.</p>
+<p>If needed we can also change the <code class="docutils literal notranslate"><span class="pre">dtype</span></code> of an array explicitly using the <code class="docutils literal notranslate"><span class="pre">as_type</span></code> method. For example if we want our <code class="docutils literal notranslate"><span class="pre">surface_array</span></code> to be a float instead of an integer we can write:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">surface_array_float</span> <span class="o">=</span> <span class="n">surface_array</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">float64</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">surface_array_float</span><span class="o">.</span><span class="n">dtype</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>dtype(&#39;float64&#39;)
+</pre></div>
+</div>
+</div>
+</div>
+<p>Notice how we had to create a <strong>new</strong> array: most operations on Numpy arrays are <strong>not done in place</strong> i.e. the array itsels is not changed.</p>
+</div>
+<div class="section" id="back-to-pandas">
+<h2>Back to Pandas<a class="headerlink" href="#back-to-pandas" title="Permalink to this headline">¶</a></h2>
+<p>Before we explore a bit further Numpy arrays and the operations we can apply on them, let’s briefly come back to our Pandas DataFrame. We will use a simpler table that is also available online <a class="reference external" href="https://github.com/guiwitz/NumpyPandas_course/blob/master/Data/composers.xlsx">here</a>. Notice that this is this time really an Excel sheet, so we use the <code class="docutils literal notranslate"><span class="pre">read_excel</span></code> function:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+
+<span class="n">composers</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_excel</span><span class="p">(</span><span class="s1">&#39;https://github.com/guiwitz/NumpyPandas_course/blob/master/Data/composers.xlsx?raw=true&#39;</span><span class="p">)</span>
+<span class="n">composers</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>composer</th>
+      <th>birth</th>
+      <th>death</th>
+      <th>city</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Mahler</td>
+      <td>1860</td>
+      <td>1911</td>
+      <td>Kaliste</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Beethoven</td>
+      <td>1770</td>
+      <td>1827</td>
+      <td>Bonn</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>Puccini</td>
+      <td>1858</td>
+      <td>1924</td>
+      <td>Lucques</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>Shostakovich</td>
+      <td>1906</td>
+      <td>1975</td>
+      <td>Saint-Petersburg</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>Let’s look at the birth column:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">composers</span><span class="p">[</span><span class="s1">&#39;birth&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0    1860
+1    1770
+2    1858
+3    1906
+Name: birth, dtype: int64
+</pre></div>
+</div>
+</div>
+</div>
+<p>We see that we here also get a <code class="docutils literal notranslate"><span class="pre">dtype</span></code> information, in this case int64, since the underlying data of the DataFrame are Numpy arrays.</p>
+<p>Just like with Numpy arrays, we can explicitely ask for the <code class="docutils literal notranslate"><span class="pre">dtype</span></code>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">composers</span><span class="p">[</span><span class="s1">&#39;birth&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">dtype</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>dtype(&#39;int64&#39;)
+</pre></div>
+</div>
+</div>
+</div>
+<p>And we can also change the <code class="docutils literal notranslate"><span class="pre">dtype</span></code> using <code class="docutils literal notranslate"><span class="pre">astype()</span></code>. Here again, we need to <strong>asign</strong> the resulto the change to a new series or directly to the original DataFrame:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">composers</span><span class="p">[</span><span class="s1">&#39;birth&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">composers</span><span class="p">[</span><span class="s1">&#39;birth&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">float64</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">composers</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>composer</th>
+      <th>birth</th>
+      <th>death</th>
+      <th>city</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Mahler</td>
+      <td>1860.0</td>
+      <td>1911</td>
+      <td>Kaliste</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Beethoven</td>
+      <td>1770.0</td>
+      <td>1827</td>
+      <td>Bonn</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>Puccini</td>
+      <td>1858.0</td>
+      <td>1924</td>
+      <td>Lucques</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>Shostakovich</td>
+      <td>1906.0</td>
+      <td>1975</td>
+      <td>Saint-Petersburg</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">composers</span><span class="p">[</span><span class="s1">&#39;birth&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">dtype</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>dtype(&#39;float64&#39;)
+</pre></div>
+</div>
+</div>
+</div>
+<p>We immediately see that the numbers in the <code class="docutils literal notranslate"><span class="pre">birth</span></code> column have now a comma, and if we ask for the column type, we indeed get now a float.</p>
+</div>
+<div class="section" id="exercise">
+<h2>Exercise<a class="headerlink" href="#exercise" title="Permalink to this headline">¶</a></h2>
+<ol class="simple">
+<li><p>Create an array with 3 elements and one with 5 elements containing integers</p></li>
+<li><p>Try to multiply the two arrays.</p></li>
+<li><p>You should get an error message. Do you understand the problem ? How can you fix it?</p></li>
+<li><p>Change the <code class="docutils literal notranslate"><span class="pre">dtype</span></code> of the output to float32.</p></li>
+<li><p>Import the file that you cand find here: <a class="reference external" href="https://raw.githubusercontent.com/allisonhorst/palmerpenguins/master/inst/extdata/penguins.csv">https://raw.githubusercontent.com/allisonhorst/palmerpenguins/master/inst/extdata/penguins.csv</a></p></li>
+<li><p>Use <code class="docutils literal notranslate"><span class="pre">head()</span></code> to visualize a few lines</p></li>
+<li><p>What’s the type of the <code class="docutils literal notranslate"><span class="pre">body_mass_g</span></code> and <code class="docutils literal notranslate"><span class="pre">year</span></code> columns ?</p></li>
+<li><p>Transform the type of the <code class="docutils literal notranslate"><span class="pre">year</span></code> column into a float</p></li>
+</ol>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        
+        <div class='prev-next-bottom'>
+            
+    <a class='left-prev' id="prev-link" href="01-Intro_Pandas_Numpy.html" title="previous page">1. Pandas and Numpy</a>
+    <a class='right-next' id="next-link" href="03-Numpy_maths.html" title="next page">3. Numpy for mathematics</a>
+
+        </div>
+        
+        </div>
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By Guillaume Witz<br/>
+        
+            &copy; Copyright 2020.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    
+  <script src="_static/js/index.d3f166471bb80abb5163.js"></script>
+
+
+    
+  </body>
+</html>

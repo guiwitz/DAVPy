@@ -1,0 +1,666 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>4. Numpy indexing &#8212; Introduction to Statistical Data Analysis and Visualization with Python Day 2</title>
+    
+  <link rel="stylesheet" href="_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
+
+    
+  <link rel="stylesheet"
+    href="_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+  <link rel="stylesheet"
+    href="_static/vendor/open-sans_all/1.44.1/index.css">
+  <link rel="stylesheet"
+    href="_static/vendor/lato_latin-ext/1.44.1/index.css">
+
+    
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="_static/sphinx-book-theme.37f24b989f4638ff9c27c22dc7559d4f.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="_static/js/index.d3f166471bb80abb5163.js">
+
+    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/togglebutton.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="_static/sphinx-book-theme.7d483ff0a819d6edff12ce0b1ead3928.js"></script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="5. Minimal plotting" href="05-Minimal_plotting.html" />
+    <link rel="prev" title="3. Numpy for mathematics" href="03-Numpy_maths.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="index.html">
+  
+  
+  <h1 class="site-logo" id="site-title">Introduction to Statistical Data Analysis and Visualization with Python Day 2</h1>
+  
+</a>
+</div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="Readme.html">
+   Introduction to Statistical Data Analysis and Visualization with Python ISDAwPython_day2
+  </a>
+ </li>
+</ul>
+<ul class="current nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="01-Intro_Pandas_Numpy.html">
+   1. Pandas and Numpy
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="02-Numpy_arrays.html">
+   2. Numpy arrays
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="03-Numpy_maths.html">
+   3. Numpy for mathematics
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   4. Numpy indexing
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="05-Minimal_plotting.html">
+   5. Minimal plotting
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="06-Back_to_Pandas.html">
+   6. Back to Pandas
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="07-Operate_on_DataFrames.html">
+   7. Operating on DataFrames
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="08-DataFrame_indexing.html">
+   8. DataFrame indexing
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="09-Pandas_combine.html">
+   9. Combining and grouping DataFrames
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="10-Real_world.html">
+   Real-world problems and additional topics
+  </a>
+ </li>
+</ul>
+
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="_sources/04-Numpy_indexing.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+            <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                    data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+                    title="Fullscreen mode"><i
+                        class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/04-Numpy_indexing.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i> Contents
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#extracting-and-setting-elements">
+   Extracting and setting elements
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#higher-dimensions">
+   Higher dimensions
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#working-with-sub-parts">
+   Working with sub-parts
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#boolean-indexing">
+   Boolean indexing
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#exercise">
+   Exercise
+  </a>
+ </li>
+</ul>
+
+        </nav>
+        
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="numpy-indexing">
+<h1>4. Numpy indexing<a class="headerlink" href="#numpy-indexing" title="Permalink to this headline">¶</a></h1>
+<p>Often we need to extract some information from a Pandas DataFrame. Here also, Pandas inherits many of the approaches used in Numpy. Therefore we start here by very briefly showing how to proceed with plain arrays before looking at the more complex DataFrames.</p>
+<p>Note that Numpy indexing is very powerful and that we cover here only a tiny fraction of this topic. To learn more you can for example the <a class="reference external" href="https://numpy.org/doc/stable/reference/arrays.indexing.html#indexing">Numpy reference</a>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>We first create an array:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">my_array</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+<span class="n">my_array</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([ 0.06018823,  0.7189234 ,  2.0343148 ,  0.46501692, -0.21967535,
+       -1.18907502, -0.45971401,  0.17245139, -2.30601334, -0.79800272])
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="extracting-and-setting-elements">
+<h2>Extracting and setting elements<a class="headerlink" href="#extracting-and-setting-elements" title="Permalink to this headline">¶</a></h2>
+<p>The standard way to extract information from an array is to used the square parenthesis (bracket) notation. If we want for example to extract the second element of the array we write:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">my_array</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.7189234047200016
+</pre></div>
+</div>
+</div>
+</div>
+<p>Remember that <strong>we start counting from 0</strong> in Python, which is why the <em>second</em> element has index 1.</p>
+<p>We can extend the notation and extract a range of elements by using the <code class="docutils literal notranslate"><span class="pre">from_index:to_index</span> <span class="pre">(excluded)</span></code> notation. Here <code class="docutils literal notranslate"><span class="pre">excluded</span></code> means that the <strong>last index</strong> specified is <strong>not included</strong>. For example if we want to recover elements with indices from 1 to 3 we write:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">my_array</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="mi">4</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([0.7189234 , 2.0343148 , 0.46501692])
+</pre></div>
+</div>
+</div>
+</div>
+<p>We can also set values in the array in the same maner. For example let’s set the above elements to 10:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">my_array</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="mi">4</span><span class="p">]</span> <span class="o">=</span> <span class="mi">10</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">my_array</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([ 0.06018823, 10.        , 10.        , 10.        , -0.21967535,
+       -1.18907502, -0.45971401,  0.17245139, -2.30601334, -0.79800272])
+</pre></div>
+</div>
+</div>
+</div>
+<p>Note that you can sometimes simplify the notation. For example if you want to extract all elements from the 4th one <strong>to the last one</strong>, you don’t have to specify the last index, you can simply replace it by <code class="docutils literal notranslate"><span class="pre">:</span></code>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">my_array</span><span class="p">[</span><span class="mi">4</span><span class="p">::]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([-0.21967535, -1.18907502, -0.45971401,  0.17245139, -2.30601334,
+       -0.79800272])
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="higher-dimensions">
+<h2>Higher dimensions<a class="headerlink" href="#higher-dimensions" title="Permalink to this headline">¶</a></h2>
+<p>We have seen before that we can create arrays with more than one dimension (think e.g. of the pixels of an image). For example:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">array2D</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">5</span><span class="p">))</span>
+<span class="n">array2D</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[-0.46656473, -1.27434947,  1.81720115,  0.4786384 , -1.00751506],
+       [ 0.97354425, -0.4645227 , -0.77656696, -0.72567148,  0.13718539],
+       [-0.01898209, -0.0975492 , -0.14066817, -1.60877558, -0.74811911]])
+</pre></div>
+</div>
+</div>
+</div>
+<p>The indexing system works in the same way here. We just have to specify now for each dimension which rows/columns we want to extract with <code class="docutils literal notranslate"><span class="pre">my_array[start_row:end_row,</span> <span class="pre">start_column:end_column]</span></code>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">array2D</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="mi">3</span><span class="p">,</span> <span class="mi">0</span><span class="p">:</span><span class="mi">2</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[ 0.97354425, -0.4645227 ],
+       [-0.01898209, -0.0975492 ]])
+</pre></div>
+</div>
+</div>
+</div>
+<p>Here again, we can simplify the notation. If we want to select a few rows but <strong>want to keep all columns</strong>, we can again use the <code class="docutils literal notranslate"><span class="pre">:</span></code> notation like this:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">array2D</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="mi">3</span><span class="p">,</span> <span class="p">:]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[ 0.97354425, -0.4645227 , -0.77656696, -0.72567148,  0.13718539],
+       [-0.01898209, -0.0975492 , -0.14066817, -1.60877558, -0.74811911]])
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="working-with-sub-parts">
+<h2>Working with sub-parts<a class="headerlink" href="#working-with-sub-parts" title="Permalink to this headline">¶</a></h2>
+<p>Using indexing, we can also create a smaller array that we want to work on specifically. For example let’s say we are only interested in the 6th to 8th element. We can <strong>extract</strong> it and <strong>asign</strong> it to a new array:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sub_array</span> <span class="o">=</span> <span class="n">my_array</span><span class="p">[</span><span class="mi">7</span><span class="p">:</span><span class="mi">10</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">my_array</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([ 0.06018823, 10.        , 10.        , 10.        , -0.21967535,
+       -1.18907502, -0.45971401,  0.17245139, -2.30601334, -0.79800272])
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sub_array</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([ 0.17245139, -2.30601334, -0.79800272])
+</pre></div>
+</div>
+</div>
+</div>
+<p>Let’s now modify an element of this subarray:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sub_array</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mi">100</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Let’s check that <code class="docutils literal notranslate"><span class="pre">sub_array</span></code> has indeed changed:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sub_array</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([100.        ,  -2.30601334,  -0.79800272])
+</pre></div>
+</div>
+</div>
+</div>
+<p>Let’s now also have a look at the original array:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">my_array</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([ 6.01882309e-02,  1.00000000e+01,  1.00000000e+01,  1.00000000e+01,
+       -2.19675349e-01, -1.18907502e+00, -4.59714011e-01,  1.00000000e+02,
+       -2.30601334e+00, -7.98002718e-01])
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>The value in the original array has changed too!</strong>. The reason is that the slicing of the array <strong>does not create an independent sub-array</strong>. It is still linked to the original one. Depending on the types of modification, you might or might not encounter this problem. To be on the safe side, explicitely create a <strong>copy</strong> when creating a sub-array. Like that it will be independent from the original one:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sub_array</span> <span class="o">=</span> <span class="n">my_array</span><span class="p">[</span><span class="mi">7</span><span class="p">:</span><span class="mi">10</span><span class="p">]</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+<span class="n">sub_array</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mi">200</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sub_array</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([200.        ,  -2.30601334,  -0.79800272])
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">my_array</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([ 6.01882309e-02,  1.00000000e+01,  1.00000000e+01,  1.00000000e+01,
+       -2.19675349e-01, -1.18907502e+00, -4.59714011e-01,  1.00000000e+02,
+       -2.30601334e+00, -7.98002718e-01])
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="boolean-indexing">
+<h2>Boolean indexing<a class="headerlink" href="#boolean-indexing" title="Permalink to this headline">¶</a></h2>
+<p>Instead of using numerical indices to extract values from the array, we can also select them by some criteria. Let’s create a new random array:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">my_array2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+<span class="n">my_array2</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([ 2.18942197,  0.66471153, -0.23176659, -1.87474695, -0.37153205,
+        1.32312133, -0.87469178,  0.0229977 ,  0.18909458,  0.1033204 ])
+</pre></div>
+</div>
+</div>
+</div>
+<p>How to proceed now if we for example only want to recover the elements that are larger than 0 ?</p>
+<p>Let’s try to see what happens when we just write it down as we would in regular mathemetics:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">my_array2</span> <span class="o">&gt;</span> <span class="mi">0</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([ True,  True, False, False, False,  True, False,  True,  True,
+        True])
+</pre></div>
+</div>
+</div>
+</div>
+<p>We see that the output is again an array, but instead of being filled with numbers, it contains only <code class="docutils literal notranslate"><span class="pre">False</span></code> and <code class="docutils literal notranslate"><span class="pre">True</span></code>. Those values also exist in plain Python and are called booleans. For example:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="mi">3</span>
+<span class="n">a</span> <span class="o">&gt;</span> <span class="mi">10</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>False
+</pre></div>
+</div>
+</div>
+</div>
+<p>We can now create an actual boolean array:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">bool_array</span> <span class="o">=</span> <span class="n">my_array2</span> <span class="o">&gt;</span> <span class="mi">0</span>
+<span class="n">bool_array</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([ True,  True, False, False, False,  True, False,  True,  True,
+        True])
+</pre></div>
+</div>
+</div>
+</div>
+<p>We can now use this <strong>boolean array</strong> <code class="docutils literal notranslate"><span class="pre">bool_array</span></code> to extract values from any array of the same size. Imagine that you superpose <code class="docutils literal notranslate"><span class="pre">bool_array</span></code> to another array <code class="docutils literal notranslate"><span class="pre">value_array</span></code> and only select those values in <code class="docutils literal notranslate"><span class="pre">value_array</span></code> which are <code class="docutils literal notranslate"><span class="pre">True</span></code> in <code class="docutils literal notranslate"><span class="pre">bool_array</span></code>. Naturally we can do this with the original array itself. Instead of passing and index <code class="docutils literal notranslate"><span class="pre">my_array[i]</span></code> we pass the entire <code class="docutils literal notranslate"><span class="pre">bool_array</span></code>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">Image</span>
+<span class="n">Image</span><span class="p">(</span><span class="n">url</span><span class="o">=</span><span class="s1">&#39;https://github.com/guiwitz/ISDAwPython_day2/raw/master/images/logical_indexing.jpeg&#39;</span><span class="p">,</span><span class="n">width</span><span class="o">=</span><span class="mi">700</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><img src="https://github.com/guiwitz/ISDAwPython_day2/raw/master/images/logical_indexing.jpeg" width="700"/></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">my_array2</span><span class="p">[</span><span class="n">bool_array</span><span class="p">]</span> 
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([2.18942197, 0.66471153, 1.32312133, 0.0229977 , 0.18909458,
+       0.1033204 ])
+</pre></div>
+</div>
+</div>
+</div>
+<p>Naturally this output array is much smaller than the original one as it only contains the values larger than 0.</p>
+</div>
+<div class="section" id="exercise">
+<h2>Exercise<a class="headerlink" href="#exercise" title="Permalink to this headline">¶</a></h2>
+<ol class="simple">
+<li><p>Create a numpy array with values from 0 to 10 in steps of 0.5</p></li>
+<li><p>Extract the the last three elements of the array (without manually setting the array length).</p></li>
+<li><p>Apply a cosine function to the array and store the output in a new array.</p></li>
+<li><p>Create a boolean array telling which values in the array from (2) are smaller than 0.</p></li>
+<li><p>Recover only those values in a new array via indexing.</p></li>
+</ol>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        
+        <div class='prev-next-bottom'>
+            
+    <a class='left-prev' id="prev-link" href="03-Numpy_maths.html" title="previous page">3. Numpy for mathematics</a>
+    <a class='right-next' id="next-link" href="05-Minimal_plotting.html" title="next page">5. Minimal plotting</a>
+
+        </div>
+        
+        </div>
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By Guillaume Witz<br/>
+        
+            &copy; Copyright 2020.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    
+  <script src="_static/js/index.d3f166471bb80abb5163.js"></script>
+
+
+    
+  </body>
+</html>
