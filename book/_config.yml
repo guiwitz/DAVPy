@@ -1,0 +1,6 @@
+# Book settings
+title: Introduction to Statistical Data Analysis and Visualization with Python Day 2
+author: Guillaume Witz
+#logo: 'logo.png'
+execute:
+  execute_notebooks: "off"
