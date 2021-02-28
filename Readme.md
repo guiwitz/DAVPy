@@ -1,7 +1,7 @@
 [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/guiwitz/ISDAwPython_day2/master?urlpath=lab)
 [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/guiwitz/ISDAwPython_day2/blob/master)
 
-# Introduction to Statistical Data Analysis and Visualization with Python ISDAwPython_day2
+# Introduction to Statistical Data Analysis and Visualization with Python
 
 This repository contains the course material for the second day of the course "Introduction to Statistical Data Analysis and Visualization with Python" given at Bern University by the Science IT Support unit in the frame of the [Transferable Skills](https://www.unibe.ch/forschung/nachwuchsfoerderung/ts/ts/ressource_veranstaltungen/fs21/python_fs21/python_fs21/index_ger.html#pane1014835) program of Bern University's Vice-Rectorate for Development.
 
