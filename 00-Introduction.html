@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>&lt;no title&gt; &#8212; Introduction to Statistical Data Analysis and Visualization with Python Day 2</title>
+    <title>00. Introduction &#8212; Introduction to Statistical Data Analysis and Visualization with Python Day 2</title>
     
   <link rel="stylesheet" href="_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
 
@@ -90,7 +90,12 @@
   </a>
  </li>
 </ul>
-<ul class="nav sidenav_l1">
+<ul class="current nav sidenav_l1">
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   00. Introduction
+  </a>
+ </li>
  <li class="toctree-l1">
   <a class="reference internal" href="01-Intro_Pandas_Numpy.html">
    1. Pandas and Numpy
@@ -223,15 +228,6 @@
         <!-- Table of contents -->
         <div class="d-none d-md-block col-md-2 bd-toc show">
             
-        <div class="tocsection onthispage pt-5 pb-3">
-            <i class="fas fa-list"></i> Contents
-        </div>
-        <nav id="bd-toc-nav">
-            <ul class="simple nav section-nav flex-column">
-</ul>
-
-        </nav>
-        
         </div>
     </div>
 </div>
@@ -240,154 +236,10 @@
         
               <div>
                 
-  <ol class="simple">
-<li><p>Introduction</p></li>
-</ol>
+  <div class="section" id="introduction">
+<h1>00. Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h1>
 <p>In the first part of the course, you have learned about basics of programming and Python. In particular you have used almost exclusively <em>built-in</em> Python modules, i.e. libraries that come out of of the box with Python.</p>
 <p>In this second part of the course (and in the last one as well) we are going to explore <em>external</em> packages, i.e. modules that are separate from base Python and fill the need for specific functionalities in particular domains. In this course, we need functionalities in three areas for which we will explore various packages: (1) handling tabular data mainly with Pandas, (2) calculating statistics, performing regression etc. with Numpy, Scipy and Stats and finally (3) plotting data with Matplotlib and Seaborn.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">vaccination</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;https://raw.githubusercontent.com/KingaS03/Introduction-to-Python/master/Homework/country_vaccinations.xls&#39;</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">vaccination</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_html"><div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>country</th>
-      <th>iso_code</th>
-      <th>date</th>
-      <th>total_vaccinations</th>
-      <th>people_vaccinated</th>
-      <th>people_fully_vaccinated</th>
-      <th>daily_vaccinations_raw</th>
-      <th>daily_vaccinations</th>
-      <th>total_vaccinations_per_hundred</th>
-      <th>people_vaccinated_per_hundred</th>
-      <th>people_fully_vaccinated_per_hundred</th>
-      <th>daily_vaccinations_per_million</th>
-      <th>vaccines</th>
-      <th>source_name</th>
-      <th>source_website</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>0</th>
-      <td>Albania</td>
-      <td>ALB</td>
-      <td>2021-01-10</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>0.00</td>
-      <td>0.00</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>Pfizer/BioNTech</td>
-      <td>Ministry of Health</td>
-      <td>https://shendetesia.gov.al/covid19-ministria-e...</td>
-    </tr>
-    <tr>
-      <th>1</th>
-      <td>Albania</td>
-      <td>ALB</td>
-      <td>2021-01-11</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>64.0</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>22.0</td>
-      <td>Pfizer/BioNTech</td>
-      <td>Ministry of Health</td>
-      <td>https://shendetesia.gov.al/covid19-ministria-e...</td>
-    </tr>
-    <tr>
-      <th>2</th>
-      <td>Albania</td>
-      <td>ALB</td>
-      <td>2021-01-12</td>
-      <td>128.0</td>
-      <td>128.0</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>64.0</td>
-      <td>0.00</td>
-      <td>0.00</td>
-      <td>NaN</td>
-      <td>22.0</td>
-      <td>Pfizer/BioNTech</td>
-      <td>Ministry of Health</td>
-      <td>https://shendetesia.gov.al/covid19-ministria-e...</td>
-    </tr>
-    <tr>
-      <th>3</th>
-      <td>Albania</td>
-      <td>ALB</td>
-      <td>2021-01-13</td>
-      <td>188.0</td>
-      <td>188.0</td>
-      <td>NaN</td>
-      <td>60.0</td>
-      <td>63.0</td>
-      <td>0.01</td>
-      <td>0.01</td>
-      <td>NaN</td>
-      <td>22.0</td>
-      <td>Pfizer/BioNTech</td>
-      <td>Ministry of Health</td>
-      <td>https://shendetesia.gov.al/covid19-ministria-e...</td>
-    </tr>
-    <tr>
-      <th>4</th>
-      <td>Albania</td>
-      <td>ALB</td>
-      <td>2021-01-14</td>
-      <td>266.0</td>
-      <td>266.0</td>
-      <td>NaN</td>
-      <td>78.0</td>
-      <td>66.0</td>
-      <td>0.01</td>
-      <td>0.01</td>
-      <td>NaN</td>
-      <td>23.0</td>
-      <td>Pfizer/BioNTech</td>
-      <td>Ministry of Health</td>
-      <td>https://shendetesia.gov.al/covid19-ministria-e...</td>
-    </tr>
-  </tbody>
-</table>
-</div></div></div>
 </div>
 
     <script type="text/x-thebe-config">
