@@ -10,3 +10,10 @@
 - file: 08-DataFrame_indexing
 - file: 09-Pandas_combine
 - file: 10-Real_world
+- file: 11-Matplotlib_content
+- file: 12-Matplotlib_non_data_elements
+- file: 13-Matplotlib_statistics
+- file: 14-Matplotlib_annotations
+- file: 15-Seaborn_concept
+- file: 16-Seaborn_distributions_relations
+- file: 17-Seaborn_regression
