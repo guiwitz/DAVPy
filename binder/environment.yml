@@ -19,3 +19,4 @@ dependencies:
     - lckr-jupyterlab-variableinspector
     - jupyterlab-spellchecker
     - openpyxl
+    - ipympl
