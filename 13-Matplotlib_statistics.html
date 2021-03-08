@@ -162,31 +162,6 @@
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="#binning-with-standard-deviation-bars">
-   Binning with standard deviation bars
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="#adding-error-bars">
-   Adding error bars
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="#box-plots">
-   Box plots
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="#violin-plot">
-   Violin plot
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="#exercise">
-   Exercise
-  </a>
- </li>
- <li class="toctree-l1">
   <a class="reference internal" href="14-Matplotlib_annotations.html">
    14. Legends and Annotations
   </a>
@@ -204,6 +179,11 @@
  <li class="toctree-l1">
   <a class="reference internal" href="17-Seaborn_regression.html">
    17. Regression
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="18-Alternatives.html">
+   18. Other libraries
   </a>
  </li>
 </ul>
@@ -293,32 +273,27 @@
         </div>
         <nav id="bd-toc-nav">
             <ul class="nav section-nav flex-column">
- <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#">
-   13. Matplotlib statistics
-  </a>
- </li>
- <li class="toc-h1 nav-item toc-entry">
+ <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#binning-with-standard-deviation-bars">
    Binning with standard deviation bars
   </a>
  </li>
- <li class="toc-h1 nav-item toc-entry">
+ <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#adding-error-bars">
    Adding error bars
   </a>
  </li>
- <li class="toc-h1 nav-item toc-entry">
+ <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#box-plots">
    Box plots
   </a>
  </li>
- <li class="toc-h1 nav-item toc-entry">
+ <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#violin-plot">
    Violin plot
   </a>
  </li>
- <li class="toc-h1 nav-item toc-entry">
+ <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#exercise">
    Exercise
   </a>
@@ -348,9 +323,8 @@
 </div>
 </div>
 </div>
-</div>
 <div class="section" id="binning-with-standard-deviation-bars">
-<h1>Binning with standard deviation bars<a class="headerlink" href="#binning-with-standard-deviation-bars" title="Permalink to this headline">¶</a></h1>
+<h2>Binning with standard deviation bars<a class="headerlink" href="#binning-with-standard-deviation-bars" title="Permalink to this headline">¶</a></h2>
 <p>Our previous plot of weight vs. carrat we difficult to clearly see because of the number of points. Here we are going to use the complete dataset where the problem is even more drastic:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -421,7 +395,7 @@
 </div>
 </div>
 <div class="section" id="adding-error-bars">
-<h1>Adding error bars<a class="headerlink" href="#adding-error-bars" title="Permalink to this headline">¶</a></h1>
+<h2>Adding error bars<a class="headerlink" href="#adding-error-bars" title="Permalink to this headline">¶</a></h2>
 <p>To get a feeling of the distribution of our data we can now add error bars corresponding to the standard deviation. For that we use the <code class="docutils literal notranslate"><span class="pre">erorrbar</span></code> plotting function. The plotting is done <em>explicitely</em>: we have to specify the location and size of all error bars. Like any other plot element we can adjust how it looks, for example here the <code class="docutils literal notranslate"><span class="pre">color</span></code> and the size of the caps <code class="docutils literal notranslate"><span class="pre">capsize</span></code>:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -451,7 +425,7 @@
 </div>
 </div>
 <div class="section" id="box-plots">
-<h1>Box plots<a class="headerlink" href="#box-plots" title="Permalink to this headline">¶</a></h1>
+<h2>Box plots<a class="headerlink" href="#box-plots" title="Permalink to this headline">¶</a></h2>
 <p>Another common way of representing binned values is to use a box plot. For that we can use the <code class="docutils literal notranslate"><span class="pre">boxplot</span></code> function which takes a list of datasets and turns each into a boxplot. We can create such a list of arrays with a simple comprehension list or an actualy for loop:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -506,7 +480,7 @@
 </div>
 </div>
 <div class="section" id="violin-plot">
-<h1>Violin plot<a class="headerlink" href="#violin-plot" title="Permalink to this headline">¶</a></h1>
+<h2>Violin plot<a class="headerlink" href="#violin-plot" title="Permalink to this headline">¶</a></h2>
 <p>Violin plots are found very commonly in biology. They offer an alternative way of showing the details of a distribution and function like a box plot (note that here we have to explicitely set xticks).</p>
 <p>Here again we have options such as <code class="docutils literal notranslate"><span class="pre">showmedians</span></code> used here. Note that violinplots are an example of plot type where further customization (e.g. color change) in Matplotlib is quite cumbersome to perform compared to e.g. Seaborn.</p>
 <div class="cell docutils container">
@@ -528,7 +502,7 @@
 </div>
 </div>
 <div class="section" id="exercise">
-<h1>Exercise<a class="headerlink" href="#exercise" title="Permalink to this headline">¶</a></h1>
+<h2>Exercise<a class="headerlink" href="#exercise" title="Permalink to this headline">¶</a></h2>
 <ol class="simple">
 <li><p>In the penguin data, select one species and plot the bill length as a function of weigth.</p></li>
 <li><p>Create a binned dataset using <code class="docutils literal notranslate"><span class="pre">scipy.stats.binned_statistic</span></code> and add the result to the plot with error bars corresponding to standard deviation, reproducing the plot below.</p></li>
@@ -539,6 +513,7 @@
 <div class="cell_input docutils container">
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">penguins</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;https://raw.githubusercontent.com/allisonhorst/palmerpenguins/master/inst/extdata/penguins.csv&#39;</span><span class="p">)</span>
 </pre></div>
+</div>
 </div>
 </div>
 </div>
