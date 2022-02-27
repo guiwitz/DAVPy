@@ -1,13 +1,16 @@
-[![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/guiwitz/ISDAwPython_day2/master?urlpath=lab)
-[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/guiwitz/ISDAwPython_day2/blob/master)
+[![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/guiwitz/DAVPy/master?urlpath=lab)
+[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/guiwitz/DAVPy/blob/master)
 
-# Introduction to Statistical Data Analysis and Visualization with Python
+# Introduction to Data Analysis and Visualization with Python
 
-This repository contains the course material for the second day of the course "Introduction to Statistical Data Analysis and Visualization with Python" given at Bern University by the Science IT Support unit in the frame of the [Transferable Skills](https://www.unibe.ch/forschung/nachwuchsfoerderung/ts/ts/ressource_veranstaltungen/fs21/python_fs21/python_fs21/index_ger.html#pane1014835) program of Bern University's Vice-Rectorate for Development.
+This repository contains the course material for the course "Introduction to Data Analysis and Visualization with Python" given at Bern University by the Science IT Support unit in the frame of the [Transferable Skills](https://www.unibe.ch/research/promotion_of_early_career_researchers/ts/ts/index_eng.html) program of University of Bern's Vice-Rectorate for Development. This content has been developed by Guillaume Witz from the Microscopy Imaging Center and Science IT Support, University of Bern.
 
 ## Content
 
-After a first session covering the basics of Python and programming, this second lecture focuses on the core Python packages used for scientific computation and data science: Numpy and Pandas. Given the time-constraint, the course attempts to give an overview of essential concepts and data structures in these packages, so that participants have an entry-point in the Python scientific software stack.
+After a first session covering the basics of Python and programming, this lecture presents how to use Python for scientific computing and data analysis in three parts:
+1. The core packages [NumPy](https://numpy.org/) and [Pandas](https://pandas.pydata.org/). These packages offer additional data structures necessary to do efficient numerical computations (NumPy arrays) and process mixed-type tabular data (Pandas dataframes).
+2. Visualization. Here we show the students how arrays and dataframes can be represented as plots (scatter, histogram etc.) and how these plots can be formatted. Both the fundamental plotting library [Matplotlib](https://matplotlib.org/) as well as the higher-lever library [seaborn](https://seaborn.pydata.org/index.html) are presented.
+3. Data analysis. Here we show how numerical data can in general be analysed using tools like [SciPy](https://scipy.org/) and [statsmodels](https://www.statsmodels.org/stable/install.html). We also provide a brief introduction into more specialized packages such as [scikit-learn](https://scikit-learn.org/stable/) for Machine Learning or [scikit-image](https://scikit-image.org/) for Computer Vision to provide some insight into more domain-specific problems.
 
 ## Interactive material
 
@@ -24,12 +27,12 @@ To run Python and Jupyter we strongly recommend to install the necessary softwar
 You can either download or clone this GitHub repository to your computer. For download you can use the green "Code" button at the top right of this page and then unzip the downloaded folder. If you know git you can also type this is your terminal:
 
 ```
-git clone https://github.com/guiwitz/ISDAwPython_day2.git
+git clone https://github.com/guiwitz/DAVPy.git
 ```
 
 ### Installing the environment
 
-Now you need to create a conda environment where then you can install the necessary packages for this course. You can do this by using the provided [environment.yml](binder/environment.yml) file. If you look into it you will see that it lists a series of packages, including e.g. Numpy and Pandas, and creates an environment called ```numpypandas``` (top of the file). To create this environment, open a terminal, move to binder folder of the downloaded repository and type:
+Now you need to create a conda environment where then you can install the necessary packages for this course. You can do this by using the provided [environment.yml](binder/environment.yml) file. If you look into it you will see that it lists a series of packages, including e.g. Numpy and Pandas, and creates an environment called ```DAVPy``` (top of the file). To create this environment, open a terminal, move to binder folder of the downloaded repository and type:
 
 ```
 conda env create -f environment.yml
@@ -38,7 +41,7 @@ conda env create -f environment.yml
 To use the environment, you then have to activate it:
 
 ```
-conda activate numpypandas
+conda activate DAVPy
 ```
 
 Finally, you can start Jupyter by typing:
