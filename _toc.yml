@@ -1,5 +1,7 @@
-- file: Readme
-- file: 00-Introduction.ipynb
+format: jb-book
+root: Readme
+chapters:
+- file: 00-Introduction
 - file: 01-Intro_Pandas_Numpy
 - file: 02-Numpy_arrays
 - file: 03-Numpy_maths
