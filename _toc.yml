@@ -14,9 +14,9 @@ chapters:
 - file: 10-Real_world
 - file: 11-Matplotlib_content
 - file: 12-Matplotlib_non_data_elements
-- file: 13-Matplotlib_statistics
-- file: 14-Matplotlib_annotations
-- file: 15-Seaborn_concept
-- file: 16-Seaborn_distributions_relations
-- file: 17-Seaborn_regression
+- file: 13-Seaborn_concept
+- file: 14-Seaborn_distributions_relations
+- file: 15-Seaborn_regression
+- file: 16-Matplotlib_statistics
+- file: 17-Matplotlib_annotations
 - file: 18-Alternatives
