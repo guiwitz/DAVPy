@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>17. Regression &#8212; Introduction to Data Analysis and Visualization with Python</title>
+    <title>15. Regression &#8212; Introduction to Data Analysis and Visualization with Python</title>
     
   <link href="_static/css/theme.css" rel="stylesheet">
   <link href="_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
@@ -53,8 +53,8 @@ const thebe_selector_output = ".output, .cell_output"
     <script async="async" src="_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="18. Other libraries" href="18-Alternatives.html" />
-    <link rel="prev" title="16. Seaborn: distributions and relations" href="16-Seaborn_distributions_relations.html" />
+    <link rel="next" title="16. Matplotlib statistics" href="16-Matplotlib_statistics.html" />
+    <link rel="prev" title="14. Seaborn: distributions and relations" href="14-Seaborn_distributions_relations.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -151,7 +151,7 @@ const thebe_selector_output = ".output, .cell_output"
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="11-Matplotlib_content.html">
-   Matplotlib: data content
+   11. Matplotlib: data content
   </a>
  </li>
  <li class="toctree-l1">
@@ -160,28 +160,28 @@ const thebe_selector_output = ".output, .cell_output"
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="13-Matplotlib_statistics.html">
-   13. Matplotlib statistics
+  <a class="reference internal" href="13-Seaborn_concept.html">
+   13. Seaborn introduction
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="14-Matplotlib_annotations.html">
-   14. Legends and Annotations
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="15-Seaborn_concept.html">
-   15. Seaborn introduction
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="16-Seaborn_distributions_relations.html">
-   16. Seaborn: distributions and relations
+  <a class="reference internal" href="14-Seaborn_distributions_relations.html">
+   14. Seaborn: distributions and relations
   </a>
  </li>
  <li class="toctree-l1 current active">
   <a class="current reference internal" href="#">
-   17. Regression
+   15. Regression
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="16-Matplotlib_statistics.html">
+   16. Matplotlib statistics
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="17-Matplotlib_annotations.html">
+   17. Legends and Annotations
   </a>
  </li>
  <li class="toctree-l1">
@@ -230,7 +230,7 @@ const thebe_selector_output = ".output, .cell_output"
         <!-- ipynb file if we had a myst markdown file -->
         
         <!-- Download raw file -->
-        <a class="dropdown-buttons" href="_sources/17-Seaborn_regression.ipynb"><button type="button"
+        <a class="dropdown-buttons" href="_sources/15-Seaborn_regression.ipynb"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
                 data-placement="left">.ipynb</button></a>
         <!-- Download PDF via print -->
@@ -255,7 +255,7 @@ const thebe_selector_output = ".output, .cell_output"
         aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
     <div class="dropdown-buttons">
         
-        <a class="binder-button" href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/17-Seaborn_regression.ipynb"><button type="button"
+        <a class="binder-button" href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/15-Seaborn_regression.ipynb"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
                 data-placement="left"><img class="binder-button-logo"
                     src="_static/images/logo_binder.svg"
@@ -322,7 +322,7 @@ const thebe_selector_output = ".output, .cell_output"
         <div class="col-12 col-md-9 pl-md-3 pr-md-0">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
-                <h1>17. Regression</h1>
+                <h1>15. Regression</h1>
                 <!-- Table of contents -->
                 <div id="print-main-content">
                     <div id="jb-print-toc">
@@ -377,11 +377,11 @@ const thebe_selector_output = ".output, .cell_output"
               <div>
                 
   <div class="tex2jax_ignore mathjax_ignore section" id="regression">
-<h1>17. Regression<a class="headerlink" href="#regression" title="Permalink to this headline">¶</a></h1>
+<h1>15. Regression<a class="headerlink" href="#regression" title="Permalink to this headline">¶</a></h1>
 <p>Seaborn is a great tool if you want to quickly explore data and relations between variables. In addition to just plotting scatterplots you can also perform regression while plotting, a task for which seaborn uses the statsmodels package. <strong>Note that you cannot extract fit values from the plots. The goal here is rather exploratory or to generate figures</strong>. If you need the fit values you will need to use statsmodels directly.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
 <span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
@@ -474,23 +474,23 @@ const thebe_selector_output = ".output, .cell_output"
 <p>The idea is that you pass a DataFrame to the function and specify <code class="docutils literal notranslate"><span class="pre">y</span></code> and <code class="docutils literal notranslate"><span class="pre">x</span></code> variables to fit as <code class="docutils literal notranslate"><span class="pre">y~x</span></code>. By default the fit is linear:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">lmplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">diams</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s1">&#39;carat&#39;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">&#39;price&#39;</span><span class="p">);</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">lmplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">diams</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s1">&#39;carat&#39;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">&#39;price&#39;</span><span class="p">);</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/17-Seaborn_regression_3_0.png" src="_images/17-Seaborn_regression_3_0.png" />
+<img alt="_images/15-Seaborn_regression_3_0.png" src="_images/15-Seaborn_regression_3_0.png" />
 </div>
 </div>
 <p>As output you get a scatter plot with the linear plot and a band indicating 95% confidence interval. As usual, there’s little you cannot adjust both in terms of computation and formatting. For exmaple you can adjust the confidence interval with <code class="docutils literal notranslate"><span class="pre">ci</span></code> and use any option of matplotlib’s scatter plot with <code class="docutils literal notranslate"><span class="pre">scatter_kws</span></code>:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">lmplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">diams</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s1">&#39;carat&#39;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">&#39;price&#39;</span><span class="p">,</span> <span class="n">ci</span><span class="o">=</span><span class="mi">99</span><span class="p">,</span> <span class="n">scatter_kws</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;color&#39;</span><span class="p">:</span><span class="s1">&#39;red&#39;</span><span class="p">});</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">lmplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">diams</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s1">&#39;carat&#39;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">&#39;price&#39;</span><span class="p">,</span> <span class="n">ci</span><span class="o">=</span><span class="mi">99</span><span class="p">,</span> <span class="n">scatter_kws</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;color&#39;</span><span class="p">:</span><span class="s1">&#39;red&#39;</span><span class="p">});</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/17-Seaborn_regression_5_0.png" src="_images/17-Seaborn_regression_5_0.png" />
+<img alt="_images/15-Seaborn_regression_5_0.png" src="_images/15-Seaborn_regression_5_0.png" />
 </div>
 </div>
 </div>
@@ -499,23 +499,23 @@ const thebe_selector_output = ".output, .cell_output"
 <p>As with all other plots, you can still use aesthetics which will naturally split the data in categories and generate a fit for each of them:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">lmplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">diams</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s1">&#39;carat&#39;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">&#39;price&#39;</span><span class="p">,</span> <span class="n">hue</span><span class="o">=</span><span class="s1">&#39;colour&#39;</span><span class="p">);</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">lmplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">diams</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s1">&#39;carat&#39;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">&#39;price&#39;</span><span class="p">,</span> <span class="n">hue</span><span class="o">=</span><span class="s1">&#39;colour&#39;</span><span class="p">);</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/17-Seaborn_regression_7_0.png" src="_images/17-Seaborn_regression_7_0.png" />
+<img alt="_images/15-Seaborn_regression_7_0.png" src="_images/15-Seaborn_regression_7_0.png" />
 </div>
 </div>
 <p>If you want to separate your plots you can also use the <code class="docutils literal notranslate"><span class="pre">col</span></code> argument. Instead of assigning a color to each subset, seaborn just create one subplot per subset:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">lmplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">diams</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s1">&#39;carat&#39;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">&#39;price&#39;</span><span class="p">,</span> <span class="n">col</span><span class="o">=</span><span class="s1">&#39;colour&#39;</span><span class="p">,</span> <span class="n">col_wrap</span><span class="o">=</span><span class="mi">2</span><span class="p">);</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">lmplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">diams</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s1">&#39;carat&#39;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">&#39;price&#39;</span><span class="p">,</span> <span class="n">col</span><span class="o">=</span><span class="s1">&#39;colour&#39;</span><span class="p">,</span> <span class="n">col_wrap</span><span class="o">=</span><span class="mi">2</span><span class="p">);</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/17-Seaborn_regression_9_0.png" src="_images/17-Seaborn_regression_9_0.png" />
+<img alt="_images/15-Seaborn_regression_9_0.png" src="_images/15-Seaborn_regression_9_0.png" />
 </div>
 </div>
 </div>
@@ -524,18 +524,18 @@ const thebe_selector_output = ".output, .cell_output"
 <p>You are not restricted to perform a linear fit. You can also use polynomials. For that you have to specify the <code class="docutils literal notranslate"><span class="pre">order</span></code> of the polynomial. For example to fit a parabola:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">lmplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">diams</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s1">&#39;carat&#39;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">&#39;price&#39;</span><span class="p">,</span> <span class="n">order</span><span class="o">=</span><span class="mi">2</span><span class="p">);</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">lmplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">diams</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s1">&#39;carat&#39;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">&#39;price&#39;</span><span class="p">,</span> <span class="n">order</span><span class="o">=</span><span class="mi">2</span><span class="p">);</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/17-Seaborn_regression_11_0.png" src="_images/17-Seaborn_regression_11_0.png" />
+<img alt="_images/15-Seaborn_regression_11_0.png" src="_images/15-Seaborn_regression_11_0.png" />
 </div>
 </div>
 <p>You can also use a lowess model (locally weighted scatterplot smoothing) if your data don’t fit a simpler model:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">lmplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">diams</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s1">&#39;carat&#39;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">&#39;price&#39;</span><span class="p">,</span> <span class="n">lowess</span><span class="o">=</span><span class="kc">True</span><span class="p">);</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">lmplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">diams</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s1">&#39;carat&#39;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">&#39;price&#39;</span><span class="p">,</span> <span class="n">lowess</span><span class="o">=</span><span class="kc">True</span><span class="p">);</span>
 </pre></div>
 </div>
 </div>
@@ -544,7 +544,7 @@ const thebe_selector_output = ".output, .cell_output"
   import pandas.util.testing as tm
 </pre></div>
 </div>
-<img alt="_images/17-Seaborn_regression_13_1.png" src="_images/17-Seaborn_regression_13_1.png" />
+<img alt="_images/15-Seaborn_regression_13_1.png" src="_images/15-Seaborn_regression_13_1.png" />
 </div>
 </div>
 </div>
@@ -553,12 +553,12 @@ const thebe_selector_output = ".output, .cell_output"
 <p>Whenver you do a fit of the data, it’s a good idea to check the residuals, i.e. the difference between actual and predicted data, which ideally should be distributed around 0. Seaborn has a specific function for that called <code class="docutils literal notranslate"><span class="pre">residplot</span></code>. For our quadratic fit above we would use the same options, only the output is different:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">residplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">diams</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s1">&#39;carat&#39;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">&#39;price&#39;</span><span class="p">,</span> <span class="n">order</span><span class="o">=</span><span class="mi">2</span><span class="p">);</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">residplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">diams</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s1">&#39;carat&#39;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">&#39;price&#39;</span><span class="p">,</span> <span class="n">order</span><span class="o">=</span><span class="mi">2</span><span class="p">);</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/17-Seaborn_regression_15_0.png" src="_images/17-Seaborn_regression_15_0.png" />
+<img alt="_images/15-Seaborn_regression_15_0.png" src="_images/15-Seaborn_regression_15_0.png" />
 </div>
 </div>
 </div>
@@ -593,17 +593,17 @@ const thebe_selector_output = ".output, .cell_output"
             
                 <!-- Previous / next buttons -->
 <div class='prev-next-area'> 
-    <a class='left-prev' id="prev-link" href="16-Seaborn_distributions_relations.html" title="previous page">
+    <a class='left-prev' id="prev-link" href="14-Seaborn_distributions_relations.html" title="previous page">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
             <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title">16. Seaborn: distributions and relations</p>
+            <p class="prev-next-title">14. Seaborn: distributions and relations</p>
         </div>
     </a>
-    <a class='right-next' id="next-link" href="18-Alternatives.html" title="next page">
+    <a class='right-next' id="next-link" href="16-Matplotlib_statistics.html" title="next page">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">18. Other libraries</p>
+        <p class="prev-next-title">16. Matplotlib statistics</p>
     </div>
     <i class="fas fa-angle-right"></i>
     </a>

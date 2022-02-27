@@ -151,7 +151,7 @@ const thebe_selector_output = ".output, .cell_output"
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="11-Matplotlib_content.html">
-   Matplotlib: data content
+   11. Matplotlib: data content
   </a>
  </li>
  <li class="toctree-l1">
@@ -160,28 +160,28 @@ const thebe_selector_output = ".output, .cell_output"
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="13-Matplotlib_statistics.html">
-   13. Matplotlib statistics
+  <a class="reference internal" href="13-Seaborn_concept.html">
+   13. Seaborn introduction
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="14-Matplotlib_annotations.html">
-   14. Legends and Annotations
+  <a class="reference internal" href="14-Seaborn_distributions_relations.html">
+   14. Seaborn: distributions and relations
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="15-Seaborn_concept.html">
-   15. Seaborn introduction
+  <a class="reference internal" href="15-Seaborn_regression.html">
+   15. Regression
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="16-Seaborn_distributions_relations.html">
-   16. Seaborn: distributions and relations
+  <a class="reference internal" href="16-Matplotlib_statistics.html">
+   16. Matplotlib statistics
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="17-Seaborn_regression.html">
-   17. Regression
+  <a class="reference internal" href="17-Matplotlib_annotations.html">
+   17. Legends and Annotations
   </a>
  </li>
  <li class="toctree-l1">
@@ -362,7 +362,7 @@ const thebe_selector_output = ".output, .cell_output"
 <p>Note that Numpy indexing is very powerful and that we cover here only a tiny fraction of this topic. To learn more you can for example the <a class="reference external" href="https://numpy.org/doc/stable/reference/arrays.indexing.html#indexing">Numpy reference</a>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 </pre></div>
 </div>
 </div>
@@ -370,7 +370,7 @@ const thebe_selector_output = ".output, .cell_output"
 <p>We first create an array:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">my_array</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">my_array</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
 <span class="n">my_array</span>
 </pre></div>
 </div>
@@ -387,7 +387,7 @@ const thebe_selector_output = ".output, .cell_output"
 <p>The standard way to extract information from an array is to used the square parenthesis (bracket) notation. If we want for example to extract the second element of the array we write:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">my_array</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">my_array</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
 </pre></div>
 </div>
 </div>
@@ -401,7 +401,7 @@ const thebe_selector_output = ".output, .cell_output"
 <p>We can extend the notation and extract a range of elements by using the <code class="docutils literal notranslate"><span class="pre">from_index:to_index</span> <span class="pre">(excluded)</span></code> notation. Here <code class="docutils literal notranslate"><span class="pre">excluded</span></code> means that the <strong>last index</strong> specified is <strong>not included</strong>. For example if we want to recover elements with indices from 1 to 3 we write:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">my_array</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="mi">4</span><span class="p">]</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">my_array</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="mi">4</span><span class="p">]</span>
 </pre></div>
 </div>
 </div>
@@ -414,14 +414,14 @@ const thebe_selector_output = ".output, .cell_output"
 <p>We can also set values in the array in the same maner. For example let’s set the above elements to 10:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">my_array</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="mi">4</span><span class="p">]</span> <span class="o">=</span> <span class="mi">10</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">my_array</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="mi">4</span><span class="p">]</span> <span class="o">=</span> <span class="mi">10</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">my_array</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">my_array</span>
 </pre></div>
 </div>
 </div>
@@ -435,7 +435,7 @@ const thebe_selector_output = ".output, .cell_output"
 <p>Note that you can sometimes simplify the notation. For example if you want to extract all elements from the 4th one <strong>to the last one</strong>, you don’t have to specify the last index, you can simply replace it by <code class="docutils literal notranslate"><span class="pre">:</span></code>:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">my_array</span><span class="p">[</span><span class="mi">4</span><span class="p">::]</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">my_array</span><span class="p">[</span><span class="mi">4</span><span class="p">::]</span>
 </pre></div>
 </div>
 </div>
@@ -452,7 +452,7 @@ const thebe_selector_output = ".output, .cell_output"
 <p>We have seen before that we can create arrays with more than one dimension (think e.g. of the pixels of an image). For example:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">array2D</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">5</span><span class="p">))</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">array2D</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">5</span><span class="p">))</span>
 <span class="n">array2D</span>
 </pre></div>
 </div>
@@ -468,7 +468,7 @@ const thebe_selector_output = ".output, .cell_output"
 <p>The indexing system works in the same way here. We just have to specify now for each dimension which rows/columns we want to extract with <code class="docutils literal notranslate"><span class="pre">my_array[start_row:end_row,</span> <span class="pre">start_column:end_column]</span></code>:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">array2D</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="mi">3</span><span class="p">,</span> <span class="mi">0</span><span class="p">:</span><span class="mi">2</span><span class="p">]</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">array2D</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="mi">3</span><span class="p">,</span> <span class="mi">0</span><span class="p">:</span><span class="mi">2</span><span class="p">]</span>
 </pre></div>
 </div>
 </div>
@@ -482,7 +482,7 @@ const thebe_selector_output = ".output, .cell_output"
 <p>Here again, we can simplify the notation. If we want to select a few rows but <strong>want to keep all columns</strong>, we can again use the <code class="docutils literal notranslate"><span class="pre">:</span></code> notation like this:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">array2D</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="mi">3</span><span class="p">,</span> <span class="p">:]</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">array2D</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="mi">3</span><span class="p">,</span> <span class="p">:]</span>
 </pre></div>
 </div>
 </div>
@@ -499,14 +499,14 @@ const thebe_selector_output = ".output, .cell_output"
 <p>Using indexing, we can also create a smaller array that we want to work on specifically. For example let’s say we are only interested in the 6th to 8th element. We can <strong>extract</strong> it and <strong>asign</strong> it to a new array:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sub_array</span> <span class="o">=</span> <span class="n">my_array</span><span class="p">[</span><span class="mi">7</span><span class="p">:</span><span class="mi">10</span><span class="p">]</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sub_array</span> <span class="o">=</span> <span class="n">my_array</span><span class="p">[</span><span class="mi">7</span><span class="p">:</span><span class="mi">10</span><span class="p">]</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">my_array</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">my_array</span>
 </pre></div>
 </div>
 </div>
@@ -519,7 +519,7 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sub_array</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sub_array</span>
 </pre></div>
 </div>
 </div>
@@ -532,7 +532,7 @@ const thebe_selector_output = ".output, .cell_output"
 <p>Let’s now modify an element of this subarray:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sub_array</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mi">100</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sub_array</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mi">100</span>
 </pre></div>
 </div>
 </div>
@@ -540,7 +540,7 @@ const thebe_selector_output = ".output, .cell_output"
 <p>Let’s check that <code class="docutils literal notranslate"><span class="pre">sub_array</span></code> has indeed changed:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sub_array</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sub_array</span>
 </pre></div>
 </div>
 </div>
@@ -553,7 +553,7 @@ const thebe_selector_output = ".output, .cell_output"
 <p>Let’s now also have a look at the original array:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">my_array</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">my_array</span>
 </pre></div>
 </div>
 </div>
@@ -568,7 +568,7 @@ const thebe_selector_output = ".output, .cell_output"
 <p><strong>The value in the original array has changed too!</strong>. The reason is that the slicing of the array <strong>does not create an independent sub-array</strong>. It is still linked to the original one. Depending on the types of modification, you might or might not encounter this problem. To be on the safe side, explicitely create a <strong>copy</strong> when creating a sub-array. Like that it will be independent from the original one:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sub_array</span> <span class="o">=</span> <span class="n">my_array</span><span class="p">[</span><span class="mi">7</span><span class="p">:</span><span class="mi">10</span><span class="p">]</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sub_array</span> <span class="o">=</span> <span class="n">my_array</span><span class="p">[</span><span class="mi">7</span><span class="p">:</span><span class="mi">10</span><span class="p">]</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
 <span class="n">sub_array</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mi">200</span>
 </pre></div>
 </div>
@@ -576,7 +576,7 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sub_array</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sub_array</span>
 </pre></div>
 </div>
 </div>
@@ -588,7 +588,7 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">my_array</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">my_array</span>
 </pre></div>
 </div>
 </div>
@@ -606,7 +606,7 @@ const thebe_selector_output = ".output, .cell_output"
 <p>Instead of using numerical indices to extract values from the array, we can also select them by some criteria. Let’s create a new random array:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">my_array2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">my_array2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
 <span class="n">my_array2</span>
 </pre></div>
 </div>
@@ -622,7 +622,7 @@ const thebe_selector_output = ".output, .cell_output"
 <p>Let’s try to see what happens when we just write it down as we would in regular mathemetics:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">my_array2</span> <span class="o">&gt;</span> <span class="mi">0</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">my_array2</span> <span class="o">&gt;</span> <span class="mi">0</span>
 </pre></div>
 </div>
 </div>
@@ -636,7 +636,7 @@ const thebe_selector_output = ".output, .cell_output"
 <p>We see that the output is again an array, but instead of being filled with numbers, it contains only <code class="docutils literal notranslate"><span class="pre">False</span></code> and <code class="docutils literal notranslate"><span class="pre">True</span></code>. Those values also exist in plain Python and are called booleans. For example:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="mi">3</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="mi">3</span>
 <span class="n">a</span> <span class="o">&gt;</span> <span class="mi">10</span>
 </pre></div>
 </div>
@@ -650,7 +650,7 @@ const thebe_selector_output = ".output, .cell_output"
 <p>We can now create an actual boolean array:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">bool_array</span> <span class="o">=</span> <span class="n">my_array2</span> <span class="o">&gt;</span> <span class="mi">0</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">bool_array</span> <span class="o">=</span> <span class="n">my_array2</span> <span class="o">&gt;</span> <span class="mi">0</span>
 <span class="n">bool_array</span>
 </pre></div>
 </div>
@@ -665,7 +665,7 @@ const thebe_selector_output = ".output, .cell_output"
 <p>We can now use this <strong>boolean array</strong> <code class="docutils literal notranslate"><span class="pre">bool_array</span></code> to extract values from any array of the same size. Imagine that you superpose <code class="docutils literal notranslate"><span class="pre">bool_array</span></code> to another array <code class="docutils literal notranslate"><span class="pre">value_array</span></code> and only select those values in <code class="docutils literal notranslate"><span class="pre">value_array</span></code> which are <code class="docutils literal notranslate"><span class="pre">True</span></code> in <code class="docutils literal notranslate"><span class="pre">bool_array</span></code>. Naturally we can do this with the original array itself. Instead of passing and index <code class="docutils literal notranslate"><span class="pre">my_array[i]</span></code> we pass the entire <code class="docutils literal notranslate"><span class="pre">bool_array</span></code>:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">Image</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">Image</span>
 <span class="n">Image</span><span class="p">(</span><span class="n">url</span><span class="o">=</span><span class="s1">&#39;https://github.com/guiwitz/ISDAwPython_day2/raw/master/images/logical_indexing.jpeg&#39;</span><span class="p">,</span><span class="n">width</span><span class="o">=</span><span class="mi">700</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -675,7 +675,7 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">my_array2</span><span class="p">[</span><span class="n">bool_array</span><span class="p">]</span> 
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">my_array2</span><span class="p">[</span><span class="n">bool_array</span><span class="p">]</span> 
 </pre></div>
 </div>
 </div>
@@ -692,9 +692,9 @@ const thebe_selector_output = ".output, .cell_output"
 <h2>Exercise<a class="headerlink" href="#exercise" title="Permalink to this headline">¶</a></h2>
 <ol class="simple">
 <li><p>Create a numpy array with values from 0 to 10 in steps of 0.5</p></li>
-<li><p>Extract the the last three elements of the array (without manually setting the array length).</p></li>
-<li><p>Apply a cosine function to the array and store the output in a new array.</p></li>
-<li><p>Create a boolean array telling which values in the array from (3) are smaller than 0.</p></li>
+<li><p>Extract the the last three elements of the array using slicing.</p></li>
+<li><p>Apply a cosine function to the full array created in (1.) and store the output in a new array.</p></li>
+<li><p>Create a boolean array telling which values in the array from (3.) are smaller than 0.</p></li>
 <li><p>Recover only those values in a new array via indexing.</p></li>
 </ol>
 </div>

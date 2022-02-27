@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>16. Seaborn: distributions and relations &#8212; Introduction to Data Analysis and Visualization with Python</title>
+    <title>14. Seaborn: distributions and relations &#8212; Introduction to Data Analysis and Visualization with Python</title>
     
   <link href="_static/css/theme.css" rel="stylesheet">
   <link href="_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
@@ -53,8 +53,8 @@ const thebe_selector_output = ".output, .cell_output"
     <script async="async" src="_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="17. Regression" href="17-Seaborn_regression.html" />
-    <link rel="prev" title="15. Seaborn introduction" href="15-Seaborn_concept.html" />
+    <link rel="next" title="15. Regression" href="15-Seaborn_regression.html" />
+    <link rel="prev" title="13. Seaborn introduction" href="13-Seaborn_concept.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -151,7 +151,7 @@ const thebe_selector_output = ".output, .cell_output"
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="11-Matplotlib_content.html">
-   Matplotlib: data content
+   11. Matplotlib: data content
   </a>
  </li>
  <li class="toctree-l1">
@@ -160,28 +160,28 @@ const thebe_selector_output = ".output, .cell_output"
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="13-Matplotlib_statistics.html">
-   13. Matplotlib statistics
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="14-Matplotlib_annotations.html">
-   14. Legends and Annotations
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="15-Seaborn_concept.html">
-   15. Seaborn introduction
+  <a class="reference internal" href="13-Seaborn_concept.html">
+   13. Seaborn introduction
   </a>
  </li>
  <li class="toctree-l1 current active">
   <a class="current reference internal" href="#">
-   16. Seaborn: distributions and relations
+   14. Seaborn: distributions and relations
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="17-Seaborn_regression.html">
-   17. Regression
+  <a class="reference internal" href="15-Seaborn_regression.html">
+   15. Regression
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="16-Matplotlib_statistics.html">
+   16. Matplotlib statistics
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="17-Matplotlib_annotations.html">
+   17. Legends and Annotations
   </a>
  </li>
  <li class="toctree-l1">
@@ -230,7 +230,7 @@ const thebe_selector_output = ".output, .cell_output"
         <!-- ipynb file if we had a myst markdown file -->
         
         <!-- Download raw file -->
-        <a class="dropdown-buttons" href="_sources/16-Seaborn_distributions_relations.ipynb"><button type="button"
+        <a class="dropdown-buttons" href="_sources/14-Seaborn_distributions_relations.ipynb"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
                 data-placement="left">.ipynb</button></a>
         <!-- Download PDF via print -->
@@ -255,7 +255,7 @@ const thebe_selector_output = ".output, .cell_output"
         aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
     <div class="dropdown-buttons">
         
-        <a class="binder-button" href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/16-Seaborn_distributions_relations.ipynb"><button type="button"
+        <a class="binder-button" href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/14-Seaborn_distributions_relations.ipynb"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
                 data-placement="left"><img class="binder-button-logo"
                     src="_static/images/logo_binder.svg"
@@ -329,7 +329,7 @@ const thebe_selector_output = ".output, .cell_output"
         <div class="col-12 col-md-9 pl-md-3 pr-md-0">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
-                <h1>16. Seaborn: distributions and relations</h1>
+                <h1>14. Seaborn: distributions and relations</h1>
                 <!-- Table of contents -->
                 <div id="print-main-content">
                     <div id="jb-print-toc">
@@ -391,11 +391,11 @@ const thebe_selector_output = ".output, .cell_output"
               <div>
                 
   <div class="tex2jax_ignore mathjax_ignore section" id="seaborn-distributions-and-relations">
-<h1>16. Seaborn: distributions and relations<a class="headerlink" href="#seaborn-distributions-and-relations" title="Permalink to this headline">¶</a></h1>
+<h1>14. Seaborn: distributions and relations<a class="headerlink" href="#seaborn-distributions-and-relations" title="Permalink to this headline">¶</a></h1>
 <p>As we have just seen, seaborn allows to draw very quickly complex plots in order to explore data. Here we further explore the capabilities offered by the packages to quickly visualize relations and ditributions</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
 <span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
@@ -412,18 +412,18 @@ const thebe_selector_output = ".output, .cell_output"
 <p>Let’s see what de default settings produce when we want to visualize the price distribution <code class="docutils literal notranslate"><span class="pre">y</span></code> for each color <code class="docutils literal notranslate"><span class="pre">x</span></code>:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">g</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">catplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">diams</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s1">&#39;colour&#39;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">&#39;price&#39;</span><span class="p">);</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">g</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">catplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">diams</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s1">&#39;colour&#39;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">&#39;price&#39;</span><span class="p">);</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/16-Seaborn_distributions_relations_3_0.png" src="_images/16-Seaborn_distributions_relations_3_0.png" />
+<img alt="_images/14-Seaborn_distributions_relations_3_0.png" src="_images/14-Seaborn_distributions_relations_3_0.png" />
 </div>
 </div>
 <p>The result is a very reasonable stripplot, a scatter plot with one categorical variable. As you can see some <em>jitter</em> is added to help visualize all points. Note that the output of <code class="docutils literal notranslate"><span class="pre">catplot</span></code> is a facetgrid object, not a simple axis. We wont explore in details facet grids, but just know that you can still acces the axes and the figure composing this object with:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">g</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">g</span>
 </pre></div>
 </div>
 </div>
@@ -435,7 +435,7 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">g</span><span class="o">.</span><span class="n">ax</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">g</span><span class="o">.</span><span class="n">ax</span>
 </pre></div>
 </div>
 </div>
@@ -447,12 +447,12 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">g</span><span class="o">.</span><span class="n">fig</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">g</span><span class="o">.</span><span class="n">fig</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/16-Seaborn_distributions_relations_7_0.png" src="_images/16-Seaborn_distributions_relations_7_0.png" />
+<img alt="_images/14-Seaborn_distributions_relations_7_0.png" src="_images/14-Seaborn_distributions_relations_7_0.png" />
 </div>
 </div>
 <div class="section" id="customization">
@@ -460,17 +460,17 @@ const thebe_selector_output = ".output, .cell_output"
 <p>As usual, you have many options to optimize the plot, some of them specific to the current type such as ```jitter```` here:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">catplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">diams</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s1">&#39;colour&#39;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">&#39;price&#39;</span><span class="p">,</span> <span class="n">jitter</span><span class="o">=</span><span class="mf">0.3</span><span class="p">);</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">catplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">diams</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s1">&#39;colour&#39;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">&#39;price&#39;</span><span class="p">,</span> <span class="n">jitter</span><span class="o">=</span><span class="mf">0.3</span><span class="p">);</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/16-Seaborn_distributions_relations_9_0.png" src="_images/16-Seaborn_distributions_relations_9_0.png" />
+<img alt="_images/14-Seaborn_distributions_relations_9_0.png" src="_images/14-Seaborn_distributions_relations_9_0.png" />
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">diams</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">diams</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
@@ -554,12 +554,12 @@ const thebe_selector_output = ".output, .cell_output"
 <p>Also, just like in the regular plots, we can use more than one aesthetic. We can for example here use the <code class="docutils literal notranslate"><span class="pre">hue</span></code> to represent the <code class="docutils literal notranslate"><span class="pre">certification</span></code>:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">catplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">diams</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s1">&#39;colour&#39;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">&#39;price&#39;</span><span class="p">,</span> <span class="n">hue</span><span class="o">=</span><span class="s1">&#39;certification&#39;</span><span class="p">,</span> <span class="n">jitter</span><span class="o">=</span><span class="mf">.2</span><span class="p">);</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">catplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">diams</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s1">&#39;colour&#39;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">&#39;price&#39;</span><span class="p">,</span> <span class="n">hue</span><span class="o">=</span><span class="s1">&#39;certification&#39;</span><span class="p">,</span> <span class="n">jitter</span><span class="o">=</span><span class="mf">.2</span><span class="p">);</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/16-Seaborn_distributions_relations_12_0.png" src="_images/16-Seaborn_distributions_relations_12_0.png" />
+<img alt="_images/14-Seaborn_distributions_relations_12_0.png" src="_images/14-Seaborn_distributions_relations_12_0.png" />
 </div>
 </div>
 </div>
@@ -568,34 +568,34 @@ const thebe_selector_output = ".output, .cell_output"
 <p>The <code class="docutils literal notranslate"><span class="pre">catplot</span></code> has one essential parameter, <code class="docutils literal notranslate"><span class="pre">kind</span></code>, which allows us to select alternative types of plots. For example we can produce box plots or violin plots:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">catplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">diams</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s1">&#39;colour&#39;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">&#39;price&#39;</span><span class="p">,</span> <span class="n">kind</span><span class="o">=</span><span class="s1">&#39;box&#39;</span><span class="p">);</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">catplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">diams</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s1">&#39;colour&#39;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">&#39;price&#39;</span><span class="p">,</span> <span class="n">kind</span><span class="o">=</span><span class="s1">&#39;box&#39;</span><span class="p">);</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/16-Seaborn_distributions_relations_14_0.png" src="_images/16-Seaborn_distributions_relations_14_0.png" />
+<img alt="_images/14-Seaborn_distributions_relations_14_0.png" src="_images/14-Seaborn_distributions_relations_14_0.png" />
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">catplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">diams</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s1">&#39;colour&#39;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">&#39;price&#39;</span><span class="p">,</span> <span class="n">kind</span><span class="o">=</span><span class="s1">&#39;violin&#39;</span><span class="p">);</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">catplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">diams</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s1">&#39;colour&#39;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">&#39;price&#39;</span><span class="p">,</span> <span class="n">kind</span><span class="o">=</span><span class="s1">&#39;violin&#39;</span><span class="p">);</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/16-Seaborn_distributions_relations_15_0.png" src="_images/16-Seaborn_distributions_relations_15_0.png" />
+<img alt="_images/14-Seaborn_distributions_relations_15_0.png" src="_images/14-Seaborn_distributions_relations_15_0.png" />
 </div>
 </div>
 <p>Of course in each case, you could use the corresponing base function directly. For example for the <code class="docutils literal notranslate"><span class="pre">boxplot</span></code> function. Keep in mind that all these plots rely on Matplotlib, so usually, in addition to seaborn options, you can also use the appropriate Matplotlib options. For example here the <code class="docutils literal notranslate"><span class="pre">boxprops</span></code> option:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">boxprops</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="n">linewidth</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">boxprops</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="n">linewidth</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">)</span>
 <span class="n">sns</span><span class="o">.</span><span class="n">boxplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">diams</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s1">&#39;colour&#39;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">&#39;price&#39;</span><span class="p">,</span> <span class="n">boxprops</span><span class="o">=</span><span class="n">boxprops</span><span class="p">);</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/16-Seaborn_distributions_relations_17_0.png" src="_images/16-Seaborn_distributions_relations_17_0.png" />
+<img alt="_images/14-Seaborn_distributions_relations_17_0.png" src="_images/14-Seaborn_distributions_relations_17_0.png" />
 </div>
 </div>
 </div>
@@ -604,12 +604,12 @@ const thebe_selector_output = ".output, .cell_output"
 <p><code class="docutils literal notranslate"><span class="pre">catplot</span></code> gives access to many more functions as visible <a class="reference external" href="https://seaborn.pydata.org/generated/seaborn.catplot.html#seaborn.catplot">here</a>. For example you can easily also easily create a count histogram:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">catplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">diams</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s1">&#39;colour&#39;</span><span class="p">,</span> <span class="n">kind</span><span class="o">=</span><span class="s1">&#39;count&#39;</span><span class="p">);</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">catplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">diams</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s1">&#39;colour&#39;</span><span class="p">,</span> <span class="n">kind</span><span class="o">=</span><span class="s1">&#39;count&#39;</span><span class="p">);</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/16-Seaborn_distributions_relations_19_0.png" src="_images/16-Seaborn_distributions_relations_19_0.png" />
+<img alt="_images/14-Seaborn_distributions_relations_19_0.png" src="_images/14-Seaborn_distributions_relations_19_0.png" />
 </div>
 </div>
 </div>
@@ -619,14 +619,14 @@ const thebe_selector_output = ".output, .cell_output"
 <p>It is often interesing to mix multiple plots. For example here we might want to see box plots and swarmplots overlapping to better visualize the distribution. Here again we first create an axis object that we can repeatedly use afterwards. We also use here the base functions:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
 <span class="n">sns</span><span class="o">.</span><span class="n">boxplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">diams</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s1">&#39;colour&#39;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">&#39;price&#39;</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">);</span>
 <span class="n">sns</span><span class="o">.</span><span class="n">stripplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">diams</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s1">&#39;colour&#39;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">&#39;price&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">,</span><span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">);</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/16-Seaborn_distributions_relations_21_0.png" src="_images/16-Seaborn_distributions_relations_21_0.png" />
+<img alt="_images/14-Seaborn_distributions_relations_21_0.png" src="_images/14-Seaborn_distributions_relations_21_0.png" />
 </div>
 </div>
 </div>
@@ -635,7 +635,7 @@ const thebe_selector_output = ".output, .cell_output"
 <p>We have seen until know only 1D distributions as histograms and plotted 2D relations as scatterplots. We can however also represent 2D distributions directly, which is particularly helpful if datapoints are very dense. For that we can simply use the <code class="docutils literal notranslate"><span class="pre">histplot</span></code> function, but with both <code class="docutils literal notranslate"><span class="pre">x</span></code> and <code class="docutils literal notranslate"><span class="pre">y</span></code> parameters.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">histplot</span><span class="p">(</span><span class="n">diams</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s2">&quot;carat&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;price&quot;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">histplot</span><span class="p">(</span><span class="n">diams</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s2">&quot;carat&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;price&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -643,28 +643,28 @@ const thebe_selector_output = ".output, .cell_output"
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.axes._subplots.AxesSubplot at 0x7fe744b86b50&gt;
 </pre></div>
 </div>
-<img alt="_images/16-Seaborn_distributions_relations_23_1.png" src="_images/16-Seaborn_distributions_relations_23_1.png" />
+<img alt="_images/14-Seaborn_distributions_relations_23_1.png" src="_images/14-Seaborn_distributions_relations_23_1.png" />
 </div>
 </div>
 <p>Alternatively we can also use here the more general <code class="docutils literal notranslate"><span class="pre">displot</span></code> function, which functions in the same way as the <code class="docutils literal notranslate"><span class="pre">catplot</span></code> in that we can choose the <code class="docutils literal notranslate"><span class="pre">kind</span></code> of plot we want such as <code class="docutils literal notranslate"><span class="pre">hist</span></code> or <code class="docutils literal notranslate"><span class="pre">kde</span></code>:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">displot</span><span class="p">(</span><span class="n">diams</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s2">&quot;carat&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;price&quot;</span><span class="p">);</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">displot</span><span class="p">(</span><span class="n">diams</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s2">&quot;carat&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;price&quot;</span><span class="p">);</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/16-Seaborn_distributions_relations_25_0.png" src="_images/16-Seaborn_distributions_relations_25_0.png" />
+<img alt="_images/14-Seaborn_distributions_relations_25_0.png" src="_images/14-Seaborn_distributions_relations_25_0.png" />
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">displot</span><span class="p">(</span><span class="n">diams</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s2">&quot;carat&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;price&quot;</span><span class="p">,</span> <span class="n">kind</span><span class="o">=</span><span class="s1">&#39;kde&#39;</span><span class="p">);</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">displot</span><span class="p">(</span><span class="n">diams</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s2">&quot;carat&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;price&quot;</span><span class="p">,</span> <span class="n">kind</span><span class="o">=</span><span class="s1">&#39;kde&#39;</span><span class="p">);</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/16-Seaborn_distributions_relations_26_0.png" src="_images/16-Seaborn_distributions_relations_26_0.png" />
+<img alt="_images/14-Seaborn_distributions_relations_26_0.png" src="_images/14-Seaborn_distributions_relations_26_0.png" />
 </div>
 </div>
 </div>
@@ -674,34 +674,34 @@ const thebe_selector_output = ".output, .cell_output"
 <p>By default <code class="docutils literal notranslate"><span class="pre">pairplot</span></code> producess a grid with histograms and scatterplots for all pairs of varaibles:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">pairplot</span><span class="p">(</span><span class="n">diams</span><span class="p">);</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">pairplot</span><span class="p">(</span><span class="n">diams</span><span class="p">);</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/16-Seaborn_distributions_relations_28_0.png" src="_images/16-Seaborn_distributions_relations_28_0.png" />
+<img alt="_images/14-Seaborn_distributions_relations_28_0.png" src="_images/14-Seaborn_distributions_relations_28_0.png" />
 </div>
 </div>
 <p>This can be adjuste of course. For example we could use a kde on the diagonal for example:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">pairplot</span><span class="p">(</span><span class="n">diams</span><span class="p">,</span> <span class="n">diag_kind</span><span class="o">=</span><span class="s1">&#39;kde&#39;</span><span class="p">);</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">pairplot</span><span class="p">(</span><span class="n">diams</span><span class="p">,</span> <span class="n">diag_kind</span><span class="o">=</span><span class="s1">&#39;kde&#39;</span><span class="p">);</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/16-Seaborn_distributions_relations_30_0.png" src="_images/16-Seaborn_distributions_relations_30_0.png" />
+<img alt="_images/14-Seaborn_distributions_relations_30_0.png" src="_images/14-Seaborn_distributions_relations_30_0.png" />
 </div>
 </div>
 <p>The <code class="docutils literal notranslate"><span class="pre">jointplot</span></code> functions allows to show at the same time the relation between two variables and their distribution:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">jointplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">diams</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s2">&quot;carat&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;price&quot;</span><span class="p">);</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">jointplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">diams</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s2">&quot;carat&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;price&quot;</span><span class="p">);</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/16-Seaborn_distributions_relations_32_0.png" src="_images/16-Seaborn_distributions_relations_32_0.png" />
+<img alt="_images/14-Seaborn_distributions_relations_32_0.png" src="_images/14-Seaborn_distributions_relations_32_0.png" />
 </div>
 </div>
 </div>
@@ -715,7 +715,7 @@ const thebe_selector_output = ".output, .cell_output"
 </ol>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">penguins</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;https://raw.githubusercontent.com/allisonhorst/palmerpenguins/master/inst/extdata/penguins.csv&#39;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">penguins</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;https://raw.githubusercontent.com/allisonhorst/palmerpenguins/master/inst/extdata/penguins.csv&#39;</span><span class="p">)</span>
 <span class="n">penguins</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -837,17 +837,17 @@ const thebe_selector_output = ".output, .cell_output"
             
                 <!-- Previous / next buttons -->
 <div class='prev-next-area'> 
-    <a class='left-prev' id="prev-link" href="15-Seaborn_concept.html" title="previous page">
+    <a class='left-prev' id="prev-link" href="13-Seaborn_concept.html" title="previous page">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
             <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title">15. Seaborn introduction</p>
+            <p class="prev-next-title">13. Seaborn introduction</p>
         </div>
     </a>
-    <a class='right-next' id="next-link" href="17-Seaborn_regression.html" title="next page">
+    <a class='right-next' id="next-link" href="15-Seaborn_regression.html" title="next page">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">17. Regression</p>
+        <p class="prev-next-title">15. Regression</p>
     </div>
     <i class="fas fa-angle-right"></i>
     </a>

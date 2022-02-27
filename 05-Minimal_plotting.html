@@ -151,7 +151,7 @@ const thebe_selector_output = ".output, .cell_output"
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="11-Matplotlib_content.html">
-   Matplotlib: data content
+   11. Matplotlib: data content
   </a>
  </li>
  <li class="toctree-l1">
@@ -160,28 +160,28 @@ const thebe_selector_output = ".output, .cell_output"
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="13-Matplotlib_statistics.html">
-   13. Matplotlib statistics
+  <a class="reference internal" href="13-Seaborn_concept.html">
+   13. Seaborn introduction
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="14-Matplotlib_annotations.html">
-   14. Legends and Annotations
+  <a class="reference internal" href="14-Seaborn_distributions_relations.html">
+   14. Seaborn: distributions and relations
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="15-Seaborn_concept.html">
-   15. Seaborn introduction
+  <a class="reference internal" href="15-Seaborn_regression.html">
+   15. Regression
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="16-Seaborn_distributions_relations.html">
-   16. Seaborn: distributions and relations
+  <a class="reference internal" href="16-Matplotlib_statistics.html">
+   16. Matplotlib statistics
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="17-Seaborn_regression.html">
-   17. Regression
+  <a class="reference internal" href="17-Matplotlib_annotations.html">
+   17. Legends and Annotations
   </a>
  </li>
  <li class="toctree-l1">
@@ -352,7 +352,7 @@ const thebe_selector_output = ".output, .cell_output"
 <p>We start by importing it. Almost all the most important functions are located in a submodule called <code class="docutils literal notranslate"><span class="pre">pyplot</span></code> which is almost systemaically abbreviated into <code class="docutils literal notranslate"><span class="pre">plt</span></code>:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 </pre></div>
 </div>
@@ -363,7 +363,7 @@ const thebe_selector_output = ".output, .cell_output"
 <p>We start by creating a simple dataset. As an exercise we do this by using Numpy functions. First we generate an x-axis:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">x_val</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x_val</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -371,7 +371,7 @@ const thebe_selector_output = ".output, .cell_output"
 <p>Then we create a new array that is just the cosine of <code class="docutils literal notranslate"><span class="pre">x_val</span></code>:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">y_val</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">x_val</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">y_val</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">x_val</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -382,7 +382,7 @@ const thebe_selector_output = ".output, .cell_output"
 <p>Those two arrays are all we need to create the simplest possible plot of a function <code class="docutils literal notranslate"><span class="pre">y_val</span> <span class="pre">=</span> <span class="pre">cos(x_val)</span></code>. The first thing that we have to do is to <strong>create a figure object and an axis object</strong> with Matplotlib. The figure object can contain many elements (imagine for example a grid of plots), while the axis object contains a specific plot. We can get a figure and and an axis using the <code class="docutils literal notranslate"><span class="pre">subplots()</span></code> function:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
@@ -393,7 +393,7 @@ const thebe_selector_output = ".output, .cell_output"
 <p>As you see above this produces a blank figure that we need to fill. As all the variables that we have seen until now (Numpy arrays, Pandas dataframe) the <code class="docutils literal notranslate"><span class="pre">fig</span></code> and <code class="docutils literal notranslate"><span class="pre">ax</span></code> objects have specific functions attached to them. <code class="docutils literal notranslate"><span class="pre">ax</span></code> in particular has all the plotting functions attached to it. In particular the simple <code class="docutils literal notranslate"><span class="pre">plot()</span></code> function, which takes two arguments: x values and y values:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x_val</span><span class="p">,</span> <span class="n">y_val</span><span class="p">);</span>
 </pre></div>
 </div>
@@ -405,14 +405,14 @@ const thebe_selector_output = ".output, .cell_output"
 <p>That’s it, we have our plot! We can easily add more data to it by just calling more times the <code class="docutils literal notranslate"><span class="pre">ax.plot</span></code> function. For example we can generate a new y signal for the sine:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">y_val2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">x_val</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">y_val2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">x_val</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x_val</span><span class="p">,</span> <span class="n">y_val</span><span class="p">);</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x_val</span><span class="p">,</span> <span class="n">y_val2</span><span class="p">);</span>
 </pre></div>
@@ -425,7 +425,7 @@ const thebe_selector_output = ".output, .cell_output"
 <p>We will see later how to adjust everything on this plot from colors to labels etc. The only additional point we show here is how to show every datapoint with a marker such as a circle using an additional parameter representing the line/marker type:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x_val</span><span class="p">,</span> <span class="n">y_val</span><span class="p">,</span><span class="s1">&#39;o&#39;</span><span class="p">);</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x_val</span><span class="p">,</span> <span class="n">y_val2</span><span class="p">,</span><span class="s1">&#39;-x&#39;</span><span class="p">);</span>
 </pre></div>
@@ -441,7 +441,7 @@ const thebe_selector_output = ".output, .cell_output"
 <p>The other type of plot that is very useful, in particular when dealing with statistics, is the histogram. The principle of figure creation is the same. Except that now we use the <code class="docutils literal notranslate"><span class="pre">ax.hist()</span></code> commmand which takes only one argument, the values that we want to turn into a histogram:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">y_val</span><span class="p">);</span>
 </pre></div>
 </div>
@@ -453,7 +453,7 @@ const thebe_selector_output = ".output, .cell_output"
 <p>Again, we will see how to specify more options for this plot. At the moment we only show that we can specify the position of the bins that we want to use for binning. This can be useful if the default bin size is not satisfactory. We can simply use the <code class="docutils literal notranslate"><span class="pre">bins</span></code> arguments and pass an array of positions:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">y_val</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mf">1.5</span><span class="p">,</span><span class="mf">0.5</span><span class="p">));</span>
 </pre></div>
 </div>
@@ -468,131 +468,9 @@ const thebe_selector_output = ".output, .cell_output"
 <ol class="simple">
 <li><p>Using Pandas, import the CSV file located at <a class="reference external" href="https://raw.githubusercontent.com/allisonhorst/palmerpenguins/master/inst/extdata/penguins.csv">https://raw.githubusercontent.com/allisonhorst/palmerpenguins/master/inst/extdata/penguins.csv</a></p></li>
 <li><p>Display the first 3 lines using the <code class="docutils literal notranslate"><span class="pre">head()</span></code> function.</p></li>
-<li><p>Rembering that you can extract a given column from the table using <code class="docutils literal notranslate"><span class="pre">my_dataframe['column_name']</span></code>, try to plot the <code class="docutils literal notranslate"><span class="pre">bill_depth_mm</span></code>as as function of <code class="docutils literal notranslate"><span class="pre">bill_depth_mm</span></code> using the <code class="docutils literal notranslate"><span class="pre">plot</span></code> function. Does it work ? Did you pass a Numpy array to the plotting function ?</p></li>
+<li><p>Rembering that you can extract a given column from the table using <code class="docutils literal notranslate"><span class="pre">my_dataframe['column_name']</span></code>, try to plot the <code class="docutils literal notranslate"><span class="pre">bill_depth_mm</span></code>as as function of <code class="docutils literal notranslate"><span class="pre">bill_length_mm</span></code> using the <code class="docutils literal notranslate"><span class="pre">plot</span></code> function. Does it work ? Did you pass a Numpy array to the plotting function ?</p></li>
 <li><p>Change the line/marker type so that you obtain a scatter plot, i.e. only single dots without a line</p></li>
 </ol>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">penguins</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;https://raw.githubusercontent.com/allisonhorst/palmerpenguins/master/inst/extdata/penguins.csv&#39;</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">penguins</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_html"><div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>species</th>
-      <th>island</th>
-      <th>bill_length_mm</th>
-      <th>bill_depth_mm</th>
-      <th>flipper_length_mm</th>
-      <th>body_mass_g</th>
-      <th>sex</th>
-      <th>year</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>0</th>
-      <td>Adelie</td>
-      <td>Torgersen</td>
-      <td>39.1</td>
-      <td>18.7</td>
-      <td>181.0</td>
-      <td>3750.0</td>
-      <td>male</td>
-      <td>2007</td>
-    </tr>
-    <tr>
-      <th>1</th>
-      <td>Adelie</td>
-      <td>Torgersen</td>
-      <td>39.5</td>
-      <td>17.4</td>
-      <td>186.0</td>
-      <td>3800.0</td>
-      <td>female</td>
-      <td>2007</td>
-    </tr>
-    <tr>
-      <th>2</th>
-      <td>Adelie</td>
-      <td>Torgersen</td>
-      <td>40.3</td>
-      <td>18.0</td>
-      <td>195.0</td>
-      <td>3250.0</td>
-      <td>female</td>
-      <td>2007</td>
-    </tr>
-    <tr>
-      <th>3</th>
-      <td>Adelie</td>
-      <td>Torgersen</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>2007</td>
-    </tr>
-    <tr>
-      <th>4</th>
-      <td>Adelie</td>
-      <td>Torgersen</td>
-      <td>36.7</td>
-      <td>19.3</td>
-      <td>193.0</td>
-      <td>3450.0</td>
-      <td>female</td>
-      <td>2007</td>
-    </tr>
-  </tbody>
-</table>
-</div></div></div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">penguins</span><span class="p">[</span><span class="s1">&#39;bill_length_mm&#39;</span><span class="p">],</span> <span class="n">penguins</span><span class="p">[</span><span class="s1">&#39;bill_depth_mm&#39;</span><span class="p">],</span><span class="s1">&#39;o&#39;</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x7f329495cbe0&gt;]
-</pre></div>
-</div>
-<img alt="_images/05-Minimal_plotting_23_1.png" src="_images/05-Minimal_plotting_23_1.png" />
-</div>
-</div>
 </div>
 </div>
 

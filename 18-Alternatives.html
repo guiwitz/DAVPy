@@ -53,7 +53,7 @@ const thebe_selector_output = ".output, .cell_output"
     <script async="async" src="_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="prev" title="17. Regression" href="17-Seaborn_regression.html" />
+    <link rel="prev" title="17. Legends and Annotations" href="17-Matplotlib_annotations.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -150,7 +150,7 @@ const thebe_selector_output = ".output, .cell_output"
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="11-Matplotlib_content.html">
-   Matplotlib: data content
+   11. Matplotlib: data content
   </a>
  </li>
  <li class="toctree-l1">
@@ -159,28 +159,28 @@ const thebe_selector_output = ".output, .cell_output"
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="13-Matplotlib_statistics.html">
-   13. Matplotlib statistics
+  <a class="reference internal" href="13-Seaborn_concept.html">
+   13. Seaborn introduction
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="14-Matplotlib_annotations.html">
-   14. Legends and Annotations
+  <a class="reference internal" href="14-Seaborn_distributions_relations.html">
+   14. Seaborn: distributions and relations
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="15-Seaborn_concept.html">
-   15. Seaborn introduction
+  <a class="reference internal" href="15-Seaborn_regression.html">
+   15. Regression
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="16-Seaborn_distributions_relations.html">
-   16. Seaborn: distributions and relations
+  <a class="reference internal" href="16-Matplotlib_statistics.html">
+   16. Matplotlib statistics
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="17-Seaborn_regression.html">
-   17. Regression
+  <a class="reference internal" href="17-Matplotlib_annotations.html">
+   17. Legends and Annotations
   </a>
  </li>
  <li class="toctree-l1 current active">
@@ -337,10 +337,10 @@ const thebe_selector_output = ".output, .cell_output"
                 
   <div class="tex2jax_ignore mathjax_ignore section" id="other-libraries">
 <h1>18. Other libraries<a class="headerlink" href="#other-libraries" title="Permalink to this headline">¶</a></h1>
-<p>There are many alternatives to the solutions shown during the course. Depending on your field and background you might want to search for another solution. Generally however libraries work mostly like seaborn i.e. you pass a data element to a plotting function and then specifiy which “aspect” of the data you want to plot and use for color, marker etc. aesthetics.</p>
+<p>There are many alternatives to the solutions shown during the course. Depending on your field and background you might want to search for another solution. Generally however libraries work mostly like seaborn i.e. you pass a data element to a plotting function and then specify which “aspect” of the data you want to plot and use for color, marker etc. aesthetics.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 
 <span class="n">diams</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;https://raw.githubusercontent.com/vincentarelbundock/Rdatasets/master/csv/Ecdat/Diamond.csv&#39;</span><span class="p">)</span>
@@ -354,14 +354,14 @@ const thebe_selector_output = ".output, .cell_output"
 <p>The functions have mostly the same name as in ggplot, and the <em>assembling</em> of plots works in the same way. Two examples here:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">plotnine</span> <span class="kn">import</span> <span class="n">ggplot</span><span class="p">,</span> <span class="n">geom_point</span><span class="p">,</span> <span class="n">aes</span><span class="p">,</span> <span class="n">stat_smooth</span><span class="p">,</span> <span class="n">facet_wrap</span><span class="p">,</span> <span class="n">geom_boxplot</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">plotnine</span> <span class="kn">import</span> <span class="n">ggplot</span><span class="p">,</span> <span class="n">geom_point</span><span class="p">,</span> <span class="n">aes</span><span class="p">,</span> <span class="n">stat_smooth</span><span class="p">,</span> <span class="n">facet_wrap</span><span class="p">,</span> <span class="n">geom_boxplot</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span> <span class="o">=</span> <span class="p">(</span><span class="n">ggplot</span><span class="p">(</span><span class="n">diams</span><span class="p">,</span> <span class="n">aes</span><span class="p">(</span><span class="s1">&#39;carat&#39;</span><span class="p">,</span> <span class="s1">&#39;price&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;colour&#39;</span><span class="p">))</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span> <span class="o">=</span> <span class="p">(</span><span class="n">ggplot</span><span class="p">(</span><span class="n">diams</span><span class="p">,</span> <span class="n">aes</span><span class="p">(</span><span class="s1">&#39;carat&#39;</span><span class="p">,</span> <span class="s1">&#39;price&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;colour&#39;</span><span class="p">))</span>
  <span class="o">+</span> <span class="n">geom_point</span><span class="p">()</span>
  <span class="o">+</span> <span class="n">stat_smooth</span><span class="p">(</span><span class="n">method</span><span class="o">=</span><span class="s1">&#39;lm&#39;</span><span class="p">)</span>
 <span class="p">);</span>
@@ -382,7 +382,7 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span> <span class="o">=</span> <span class="p">(</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span> <span class="o">=</span> <span class="p">(</span>
     <span class="n">ggplot</span><span class="p">(</span><span class="n">diams</span><span class="p">)</span>
     <span class="o">+</span> <span class="n">geom_boxplot</span><span class="p">(</span><span class="n">aes</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s1">&#39;colour&#39;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">&#39;price&#39;</span><span class="p">))</span>
 <span class="p">)</span>
@@ -410,7 +410,7 @@ const thebe_selector_output = ".output, .cell_output"
 <p>Here an example as well:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">altair</span> <span class="k">as</span> <span class="nn">alt</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">altair</span> <span class="k">as</span> <span class="nn">alt</span>
 
 <span class="n">alt</span><span class="o">.</span><span class="n">Chart</span><span class="p">(</span><span class="n">diams</span><span class="p">)</span><span class="o">.</span><span class="n">mark_point</span><span class="p">()</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span>
     <span class="n">x</span><span class="o">=</span><span class="s1">&#39;price&#39;</span><span class="p">,</span>
@@ -478,7 +478,7 @@ const thebe_selector_output = ".output, .cell_output"
 <p><a class="reference external" href="https://plotly.com/">Plotly</a> is also a very popular library. It is in particular widely used to create interactive dashboards running on a server. The principles are again the same as for seaborn plotting:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">plotly.express</span> <span class="k">as</span> <span class="nn">px</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">plotly.express</span> <span class="k">as</span> <span class="nn">px</span>
 
 <span class="n">fig</span> <span class="o">=</span> <span class="n">px</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">diams</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s2">&quot;carat&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;price&quot;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;colour&quot;</span><span class="p">)</span>
 <span class="n">fig</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
@@ -564,11 +564,11 @@ if (outputEl) {{
             
                 <!-- Previous / next buttons -->
 <div class='prev-next-area'> 
-    <a class='left-prev' id="prev-link" href="17-Seaborn_regression.html" title="previous page">
+    <a class='left-prev' id="prev-link" href="17-Matplotlib_annotations.html" title="previous page">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
             <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title">17. Regression</p>
+            <p class="prev-next-title">17. Legends and Annotations</p>
         </div>
     </a>
 </div>
