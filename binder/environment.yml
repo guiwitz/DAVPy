@@ -1,13 +1,15 @@
-name: numpypandas
+name: DAVPy
 channels:
   - conda-forge
 dependencies:
   - numpy
   - matplotlib
   - pandas
+  - scikit-learn
+  - scikit-image
+  - statsmodels
   - jupyter
   - jupyterlab
-  - jupyter_contrib_nbextensions
   - seaborn
   - altair
   - pip
