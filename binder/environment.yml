@@ -23,3 +23,5 @@ dependencies:
     - jupyterlab-spellchecker
     - openpyxl
     - ipympl
+    - requests
+    - microfilm
