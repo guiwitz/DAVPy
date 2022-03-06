@@ -189,6 +189,21 @@ const thebe_selector_output = ".output, .cell_output"
    18. Other libraries
   </a>
  </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="19-scipy_statsmodels.html">
+   19. Data analysis
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="20-scikit-learn.html">
+   20. scikit-learn
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="21-Image_processing.html">
+   21. Image processing
+  </a>
+ </li>
 </ul>
 
     </div>
@@ -293,6 +308,11 @@ const thebe_selector_output = ".output, .cell_output"
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#other-inputs">
+   Other inputs
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#combining-aesthetics">
    Combining aesthetics
   </a>
@@ -350,6 +370,11 @@ const thebe_selector_output = ".output, .cell_output"
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#categorical-variables">
    Categorical variables
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#other-inputs">
+   Other inputs
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
@@ -451,7 +476,7 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 <div class="section" id="interaction-with-matplotlib">
 <h2>Interaction with Matplotlib<a class="headerlink" href="#interaction-with-matplotlib" title="Permalink to this headline">¶</a></h2>
-<p>Previously we always created first a figure and axis object. Seaborn automatically creates an axis object, but if we want to come back to our previous logic, we can <strong>directly pass an existing ax object to the seaborn function</strong> and come back to our previous notation. Then we can use these as usual, for example to add a title, set formats etc.:</p>
+<p>Previously we always created first a figure and axis object. seaborn automatically creates an axis object, but if we want to come back to our previous logic, we can <strong>directly pass an existing ax object to the seaborn function</strong> and come back to our previous notation. Then we can use these as usual, for example to add a title, set formats etc.:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
@@ -461,7 +486,7 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/13-Seaborn_concept_10_0.png" src="_images/13-Seaborn_concept_10_0.png" />
+<img alt="_images/13-Seaborn_concept_11_0.png" src="_images/13-Seaborn_concept_11_0.png" />
 </div>
 </div>
 </div>
@@ -476,7 +501,7 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/13-Seaborn_concept_12_0.png" src="_images/13-Seaborn_concept_12_0.png" />
+<img alt="_images/13-Seaborn_concept_13_0.png" src="_images/13-Seaborn_concept_13_0.png" />
 </div>
 </div>
 <p>or it can even be both:</p>
@@ -488,7 +513,7 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/13-Seaborn_concept_14_0.png" src="_images/13-Seaborn_concept_14_0.png" />
+<img alt="_images/13-Seaborn_concept_15_0.png" src="_images/13-Seaborn_concept_15_0.png" />
 </div>
 </div>
 <p>Finally, we can also use a variable to define the size of the marker, even though in this case it doesn’t make much sense to use the color to define the size:</p>
@@ -500,13 +525,96 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/13-Seaborn_concept_16_0.png" src="_images/13-Seaborn_concept_16_0.png" />
+<img alt="_images/13-Seaborn_concept_17_0.png" src="_images/13-Seaborn_concept_17_0.png" />
+</div>
+</div>
+<p>Note that sometimes we want to use a numerical columns as a category. For example we can add a random column to the dataframe and use it for coloring:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">diams</span><span class="p">[</span><span class="s1">&#39;random&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">diams</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+<span class="n">ax</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">scatterplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">diams</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s1">&#39;carat&#39;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">&#39;price&#39;</span><span class="p">,</span> <span class="n">hue</span><span class="o">=</span><span class="s1">&#39;random&#39;</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/13-Seaborn_concept_20_0.png" src="_images/13-Seaborn_concept_20_0.png" />
+</div>
+</div>
+<p>We see that since seaborn believes it is dealing with a numerical feature, the color scale is progressive and not ideal to distinguish actual categories. In such a case we can explicitly change the column to a category thanks to Pandas:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">diams</span><span class="p">[</span><span class="s1">&#39;random&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Categorical</span><span class="p">(</span><span class="n">diams</span><span class="p">[</span><span class="s1">&#39;random&#39;</span><span class="p">])</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+<span class="n">ax</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">scatterplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">diams</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s1">&#39;carat&#39;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">&#39;price&#39;</span><span class="p">,</span> <span class="n">hue</span><span class="o">=</span><span class="s1">&#39;random&#39;</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/13-Seaborn_concept_22_0.png" src="_images/13-Seaborn_concept_22_0.png" />
+</div>
+</div>
+</div>
+<div class="section" id="other-inputs">
+<h2>Other inputs<a class="headerlink" href="#other-inputs" title="Permalink to this headline">¶</a></h2>
+<p>We have seen until now how we could plot data from a DataFrame. However sometimes we want to use seaborn if we only have for example Numpy arrays. For example we have <code class="docutils literal notranslate"><span class="pre">x</span></code> values, a function that generates <code class="docutils literal notranslate"><span class="pre">y</span> <span class="pre">=</span> <span class="pre">x**2</span></code> values and an array that contains categories <code class="docutils literal notranslate"><span class="pre">cat</span></code>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x_array</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">)</span>
+<span class="n">y_array</span> <span class="o">=</span> <span class="n">x_array</span> <span class="o">**</span> <span class="mi">2</span>
+<span class="n">cat</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="nb">len</span><span class="p">(</span><span class="n">y_array</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Now we can simply directly pass the arrays:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">scatterplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">x_array</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="n">y_array</span><span class="p">,</span> <span class="n">hue</span><span class="o">=</span><span class="n">cat</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot:&gt;
+</pre></div>
+</div>
+<img alt="_images/13-Seaborn_concept_26_1.png" src="_images/13-Seaborn_concept_26_1.png" />
+</div>
+</div>
+<p>Here again, we could turn the <code class="docutils literal notranslate"><span class="pre">cat</span></code> array into an actual category so that the color map is better suited:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">scatterplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">x_array</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="n">y_array</span><span class="p">,</span> <span class="n">hue</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">Categorical</span><span class="p">(</span><span class="n">cat</span><span class="p">));</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/13-Seaborn_concept_28_0.png" src="_images/13-Seaborn_concept_28_0.png" />
+</div>
+</div>
+<p>If we still want to enjoy the seaborn “goodies” such as automated axis labeling, we can also use a dictionary as input:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">scatterplot</span><span class="p">(</span><span class="n">data</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;x var&#39;</span><span class="p">:</span> <span class="n">x_array</span><span class="p">,</span> <span class="s1">&#39;y var&#39;</span><span class="p">:</span> <span class="n">y_array</span><span class="p">,</span> <span class="s1">&#39;my cat&#39;</span><span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">Categorical</span><span class="p">(</span><span class="n">cat</span><span class="p">)},</span>
+                <span class="n">x</span><span class="o">=</span> <span class="s1">&#39;x var&#39;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">&#39;y var&#39;</span><span class="p">,</span> <span class="n">hue</span><span class="o">=</span><span class="s1">&#39;my cat&#39;</span><span class="p">);</span>
+                        
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/13-Seaborn_concept_30_0.png" src="_images/13-Seaborn_concept_30_0.png" />
 </div>
 </div>
 </div>
 <div class="section" id="combining-aesthetics">
 <h2>Combining aesthetics<a class="headerlink" href="#combining-aesthetics" title="Permalink to this headline">¶</a></h2>
-<p>We can go one step further now and use simultaneously different groupings. For example we can assign the diamond color to <code class="docutils literal notranslate"><span class="pre">hue</span></code> and the claritiy to the <code class="docutils literal notranslate"><span class="pre">style</span></code>:</p>
+<p>We can go one step further now and use simultaneously different groupings. For example we can assign the diamond color to <code class="docutils literal notranslate"><span class="pre">hue</span></code> and the clarity to the <code class="docutils literal notranslate"><span class="pre">style</span></code>:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
@@ -515,7 +623,7 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/13-Seaborn_concept_18_0.png" src="_images/13-Seaborn_concept_18_0.png" />
+<img alt="_images/13-Seaborn_concept_32_0.png" src="_images/13-Seaborn_concept_32_0.png" />
 </div>
 </div>
 </div>
@@ -532,7 +640,7 @@ const thebe_selector_output = ".output, .cell_output"
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.axes._subplots.AxesSubplot at 0x7ff7ac1d2f50&gt;
 </pre></div>
 </div>
-<img alt="_images/13-Seaborn_concept_20_1.png" src="_images/13-Seaborn_concept_20_1.png" />
+<img alt="_images/13-Seaborn_concept_34_1.png" src="_images/13-Seaborn_concept_34_1.png" />
 </div>
 </div>
 </div>
@@ -546,7 +654,7 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/13-Seaborn_concept_22_0.png" src="_images/13-Seaborn_concept_22_0.png" />
+<img alt="_images/13-Seaborn_concept_36_0.png" src="_images/13-Seaborn_concept_36_0.png" />
 </div>
 </div>
 <p>You can also directly visualize palettes using the <code class="docutils literal notranslate"><span class="pre">color_palette</span></code> function to help you choosing:</p>
@@ -571,7 +679,7 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/13-Seaborn_concept_26_0.png" src="_images/13-Seaborn_concept_26_0.png" />
+<img alt="_images/13-Seaborn_concept_40_0.png" src="_images/13-Seaborn_concept_40_0.png" />
 </div>
 </div>
 <p>In most cases you can also in principle use the options that are available in the underlying Matplotlib function. You will see options called <code class="docutils literal notranslate"><span class="pre">kwargs</span></code> and a message like this for example for the <code class="docutils literal notranslate"><span class="pre">scatterplot</span></code>:</p>
@@ -590,7 +698,7 @@ For example we can use the ```s``` option to set the marker size and ```edegcolo
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/13-Seaborn_concept_28_0.png" src="_images/13-Seaborn_concept_28_0.png" />
+<img alt="_images/13-Seaborn_concept_42_0.png" src="_images/13-Seaborn_concept_42_0.png" />
 </div>
 </div>
 </div>
