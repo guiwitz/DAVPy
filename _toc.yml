@@ -20,3 +20,6 @@ chapters:
 - file: 16-Matplotlib_statistics
 - file: 17-Matplotlib_annotations
 - file: 18-Alternatives
+- file: 19-scipy_statsmodels
+- file: 20-scikit-learn
+- file: 21-Image_processing
