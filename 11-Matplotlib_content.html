@@ -4,11 +4,13 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
     <title>11. Matplotlib: data content &#8212; Introduction to Data Analysis and Visualization with Python</title>
     
-  <link href="_static/css/theme.css" rel="stylesheet">
-  <link href="_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
 
     
   <link rel="stylesheet"
@@ -18,20 +20,16 @@
   <link rel="preload" as="font" type="font/woff2" crossorigin
     href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
 
-    
-      
-
-    
     <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
     <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
-    <link rel="stylesheet" type="text/css" href="_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    <link rel="stylesheet" type="text/css" href="_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
     
-  <link rel="preload" as="script" href="_static/js/index.be7d3bbb2ef33a8344ce.js">
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
 
     <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
     <script src="_static/jquery.js"></script>
@@ -39,12 +37,13 @@
     <script src="_static/doctools.js"></script>
     <script src="_static/clipboard.min.js"></script>
     <script src="_static/copybutton.js"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
     <script src="_static/togglebutton.js"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script src="_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
+    <script src="_static/design-tabs.js"></script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
 const thebe_selector = ".thebe,.cell"
 const thebe_selector_input = "pre"
@@ -64,7 +63,21 @@ const thebe_selector_output = ".output, .cell_output"
     <!-- Google Analytics -->
     
   </head>
-  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
     
     <div class="container-fluid" id="banner"></div>
 
@@ -73,9 +86,10 @@ const thebe_selector_output = ".output, .cell_output"
     <div class="container-xl">
       <div class="row">
           
-<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
-    
-        <div class="navbar-brand-box">
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
     <a class="navbar-brand text-wrap" href="index.html">
       
       
@@ -88,22 +102,18 @@ const thebe_selector_output = ".output, .cell_output"
   <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
 </form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item active">
-        <ul class="nav bd-sidenav">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="Readme.html">
+                    Introduction to Data Analysis and Visualization with Python
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
  <li class="toctree-l1">
-  <a class="reference internal" href="Readme.html">
-   Introduction to Data Analysis and Visualization with Python
-  </a>
- </li>
-</ul>
-<ul class="current nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="00-Introduction.html">
+  <a class="reference internal" href="01-Introduction.html">
    00. Introduction
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="01-Intro_Pandas_Numpy.html">
-   1. Pandas and Numpy
   </a>
  </li>
  <li class="toctree-l1">
@@ -209,91 +219,164 @@ const thebe_selector_output = ".output, .cell_output"
 </ul>
 
     </div>
-</nav> <!-- To handle the deprecated key -->
-
-<div class="navbar_extra_footer">
-  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
-</div>
-
-</div>
-
-
-          
-
-
-          
-<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
-    
-    <div class="topbar container-xl fixed-top">
-    <div class="topbar-contents row">
-        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
-        <div class="col pl-md-4 topbar-main">
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
             
-            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
-                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
-                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
-                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
-                <i class="fas fa-bars"></i>
-                <i class="fas fa-arrow-left"></i>
-                <i class="fas fa-arrow-up"></i>
-            </button>
-            
-            
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
-            class="fas fa-download"></i></button>
-
-    <div class="dropdown-buttons">
-        <!-- ipynb file if we had a myst markdown file -->
-        
-        <!-- Download raw file -->
-        <a class="dropdown-buttons" href="_sources/11-Matplotlib_content.ipynb"><button type="button"
-                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
-                data-placement="left">.ipynb</button></a>
-        <!-- Download PDF via print -->
-        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
-                onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
-    </div>
-</div>
-
-            <!-- Source interaction buttons -->
-
-            <!-- Full screen (wrap in <a> to have style consistency -->
-
-<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
-        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
-        title="Fullscreen mode"><i
-            class="fas fa-expand"></i></button></a>
-
-            <!-- Launch buttons -->
-
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
-        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
-    <div class="dropdown-buttons">
-        
-        <a class="binder-button" href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/11-Matplotlib_content.ipynb"><button type="button"
-                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
-                data-placement="left"><img class="binder-button-logo"
-                    src="_static/images/logo_binder.svg"
-                    alt="Interact on binder">Binder</button></a>
-        
-        
-        
-        
-    </div>
-</div>
-
-        </div>
-
-        <!-- Table of contents -->
-        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
-            
-            <div class="tocsection onthispage pt-5 pb-3">
-                <i class="fas fa-list"></i> Contents
+            <div class="navbar_extra_footer">
+            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
             </div>
-            <nav id="bd-toc-nav" aria-label="Page">
-                <ul class="visible nav section-nav flex-column">
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<div class="menu-dropdown menu-dropdown-launch-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Launch interactive content">
+      <i class="fas fa-rocket"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/11-Matplotlib_content.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Launch on Binder"
+>
+  
+
+<span class="headerbtn__icon-container">
+  
+    <img src="_static/images/logo_binder.svg">
+  </span>
+<span class="headerbtn__text-container">Binder</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="_sources/11-Matplotlib_content.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.ipynb</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#cheat-sheet">
    Cheat sheet
@@ -361,12 +444,11 @@ const thebe_selector_output = ".output, .cell_output"
  </li>
 </ul>
 
-            </nav>
-        </div>
-    </div>
+    </nav>
 </div>
-    <div id="main-content" class="row">
-        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
                 <h1>11. Matplotlib: data content</h1>
@@ -450,11 +532,12 @@ const thebe_selector_output = ".output, .cell_output"
                     </div>
                 </div>
             </div>
-            
+            <main id="main-content" role="main">
+                
               <div>
                 
-  <div class="tex2jax_ignore mathjax_ignore section" id="matplotlib-data-content">
-<h1>11. Matplotlib: data content<a class="headerlink" href="#matplotlib-data-content" title="Permalink to this headline">¶</a></h1>
+  <section class="tex2jax_ignore mathjax_ignore" id="matplotlib-data-content">
+<h1>11. Matplotlib: data content<a class="headerlink" href="#matplotlib-data-content" title="Permalink to this headline">#</a></h1>
 <p>Visualization is an essential step for any data analysis. It can both help to design an analysis and to present results. There is a large choice of plotting libraries in Python, all with different strengths and weaknesses. In the frame of this course, we present two of them: Matplotlib and seaborn. We use these two packages because 1) they are very popular and you will necessarily encounter them, 2) they are examples of low- (Matplotlib) and hihgh-level (seaborn) libraries, 3) they represent two different plotting “philosophies” and finally 4) seaborn builds on top of Matplotlib which facilitates the learning.</p>
 <p>We start here with Matplotlib which is one of the oldest plotting libraries in Python. Many packages build more user-friendly packages on top of it (like seaborn), making it useful to know as basis. In this chapter and the next, we present only the basics of Matplotlib such as figure creation and basic customization of plot rendering (colors, markers, title etc.) In the next chapters we then we move to seaborn, which we recommend as default plotting library, and also highlight its connection to Matplotlib. Finally we will come back to Matplotlib to show examples of advanced plotting that can be usually be done in an easier way in seaborn but that you might encounter in Matplotlib.</p>
 <p>First we load the necessary packages:</p>
@@ -467,8 +550,8 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 </div>
-<div class="section" id="cheat-sheet">
-<h2>Cheat sheet<a class="headerlink" href="#cheat-sheet" title="Permalink to this headline">¶</a></h2>
+<section id="cheat-sheet">
+<h2>Cheat sheet<a class="headerlink" href="#cheat-sheet" title="Permalink to this headline">#</a></h2>
 <p>You can find many cheat sheets online. Here’s one that is quite complete.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -491,9 +574,9 @@ const thebe_selector_output = ".output, .cell_output"
 <img alt="_images/11-Matplotlib_content_4_0.png" src="_images/11-Matplotlib_content_4_0.png" />
 </div>
 </div>
-</div>
-<div class="section" id="dataset">
-<h2>Dataset<a class="headerlink" href="#dataset" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="dataset">
+<h2>Dataset<a class="headerlink" href="#dataset" title="Permalink to this headline">#</a></h2>
 <p>Throughout these notebooks we will use various open datasets, mostly comming from the R world which provides a collection of interesting datasets for teaching purposes.</p>
 <p>Our first dataset describes diamonds. The dataset includes both <em>numerical</em> data such as the price and <em>categorical</em> data such as the the color.</p>
 <div class="cell docutils container">
@@ -586,9 +669,9 @@ const thebe_selector_output = ".output, .cell_output"
 </table>
 </div></div></div>
 </div>
-</div>
-<div class="section" id="the-figure-and-axis">
-<h2>The figure and axis<a class="headerlink" href="#the-figure-and-axis" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="the-figure-and-axis">
+<h2>The figure and axis<a class="headerlink" href="#the-figure-and-axis" title="Permalink to this headline">#</a></h2>
 <p>We have seen in the “minimal plotting” notebook that the first step of any plotting is to create 1) a figure that will contain all the plot parts and 2) one or more axis objects that will contains specific parts of the figure e.g. if we want to create a grid of plots. There are multiple ways of creating these objects, but here we just use the <code class="docutils literal notranslate"><span class="pre">subplots</span></code> (<strong>don’t forget the final s</strong>) function:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -600,9 +683,9 @@ const thebe_selector_output = ".output, .cell_output"
 <img alt="_images/11-Matplotlib_content_9_0.png" src="_images/11-Matplotlib_content_9_0.png" />
 </div>
 </div>
-</div>
-<div class="section" id="size-and-grid">
-<h2>Size and grid<a class="headerlink" href="#size-and-grid" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="size-and-grid">
+<h2>Size and grid<a class="headerlink" href="#size-and-grid" title="Permalink to this headline">#</a></h2>
 <p>We will use only thre parameters of the <code class="docutils literal notranslate"><span class="pre">subplots</span></code> function: to set its size <code class="docutils literal notranslate"><span class="pre">figsize</span></code>:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -644,9 +727,9 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="adding-data">
-<h2>Adding data<a class="headerlink" href="#adding-data" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="adding-data">
+<h2>Adding data<a class="headerlink" href="#adding-data" title="Permalink to this headline">#</a></h2>
 <p>It is very easy to add one or multiple plot to the same <code class="docutils literal notranslate"><span class="pre">ax</span></code> object by using plotting function like <code class="docutils literal notranslate"><span class="pre">plot</span></code> attached to the <code class="docutils literal notranslate"><span class="pre">ax</span></code> object. In case we are dealing with a grid of plots, we have to select the correct position e.g. <code class="docutils literal notranslate"><span class="pre">ax[0,1]</span></code> for the plot in the first line and second column of a 2d grid. If we deal with a single row of plots, <code class="docutils literal notranslate"><span class="pre">ax[1]]</span></code> is sufficient:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -659,9 +742,9 @@ const thebe_selector_output = ".output, .cell_output"
 <img alt="_images/11-Matplotlib_content_17_0.png" src="_images/11-Matplotlib_content_17_0.png" />
 </div>
 </div>
-</div>
-<div class="section" id="markers-and-lines">
-<h2>Markers and lines<a class="headerlink" href="#markers-and-lines" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="markers-and-lines">
+<h2>Markers and lines<a class="headerlink" href="#markers-and-lines" title="Permalink to this headline">#</a></h2>
 <p>As you can see, Matplotlib uses default settings for plotting: no markers, blue line. Of course all these can be overriden. In particular here we need only markers and no line. For this we use the <code class="docutils literal notranslate"><span class="pre">marker</span></code>  and <code class="docutils literal notranslate"><span class="pre">linestyle</span></code> option. You can find all options in the cheat sheet above or directly in the <a class="reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.plot.html">documentation</a>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -674,9 +757,9 @@ const thebe_selector_output = ".output, .cell_output"
 <img alt="_images/11-Matplotlib_content_19_0.png" src="_images/11-Matplotlib_content_19_0.png" />
 </div>
 </div>
-</div>
-<div class="section" id="adding-more-data">
-<h2>Adding more data<a class="headerlink" href="#adding-more-data" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="adding-more-data">
+<h2>Adding more data<a class="headerlink" href="#adding-more-data" title="Permalink to this headline">#</a></h2>
 <p>Let’s imagine that we fitted a curve to our data, here a simple parabola <span class="math notranslate nohighlight">\(f(x) = a*x^2 + b*x + c\)</span>:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -702,9 +785,9 @@ const thebe_selector_output = ".output, .cell_output"
 <img alt="_images/11-Matplotlib_content_23_0.png" src="_images/11-Matplotlib_content_23_0.png" />
 </div>
 </div>
-</div>
-<div class="section" id="short-format">
-<h2>Short format<a class="headerlink" href="#short-format" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="short-format">
+<h2>Short format<a class="headerlink" href="#short-format" title="Permalink to this headline">#</a></h2>
 <p>The formating can be specified in the shortned string <code class="docutils literal notranslate"><span class="pre">fmt</span> <span class="pre">=</span> <span class="pre">'[marker][line][color]'</span></code> which makes this changes much more succint:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -718,9 +801,9 @@ const thebe_selector_output = ".output, .cell_output"
 <img alt="_images/11-Matplotlib_content_25_0.png" src="_images/11-Matplotlib_content_25_0.png" />
 </div>
 </div>
-</div>
-<div class="section" id="transparency">
-<h2>Transparency<a class="headerlink" href="#transparency" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="transparency">
+<h2>Transparency<a class="headerlink" href="#transparency" title="Permalink to this headline">#</a></h2>
 <p>Finally, we see that because of the density of points, we cannot really distinguish points. One way to improve this is to add transparency. This is done in almost all plots via the <code class="docutils literal notranslate"><span class="pre">alpha</span></code> option:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -734,9 +817,9 @@ const thebe_selector_output = ".output, .cell_output"
 <img alt="_images/11-Matplotlib_content_27_0.png" src="_images/11-Matplotlib_content_27_0.png" />
 </div>
 </div>
-</div>
-<div class="section" id="automatic-settings-for-multiple-plots">
-<h2>Automatic settings for multiple plots<a class="headerlink" href="#automatic-settings-for-multiple-plots" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="automatic-settings-for-multiple-plots">
+<h2>Automatic settings for multiple plots<a class="headerlink" href="#automatic-settings-for-multiple-plots" title="Permalink to this headline">#</a></h2>
 <p>If we don’t specify any setthings and try to plot multiple datasets on the same plot, Matplotlib automatically handles the different settings for us. For example let’s imagine that we want to plot the same dependency but for each color separately. We know how to extract the rows corresponding to a specific color:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -764,9 +847,9 @@ const thebe_selector_output = ".output, .cell_output"
 <img alt="_images/11-Matplotlib_content_31_0.png" src="_images/11-Matplotlib_content_31_0.png" />
 </div>
 </div>
-</div>
-<div class="section" id="scatter-plot">
-<h2>Scatter plot<a class="headerlink" href="#scatter-plot" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="scatter-plot">
+<h2>Scatter plot<a class="headerlink" href="#scatter-plot" title="Permalink to this headline">#</a></h2>
 <p>Instead of the <code class="docutils literal notranslate"><span class="pre">plot</span></code> function you can also use the <code class="docutils literal notranslate"><span class="pre">scatter</span></code> function which is very similar. The main difference is tha <code class="docutils literal notranslate"><span class="pre">sctter</span></code> by default plots points instead of lines. It also has a few specifiy options like <code class="docutils literal notranslate"><span class="pre">s</span></code> to set the point size:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -781,9 +864,9 @@ const thebe_selector_output = ".output, .cell_output"
 <img alt="_images/11-Matplotlib_content_33_0.png" src="_images/11-Matplotlib_content_33_0.png" />
 </div>
 </div>
-</div>
-<div class="section" id="histograms">
-<h2>Histograms<a class="headerlink" href="#histograms" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="histograms">
+<h2>Histograms<a class="headerlink" href="#histograms" title="Permalink to this headline">#</a></h2>
 <p>As you can see in the <a class="reference external" href="#cheatsheet">cheat sheet</a>, Matplotlib offers many different types of plots. They of course all have their specificities but all share the same principles for dealing with</p>
 <ul class="simple">
 <li><p>multiple superposed plots with <code class="docutils literal notranslate"><span class="pre">ax</span></code> re-usage</p></li>
@@ -841,9 +924,9 @@ const thebe_selector_output = ".output, .cell_output"
 <img alt="_images/11-Matplotlib_content_39_1.png" src="_images/11-Matplotlib_content_39_1.png" />
 </div>
 </div>
-</div>
-<div class="section" id="exercise">
-<h2>Exercise<a class="headerlink" href="#exercise" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="exercise">
+<h2>Exercise<a class="headerlink" href="#exercise" title="Permalink to this headline">#</a></h2>
 <ol class="simple">
 <li><p>Import the penguins data: <a class="reference external" href="https://raw.githubusercontent.com/allisonhorst/palmerpenguins/master/inst/extdata/penguins.csv">https://raw.githubusercontent.com/allisonhorst/palmerpenguins/master/inst/extdata/penguins.csv</a></p></li>
 <li><p>Try to reproduce the following plot: on the lect scatter plot of the <code class="docutils literal notranslate"><span class="pre">body_mass_g</span></code> as a function of <code class="docutils literal notranslate"><span class="pre">bill_depth_mm</span></code> and on the right histogram of the <code class="docutils literal notranslate"><span class="pre">body_mass_g</span></code>.</p></li>
@@ -853,8 +936,8 @@ const thebe_selector_output = ".output, .cell_output"
 <li><p>Try to reproduce the second graph where each species is represented separately. Remember that you can get all species with <code class="docutils literal notranslate"><span class="pre">unique_species</span> <span class="pre">=</span> <span class="pre">penguins['species'].unique()</span></code> and can then use a for loop over that list.</p></li>
 </ol>
 <p><img alt="" src="https://github.com/guiwitz/ISDAwPython_day2/raw/master/plots/ex_11_2.png" /></p>
-</div>
-</div>
+</section>
+</section>
 
     <script type="text/x-thebe-config">
     {
@@ -878,9 +961,11 @@ const thebe_selector_output = ".output, .cell_output"
 
               </div>
               
-            
-                <!-- Previous / next buttons -->
-<div class='prev-next-area'> 
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
     <a class='left-prev' id="prev-link" href="10-Real_world.html" title="previous page">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
@@ -896,24 +981,28 @@ const thebe_selector_output = ".output, .cell_output"
     <i class="fas fa-angle-right"></i>
     </a>
 </div>
-            
+            </footer>
         </div>
     </div>
-    <footer class="footer">
-  <p>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By Guillaume Witz<br/>
+  
+      &copy; Copyright 2022.<br/>
+</p>
+        </footer>
+    </div>
     
-      By Guillaume Witz<br/>
-    
-        &copy; Copyright 2021.<br/>
-  </p>
-</footer>
-</main>
+</div>
 
 
       </div>
     </div>
   
-  <script src="_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
 
   </body>
 </html>

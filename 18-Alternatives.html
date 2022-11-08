@@ -4,11 +4,13 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
     <title>18. Other libraries &#8212; Introduction to Data Analysis and Visualization with Python</title>
     
-  <link href="_static/css/theme.css" rel="stylesheet">
-  <link href="_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
 
     
   <link rel="stylesheet"
@@ -18,20 +20,16 @@
   <link rel="preload" as="font" type="font/woff2" crossorigin
     href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
 
-    
-      
-
-    
     <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
     <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
-    <link rel="stylesheet" type="text/css" href="_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    <link rel="stylesheet" type="text/css" href="_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
     
-  <link rel="preload" as="script" href="_static/js/index.be7d3bbb2ef33a8344ce.js">
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
 
     <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
     <script src="_static/jquery.js"></script>
@@ -39,12 +37,13 @@
     <script src="_static/doctools.js"></script>
     <script src="_static/clipboard.min.js"></script>
     <script src="_static/copybutton.js"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
     <script src="_static/togglebutton.js"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script src="_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
+    <script src="_static/design-tabs.js"></script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
 const thebe_selector = ".thebe,.cell"
 const thebe_selector_input = "pre"
@@ -62,7 +61,21 @@ const thebe_selector_output = ".output, .cell_output"
     <!-- Google Analytics -->
     
   </head>
-  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
     
     <div class="container-fluid" id="banner"></div>
 
@@ -71,9 +84,10 @@ const thebe_selector_output = ".output, .cell_output"
     <div class="container-xl">
       <div class="row">
           
-<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
-    
-        <div class="navbar-brand-box">
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
     <a class="navbar-brand text-wrap" href="index.html">
       
       
@@ -86,22 +100,18 @@ const thebe_selector_output = ".output, .cell_output"
   <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
 </form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item active">
-        <ul class="nav bd-sidenav">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="Readme.html">
+                    Introduction to Data Analysis and Visualization with Python
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
  <li class="toctree-l1">
-  <a class="reference internal" href="Readme.html">
-   Introduction to Data Analysis and Visualization with Python
-  </a>
- </li>
-</ul>
-<ul class="current nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="00-Introduction.html">
+  <a class="reference internal" href="01-Introduction.html">
    00. Introduction
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="01-Intro_Pandas_Numpy.html">
-   1. Pandas and Numpy
   </a>
  </li>
  <li class="toctree-l1">
@@ -207,91 +217,164 @@ const thebe_selector_output = ".output, .cell_output"
 </ul>
 
     </div>
-</nav> <!-- To handle the deprecated key -->
-
-<div class="navbar_extra_footer">
-  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
-</div>
-
-</div>
-
-
-          
-
-
-          
-<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
-    
-    <div class="topbar container-xl fixed-top">
-    <div class="topbar-contents row">
-        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
-        <div class="col pl-md-4 topbar-main">
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
             
-            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
-                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
-                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
-                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
-                <i class="fas fa-bars"></i>
-                <i class="fas fa-arrow-left"></i>
-                <i class="fas fa-arrow-up"></i>
-            </button>
-            
-            
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
-            class="fas fa-download"></i></button>
-
-    <div class="dropdown-buttons">
-        <!-- ipynb file if we had a myst markdown file -->
-        
-        <!-- Download raw file -->
-        <a class="dropdown-buttons" href="_sources/18-Alternatives.ipynb"><button type="button"
-                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
-                data-placement="left">.ipynb</button></a>
-        <!-- Download PDF via print -->
-        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
-                onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
-    </div>
-</div>
-
-            <!-- Source interaction buttons -->
-
-            <!-- Full screen (wrap in <a> to have style consistency -->
-
-<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
-        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
-        title="Fullscreen mode"><i
-            class="fas fa-expand"></i></button></a>
-
-            <!-- Launch buttons -->
-
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
-        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
-    <div class="dropdown-buttons">
-        
-        <a class="binder-button" href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/18-Alternatives.ipynb"><button type="button"
-                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
-                data-placement="left"><img class="binder-button-logo"
-                    src="_static/images/logo_binder.svg"
-                    alt="Interact on binder">Binder</button></a>
-        
-        
-        
-        
-    </div>
-</div>
-
-        </div>
-
-        <!-- Table of contents -->
-        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
-            
-            <div class="tocsection onthispage pt-5 pb-3">
-                <i class="fas fa-list"></i> Contents
+            <div class="navbar_extra_footer">
+            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
             </div>
-            <nav id="bd-toc-nav" aria-label="Page">
-                <ul class="visible nav section-nav flex-column">
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<div class="menu-dropdown menu-dropdown-launch-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Launch interactive content">
+      <i class="fas fa-rocket"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/18-Alternatives.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Launch on Binder"
+>
+  
+
+<span class="headerbtn__icon-container">
+  
+    <img src="_static/images/logo_binder.svg">
+  </span>
+<span class="headerbtn__text-container">Binder</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="_sources/18-Alternatives.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.ipynb</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#plotnine">
    Plotnine
@@ -309,12 +392,11 @@ const thebe_selector_output = ".output, .cell_output"
  </li>
 </ul>
 
-            </nav>
-        </div>
-    </div>
+    </nav>
 </div>
-    <div id="main-content" class="row">
-        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
                 <h1>18. Other libraries</h1>
@@ -348,11 +430,12 @@ const thebe_selector_output = ".output, .cell_output"
                     </div>
                 </div>
             </div>
-            
+            <main id="main-content" role="main">
+                
               <div>
                 
-  <div class="tex2jax_ignore mathjax_ignore section" id="other-libraries">
-<h1>18. Other libraries<a class="headerlink" href="#other-libraries" title="Permalink to this headline">¶</a></h1>
+  <section class="tex2jax_ignore mathjax_ignore" id="other-libraries">
+<h1>18. Other libraries<a class="headerlink" href="#other-libraries" title="Permalink to this headline">#</a></h1>
 <p>There are many alternatives to the solutions shown during the course. Depending on your field and background you might want to search for another solution. Generally however libraries work mostly like seaborn i.e. you pass a data element to a plotting function and then specify which “aspect” of the data you want to plot and use for color, marker etc. aesthetics.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -364,8 +447,8 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 </div>
-<div class="section" id="plotnine">
-<h2>Plotnine<a class="headerlink" href="#plotnine" title="Permalink to this headline">¶</a></h2>
+<section id="plotnine">
+<h2>Plotnine<a class="headerlink" href="#plotnine" title="Permalink to this headline">#</a></h2>
 <p><a class="reference external" href="https://plotnine.readthedocs.io/en/stable/index.html">Plotnine</a> is one alternative to seaborn. It is in fact an almost perfect copy of ggplot, so if you are familiar with that R package but want to “unify” your pipeline in Python, it could be a good alternative.</p>
 <p>The functions have mostly the same name as in ggplot, and the <em>assembling</em> of plots works in the same way. Two examples here:</p>
 <div class="cell docutils container">
@@ -419,9 +502,9 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="altair">
-<h2>Altair<a class="headerlink" href="#altair" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="altair">
+<h2>Altair<a class="headerlink" href="#altair" title="Permalink to this headline">#</a></h2>
 <p>Altair is another library that works similarly to seaborn. It is based on an entirely different ecosystem (non Matplotlib) but offeres interesting possibilities in terms of interactivity.</p>
 <p>Here an example as well:</p>
 <div class="cell docutils container">
@@ -488,9 +571,9 @@ const thebe_selector_output = ".output, .cell_output"
   })({"config": {"view": {"continuousWidth": 400, "continuousHeight": 300}}, "data": {"name": "data-aea060cc4ac74e9a44e0a1d1761d308a"}, "mark": "point", "encoding": {"color": {"type": "nominal", "field": "colour"}, "x": {"type": "quantitative", "field": "price"}, "y": {"type": "quantitative", "field": "carat"}}, "selection": {"selector001": {"type": "interval", "bind": "scales", "encodings": ["x", "y"]}}, "$schema": "https://vega.github.io/schema/vega-lite/v4.8.1.json", "datasets": {"data-aea060cc4ac74e9a44e0a1d1761d308a": [{"Unnamed: 0": 1, "carat": 0.3, "colour": "D", "clarity": "VS2", "certification": "GIA", "price": 1302}, {"Unnamed: 0": 2, "carat": 0.3, "colour": "E", "clarity": "VS1", "certification": "GIA", "price": 1510}, {"Unnamed: 0": 3, "carat": 0.3, "colour": "G", "clarity": "VVS1", "certification": "GIA", "price": 1510}, {"Unnamed: 0": 4, "carat": 0.3, "colour": "G", "clarity": "VS1", "certification": "GIA", "price": 1260}, {"Unnamed: 0": 5, "carat": 0.31, "colour": "D", "clarity": "VS1", "certification": "GIA", "price": 1641}, {"Unnamed: 0": 6, "carat": 0.31, "colour": "E", "clarity": "VS1", "certification": "GIA", "price": 1555}, {"Unnamed: 0": 7, "carat": 0.31, "colour": "F", "clarity": "VS1", "certification": "GIA", "price": 1427}, {"Unnamed: 0": 8, "carat": 0.31, "colour": "G", "clarity": "VVS2", "certification": "GIA", "price": 1427}, {"Unnamed: 0": 9, "carat": 0.31, "colour": "H", "clarity": "VS2", "certification": "GIA", "price": 1126}, {"Unnamed: 0": 10, "carat": 0.31, "colour": "I", "clarity": "VS1", "certification": "GIA", "price": 1126}, {"Unnamed: 0": 11, "carat": 0.32, "colour": "F", "clarity": "VS1", "certification": "GIA", "price": 1468}, {"Unnamed: 0": 12, "carat": 0.32, "colour": "G", "clarity": "VS2", "certification": "GIA", "price": 1202}, {"Unnamed: 0": 13, "carat": 0.33, "colour": "E", "clarity": "VS2", "certification": "GIA", "price": 1327}, {"Unnamed: 0": 14, "carat": 0.33, "colour": "I", "clarity": "VS2", "certification": "GIA", "price": 1098}, {"Unnamed: 0": 15, "carat": 0.34, "colour": "E", "clarity": "VS1", "certification": "GIA", "price": 1693}, {"Unnamed: 0": 16, "carat": 0.34, "colour": "F", "clarity": "VS1", "certification": "GIA", "price": 1551}, {"Unnamed: 0": 17, "carat": 0.34, "colour": "G", "clarity": "VS1", "certification": "GIA", "price": 1410}, {"Unnamed: 0": 18, "carat": 0.34, "colour": "G", "clarity": "VS2", "certification": "GIA", "price": 1269}, {"Unnamed: 0": 19, "carat": 0.34, "colour": "H", "clarity": "VS1", "certification": "GIA", "price": 1316}, {"Unnamed: 0": 20, "carat": 0.34, "colour": "H", "clarity": "VS2", "certification": "GIA", "price": 1222}, {"Unnamed: 0": 21, "carat": 0.35, "colour": "E", "clarity": "VS1", "certification": "GIA", "price": 1738}, {"Unnamed: 0": 22, "carat": 0.35, "colour": "F", "clarity": "VS1", "certification": "GIA", "price": 1593}, {"Unnamed: 0": 23, "carat": 0.35, "colour": "G", "clarity": "VS1", "certification": "GIA", "price": 1447}, {"Unnamed: 0": 24, "carat": 0.35, "colour": "H", "clarity": "VS2", "certification": "GIA", "price": 1255}, {"Unnamed: 0": 25, "carat": 0.36, "colour": "F", "clarity": "VS1", "certification": "GIA", "price": 1635}, {"Unnamed: 0": 26, "carat": 0.36, "colour": "H", "clarity": "VVS2", "certification": "GIA", "price": 1485}, {"Unnamed: 0": 27, "carat": 0.37, "colour": "F", "clarity": "VS2", "certification": "GIA", "price": 1420}, {"Unnamed: 0": 28, "carat": 0.37, "colour": "H", "clarity": "VS1", "certification": "GIA", "price": 1420}, {"Unnamed: 0": 29, "carat": 0.4, "colour": "F", "clarity": "VS1", "certification": "GIA", "price": 1911}, {"Unnamed: 0": 30, "carat": 0.4, "colour": "H", "clarity": "VS1", "certification": "GIA", "price": 1525}, {"Unnamed: 0": 31, "carat": 0.41, "colour": "F", "clarity": "VS1", "certification": "GIA", "price": 1956}, {"Unnamed: 0": 32, "carat": 0.43, "colour": "H", "clarity": "VVS2", "certification": "GIA", "price": 1747}, {"Unnamed: 0": 33, "carat": 0.45, "colour": "I", "clarity": "VS1", "certification": "GIA", "price": 1572}, {"Unnamed: 0": 34, "carat": 0.46, "colour": "E", "clarity": "VVS2", "certification": "GIA", "price": 2942}, {"Unnamed: 0": 35, "carat": 0.48, "colour": "G", "clarity": "VVS2", "certification": "GIA", "price": 2532}, {"Unnamed: 0": 36, "carat": 0.5, "colour": "E", "clarity": "VS1", "certification": "GIA", "price": 3501}, {"Unnamed: 0": 37, "carat": 0.5, "colour": "E", "clarity": "VS1", "certification": "GIA", "price": 3501}, {"Unnamed: 0": 38, "carat": 0.5, "colour": "F", "clarity": "VVS2", "certification": "GIA", "price": 3501}, {"Unnamed: 0": 39, "carat": 0.5, "colour": "F", "clarity": "VS1", "certification": "GIA", "price": 3293}, {"Unnamed: 0": 40, "carat": 0.5, "colour": "G", "clarity": "VS1", "certification": "GIA", "price": 3016}, {"Unnamed: 0": 41, "carat": 0.51, "colour": "F", "clarity": "VVS2", "certification": "GIA", "price": 3567}, {"Unnamed: 0": 42, "carat": 0.51, "colour": "G", "clarity": "VS1", "certification": "GIA", "price": 3205}, {"Unnamed: 0": 43, "carat": 0.52, "colour": "D", "clarity": "VS2", "certification": "GIA", "price": 3490}, {"Unnamed: 0": 44, "carat": 0.52, "colour": "E", "clarity": "VS1", "certification": "GIA", "price": 3635}, {"Unnamed: 0": 45, "carat": 0.52, "colour": "F", "clarity": "VVS2", "certification": "GIA", "price": 3635}, {"Unnamed: 0": 46, "carat": 0.52, "colour": "F", "clarity": "VS1", "certification": "GIA", "price": 3418}, {"Unnamed: 0": 47, "carat": 0.53, "colour": "D", "clarity": "VS1", "certification": "GIA", "price": 3921}, {"Unnamed: 0": 48, "carat": 0.53, "colour": "F", "clarity": "VVS2", "certification": "GIA", "price": 3701}, {"Unnamed: 0": 49, "carat": 0.53, "colour": "F", "clarity": "VS1", "certification": "GIA", "price": 3480}, {"Unnamed: 0": 50, "carat": 0.53, "colour": "G", "clarity": "VVS2", "certification": "GIA", "price": 3407}, {"Unnamed: 0": 51, "carat": 0.54, "colour": "E", "clarity": "VS1", "certification": "GIA", "price": 3767}, {"Unnamed: 0": 52, "carat": 0.54, "colour": "F", "clarity": "VVS1", "certification": "GIA", "price": 4066}, {"Unnamed: 0": 53, "carat": 0.55, "colour": "E", "clarity": "VVS2", "certification": "GIA", "price": 4138}, {"Unnamed: 0": 54, "carat": 0.55, "colour": "F", "clarity": "VS1", "certification": "GIA", "price": 3605}, {"Unnamed: 0": 55, "carat": 0.55, "colour": "G", "clarity": "VVS2", "certification": "GIA", "price": 3529}, {"Unnamed: 0": 56, "carat": 0.56, "colour": "F", "clarity": "VS1", "certification": "GIA", "price": 3667}, {"Unnamed: 0": 57, "carat": 0.56, "colour": "I", "clarity": "VVS2", "certification": "GIA", "price": 2892}, {"Unnamed: 0": 58, "carat": 0.57, "colour": "G", "clarity": "VVS2", "certification": "GIA", "price": 3651}, {"Unnamed: 0": 59, "carat": 0.59, "colour": "G", "clarity": "VVS2", "certification": "GIA", "price": 3773}, {"Unnamed: 0": 60, "carat": 0.6, "colour": "F", "clarity": "VS1", "certification": "GIA", "price": 4291}, {"Unnamed: 0": 61, "carat": 0.62, "colour": "E", "clarity": "VVS1", "certification": "GIA", "price": 5845}, {"Unnamed: 0": 62, "carat": 0.63, "colour": "G", "clarity": "VVS2", "certification": "GIA", "price": 4401}, {"Unnamed: 0": 63, "carat": 0.64, "colour": "G", "clarity": "VVS1", "certification": "GIA", "price": 4759}, {"Unnamed: 0": 64, "carat": 0.66, "colour": "H", "clarity": "VVS1", "certification": "GIA", "price": 4300}, {"Unnamed: 0": 65, "carat": 0.7, "colour": "F", "clarity": "VS1", "certification": "GIA", "price": 5510}, {"Unnamed: 0": 66, "carat": 0.7, "colour": "G", "clarity": "VS1", "certification": "GIA", "price": 5122}, {"Unnamed: 0": 67, "carat": 0.7, "colour": "H", "clarity": "VVS2", "certification": "GIA", "price": 5122}, {"Unnamed: 0": 68, "carat": 0.7, "colour": "I", "clarity": "VS2", "certification": "GIA", "price": 3861}, {"Unnamed: 0": 69, "carat": 0.71, "colour": "F", "clarity": "VVS2", "certification": "GIA", "price": 5881}, {"Unnamed: 0": 70, "carat": 0.71, "colour": "F", "clarity": "VS1", "certification": "GIA", "price": 5586}, {"Unnamed: 0": 71, "carat": 0.71, "colour": "F", "clarity": "VS2", "certification": "GIA", "price": 5193}, {"Unnamed: 0": 72, "carat": 0.71, "colour": "H", "clarity": "VVS2", "certification": "GIA", "price": 5193}, {"Unnamed: 0": 73, "carat": 0.72, "colour": "F", "clarity": "VS2", "certification": "GIA", "price": 5263}, {"Unnamed: 0": 74, "carat": 0.8, "colour": "I", "clarity": "VVS2", "certification": "GIA", "price": 5441}, {"Unnamed: 0": 75, "carat": 0.82, "colour": "I", "clarity": "VS2", "certification": "GIA", "price": 4948}, {"Unnamed: 0": 76, "carat": 0.84, "colour": "H", "clarity": "VS2", "certification": "GIA", "price": 5705}, {"Unnamed: 0": 77, "carat": 0.85, "colour": "F", "clarity": "VS2", "certification": "GIA", "price": 6805}, {"Unnamed: 0": 78, "carat": 0.86, "colour": "H", "clarity": "VVS2", "certification": "GIA", "price": 6882}, {"Unnamed: 0": 79, "carat": 0.89, "colour": "H", "clarity": "VS1", "certification": "GIA", "price": 6709}, {"Unnamed: 0": 80, "carat": 0.9, "colour": "I", "clarity": "VVS2", "certification": "GIA", "price": 6682}, {"Unnamed: 0": 81, "carat": 0.5, "colour": "E", "clarity": "VS1", "certification": "GIA", "price": 3501}, {"Unnamed: 0": 82, "carat": 0.5, "colour": "G", "clarity": "VVS1", "certification": "GIA", "price": 3432}, {"Unnamed: 0": 83, "carat": 0.51, "colour": "F", "clarity": "VVS1", "certification": "GIA", "price": 3851}, {"Unnamed: 0": 84, "carat": 0.55, "colour": "H", "clarity": "IF", "certification": "GIA", "price": 3605}, {"Unnamed: 0": 85, "carat": 0.56, "colour": "E", "clarity": "VS1", "certification": "GIA", "price": 3900}, {"Unnamed: 0": 86, "carat": 0.57, "colour": "H", "clarity": "VVS1", "certification": "GIA", "price": 3415}, {"Unnamed: 0": 87, "carat": 0.6, "colour": "H", "clarity": "IF", "certification": "GIA", "price": 4291}, {"Unnamed: 0": 88, "carat": 0.63, "colour": "E", "clarity": "IF", "certification": "GIA", "price": 6512}, {"Unnamed: 0": 89, "carat": 0.7, "colour": "E", "clarity": "VS1", "certification": "GIA", "price": 5800}, {"Unnamed: 0": 90, "carat": 0.7, "colour": "F", "clarity": "VVS1", "certification": "GIA", "price": 6285}, {"Unnamed: 0": 91, "carat": 0.7, "colour": "F", "clarity": "VS2", "certification": "GIA", "price": 5122}, {"Unnamed: 0": 92, "carat": 0.7, "colour": "F", "clarity": "VS2", "certification": "GIA", "price": 5122}, {"Unnamed: 0": 93, "carat": 0.7, "colour": "G", "clarity": "VS1", "certification": "GIA", "price": 5122}, {"Unnamed: 0": 94, "carat": 0.7, "colour": "H", "clarity": "VVS2", "certification": "GIA", "price": 5122}, {"Unnamed: 0": 95, "carat": 0.71, "colour": "D", "clarity": "VS1", "certification": "GIA", "price": 6372}, {"Unnamed: 0": 96, "carat": 0.71, "colour": "E", "clarity": "VS1", "certification": "GIA", "price": 5881}, {"Unnamed: 0": 97, "carat": 0.71, "colour": "H", "clarity": "VVS2", "certification": "GIA", "price": 5193}, {"Unnamed: 0": 98, "carat": 0.72, "colour": "E", "clarity": "VS1", "certification": "GIA", "price": 5961}, {"Unnamed: 0": 99, "carat": 0.72, "colour": "H", "clarity": "VVS1", "certification": "GIA", "price": 5662}, {"Unnamed: 0": 100, "carat": 0.73, "colour": "E", "clarity": "VS2", "certification": "GIA", "price": 5738}, {"Unnamed: 0": 101, "carat": 0.73, "colour": "H", "clarity": "VS1", "certification": "GIA", "price": 5030}, {"Unnamed: 0": 102, "carat": 0.73, "colour": "H", "clarity": "VS1", "certification": "GIA", "price": 5030}, {"Unnamed: 0": 103, "carat": 0.73, "colour": "I", "clarity": "VVS1", "certification": "GIA", "price": 4727}, {"Unnamed: 0": 104, "carat": 0.73, "colour": "I", "clarity": "VS1", "certification": "GIA", "price": 4221}, {"Unnamed: 0": 105, "carat": 0.74, "colour": "G", "clarity": "VVS2", "certification": "GIA", "price": 5815}, {"Unnamed: 0": 106, "carat": 0.74, "colour": "H", "clarity": "VS2", "certification": "GIA", "price": 4585}, {"Unnamed: 0": 107, "carat": 0.75, "colour": "D", "clarity": "VVS2", "certification": "GIA", "price": 7368}, {"Unnamed: 0": 108, "carat": 0.75, "colour": "I", "clarity": "VVS2", "certification": "GIA", "price": 4667}, {"Unnamed: 0": 109, "carat": 0.75, "colour": "I", "clarity": "VS1", "certification": "GIA", "price": 4355}, {"Unnamed: 0": 110, "carat": 0.76, "colour": "D", "clarity": "IF", "certification": "GIA", "price": 9885}, {"Unnamed: 0": 111, "carat": 0.77, "colour": "F", "clarity": "VVS1", "certification": "GIA", "price": 6919}, {"Unnamed: 0": 112, "carat": 0.78, "colour": "H", "clarity": "VS1", "certification": "GIA", "price": 5386}, {"Unnamed: 0": 113, "carat": 0.8, "colour": "I", "clarity": "VS2", "certification": "GIA", "price": 4832}, {"Unnamed: 0": 114, "carat": 0.83, "colour": "E", "clarity": "VS2", "certification": "GIA", "price": 7156}, {"Unnamed: 0": 115, "carat": 0.9, "colour": "F", "clarity": "VS1", "certification": "GIA", "price": 7680}, {"Unnamed: 0": 116, "carat": 1.0, "colour": "D", "clarity": "VVS1", "certification": "GIA", "price": 15582}, {"Unnamed: 0": 117, "carat": 1.0, "colour": "D", "clarity": "VS1", "certification": "GIA", "price": 11419}, {"Unnamed: 0": 118, "carat": 1.0, "colour": "E", "clarity": "VS1", "certification": "GIA", "price": 10588}, {"Unnamed: 0": 119, "carat": 1.0, "colour": "E", "clarity": "VS2", "certification": "GIA", "price": 9757}, {"Unnamed: 0": 120, "carat": 1.0, "colour": "F", "clarity": "IF", "certification": "GIA", "price": 13913}, {"Unnamed: 0": 121, "carat": 1.0, "colour": "F", "clarity": "VVS2", "certification": "GIA", "price": 10588}, {"Unnamed: 0": 122, "carat": 1.0, "colour": "F", "clarity": "VS1", "certification": "GIA", "price": 10713}, {"Unnamed: 0": 123, "carat": 1.0, "colour": "F", "clarity": "VS2", "certification": "GIA", "price": 9480}, {"Unnamed: 0": 124, "carat": 1.0, "colour": "G", "clarity": "VVS2", "certification": "GIA", "price": 9896}, {"Unnamed: 0": 125, "carat": 1.0, "colour": "G", "clarity": "VS1", "certification": "GIA", "price": 9619}, {"Unnamed: 0": 126, "carat": 1.0, "colour": "G", "clarity": "VS2", "certification": "GIA", "price": 9169}, {"Unnamed: 0": 127, "carat": 1.0, "colour": "G", "clarity": "VS2", "certification": "GIA", "price": 9203}, {"Unnamed: 0": 128, "carat": 1.0, "colour": "H", "clarity": "VS2", "certification": "GIA", "price": 8788}, {"Unnamed: 0": 129, "carat": 1.0, "colour": "I", "clarity": "VS1", "certification": "GIA", "price": 8095}, {"Unnamed: 0": 130, "carat": 1.0, "colour": "I", "clarity": "VS2", "certification": "GIA", "price": 7818}, {"Unnamed: 0": 131, "carat": 1.01, "colour": "D", "clarity": "VVS1", "certification": "GIA", "price": 16008}, {"Unnamed: 0": 132, "carat": 1.01, "colour": "E", "clarity": "VS1", "certification": "GIA", "price": 10692}, {"Unnamed: 0": 133, "carat": 1.01, "colour": "E", "clarity": "VS2", "certification": "GIA", "price": 9853}, {"Unnamed: 0": 134, "carat": 1.01, "colour": "F", "clarity": "VS1", "certification": "GIA", "price": 10272}, {"Unnamed: 0": 135, "carat": 1.01, "colour": "F", "clarity": "VS2", "certification": "GIA", "price": 9573}, {"Unnamed: 0": 136, "carat": 1.01, "colour": "H", "clarity": "VS1", "certification": "GIA", "price": 9153}, {"Unnamed: 0": 137, "carat": 1.01, "colour": "H", "clarity": "VS2", "certification": "GIA", "price": 8873}, {"Unnamed: 0": 138, "carat": 1.01, "colour": "I", "clarity": "VVS1", "certification": "GIA", "price": 8873}, {"Unnamed: 0": 139, "carat": 1.01, "colour": "I", "clarity": "VVS2", "certification": "GIA", "price": 8455}, {"Unnamed: 0": 140, "carat": 1.01, "colour": "I", "clarity": "VS2", "certification": "GIA", "price": 7895}, {"Unnamed: 0": 141, "carat": 1.02, "colour": "F", "clarity": "VS1", "certification": "GIA", "price": 10372}, {"Unnamed: 0": 142, "carat": 1.02, "colour": "F", "clarity": "VS2", "certification": "GIA", "price": 9666}, {"Unnamed: 0": 143, "carat": 1.02, "colour": "G", "clarity": "VVS2", "certification": "GIA", "price": 10090}, {"Unnamed: 0": 144, "carat": 1.03, "colour": "E", "clarity": "VS1", "certification": "GIA", "price": 10900}, {"Unnamed: 0": 145, "carat": 1.04, "colour": "F", "clarity": "VS1", "certification": "GIA", "price": 10571}, {"Unnamed: 0": 146, "carat": 1.04, "colour": "I", "clarity": "IF", "certification": "GIA", "price": 9563}, {"Unnamed: 0": 147, "carat": 1.05, "colour": "I", "clarity": "VVS2", "certification": "GIA", "price": 8781}, {"Unnamed: 0": 148, "carat": 1.06, "colour": "G", "clarity": "VS2", "certification": "GIA", "price": 9743}, {"Unnamed: 0": 149, "carat": 1.06, "colour": "H", "clarity": "VS2", "certification": "GIA", "price": 9302}, {"Unnamed: 0": 150, "carat": 1.07, "colour": "I", "clarity": "VVS2", "certification": "GIA", "price": 8945}, {"Unnamed: 0": 151, "carat": 1.1, "colour": "H", "clarity": "VS2", "certification": "GIA", "price": 9646}, {"Unnamed: 0": 152, "carat": 0.18, "colour": "F", "clarity": "VVS1", "certification": "IGI", "price": 823}, {"Unnamed: 0": 153, "carat": 0.18, "colour": "F", "clarity": "VVS2", "certification": "IGI", "price": 765}, {"Unnamed: 0": 154, "carat": 0.18, "colour": "G", "clarity": "IF", "certification": "IGI", "price": 803}, {"Unnamed: 0": 155, "carat": 0.18, "colour": "G", "clarity": "IF", "certification": "IGI", "price": 803}, {"Unnamed: 0": 156, "carat": 0.18, "colour": "G", "clarity": "VVS2", "certification": "IGI", "price": 705}, {"Unnamed: 0": 157, "carat": 0.18, "colour": "H", "clarity": "IF", "certification": "IGI", "price": 725}, {"Unnamed: 0": 158, "carat": 0.19, "colour": "D", "clarity": "VVS2", "certification": "IGI", "price": 967}, {"Unnamed: 0": 159, "carat": 0.19, "colour": "E", "clarity": "IF", "certification": "IGI", "price": 1050}, {"Unnamed: 0": 160, "carat": 0.19, "colour": "F", "clarity": "IF", "certification": "IGI", "price": 967}, {"Unnamed: 0": 161, "carat": 0.19, "colour": "F", "clarity": "VVS1", "certification": "IGI", "price": 863}, {"Unnamed: 0": 162, "carat": 0.19, "colour": "F", "clarity": "VVS2", "certification": "IGI", "price": 800}, {"Unnamed: 0": 163, "carat": 0.19, "colour": "G", "clarity": "IF", "certification": "IGI", "price": 842}, {"Unnamed: 0": 164, "carat": 0.19, "colour": "G", "clarity": "VVS1", "certification": "IGI", "price": 800}, {"Unnamed: 0": 165, "carat": 0.19, "colour": "H", "clarity": "IF", "certification": "IGI", "price": 758}, {"Unnamed: 0": 166, "carat": 0.2, "colour": "D", "clarity": "VS1", "certification": "IGI", "price": 880}, {"Unnamed: 0": 167, "carat": 0.2, "colour": "G", "clarity": "IF", "certification": "IGI", "price": 880}, {"Unnamed: 0": 168, "carat": 0.2, "colour": "G", "clarity": "VS1", "certification": "IGI", "price": 705}, {"Unnamed: 0": 169, "carat": 0.2, "colour": "G", "clarity": "VS2", "certification": "IGI", "price": 638}, {"Unnamed: 0": 170, "carat": 0.21, "colour": "D", "clarity": "VS1", "certification": "IGI", "price": 919}, {"Unnamed: 0": 171, "carat": 0.21, "colour": "E", "clarity": "IF", "certification": "IGI", "price": 1149}, {"Unnamed: 0": 172, "carat": 0.21, "colour": "F", "clarity": "IF", "certification": "IGI", "price": 1057}, {"Unnamed: 0": 173, "carat": 0.21, "colour": "G", "clarity": "IF", "certification": "IGI", "price": 919}, {"Unnamed: 0": 174, "carat": 0.22, "colour": "E", "clarity": "IF", "certification": "IGI", "price": 1198}, {"Unnamed: 0": 175, "carat": 0.23, "colour": "E", "clarity": "IF", "certification": "IGI", "price": 1248}, {"Unnamed: 0": 176, "carat": 0.23, "colour": "F", "clarity": "IF", "certification": "IGI", "price": 1147}, {"Unnamed: 0": 177, "carat": 0.23, "colour": "G", "clarity": "IF", "certification": "IGI", "price": 995}, {"Unnamed: 0": 178, "carat": 0.24, "colour": "H", "clarity": "IF", "certification": "IGI", "price": 1108}, {"Unnamed: 0": 179, "carat": 0.25, "colour": "F", "clarity": "IF", "certification": "IGI", "price": 1485}, {"Unnamed: 0": 180, "carat": 0.25, "colour": "G", "clarity": "IF", "certification": "IGI", "price": 1283}, {"Unnamed: 0": 181, "carat": 0.25, "colour": "H", "clarity": "IF", "certification": "IGI", "price": 1149}, {"Unnamed: 0": 182, "carat": 0.25, "colour": "I", "clarity": "IF", "certification": "IGI", "price": 1082}, {"Unnamed: 0": 183, "carat": 0.26, "colour": "F", "clarity": "IF", "certification": "IGI", "price": 1539}, {"Unnamed: 0": 184, "carat": 0.26, "colour": "F", "clarity": "VVS1", "certification": "IGI", "price": 1365}, {"Unnamed: 0": 185, "carat": 0.26, "colour": "F", "clarity": "VVS2", "certification": "IGI", "price": 1260}, {"Unnamed: 0": 186, "carat": 0.26, "colour": "I", "clarity": "IF", "certification": "IGI", "price": 1121}, {"Unnamed: 0": 187, "carat": 0.27, "colour": "F", "clarity": "IF", "certification": "IGI", "price": 1595}, {"Unnamed: 0": 188, "carat": 0.27, "colour": "H", "clarity": "IF", "certification": "IGI", "price": 1233}, {"Unnamed: 0": 189, "carat": 0.28, "colour": "I", "clarity": "IF", "certification": "IGI", "price": 1199}, {"Unnamed: 0": 190, "carat": 0.29, "colour": "G", "clarity": "IF", "certification": "IGI", "price": 1471}, {"Unnamed: 0": 191, "carat": 0.29, "colour": "I", "clarity": "IF", "certification": "IGI", "price": 1238}, {"Unnamed: 0": 192, "carat": 0.3, "colour": "E", "clarity": "VVS2", "certification": "IGI", "price": 1580}, {"Unnamed: 0": 193, "carat": 0.3, "colour": "F", "clarity": "VVS2", "certification": "IGI", "price": 1459}, {"Unnamed: 0": 194, "carat": 0.3, "colour": "G", "clarity": "VVS1", "certification": "IGI", "price": 1459}, {"Unnamed: 0": 195, "carat": 0.3, "colour": "H", "clarity": "VVS2", "certification": "IGI", "price": 1218}, {"Unnamed: 0": 196, "carat": 0.3, "colour": "I", "clarity": "IF", "certification": "IGI", "price": 1299}, {"Unnamed: 0": 197, "carat": 0.31, "colour": "E", "clarity": "VVS2", "certification": "IGI", "price": 1628}, {"Unnamed: 0": 198, "carat": 0.31, "colour": "F", "clarity": "VVS1", "certification": "IGI", "price": 1628}, {"Unnamed: 0": 199, "carat": 0.31, "colour": "I", "clarity": "IF", "certification": "IGI", "price": 1337}, {"Unnamed: 0": 200, "carat": 0.32, "colour": "H", "clarity": "IF", "certification": "IGI", "price": 1462}, {"Unnamed: 0": 201, "carat": 0.33, "colour": "H", "clarity": "IF", "certification": "IGI", "price": 1503}, {"Unnamed: 0": 202, "carat": 0.34, "colour": "F", "clarity": "VVS1", "certification": "IGI", "price": 1773}, {"Unnamed: 0": 203, "carat": 0.34, "colour": "F", "clarity": "VVS2", "certification": "IGI", "price": 1636}, {"Unnamed: 0": 204, "carat": 0.35, "colour": "F", "clarity": "VVS1", "certification": "IGI", "price": 1821}, {"Unnamed: 0": 205, "carat": 0.35, "colour": "G", "clarity": "VVS2", "certification": "IGI", "price": 1540}, {"Unnamed: 0": 206, "carat": 0.4, "colour": "G", "clarity": "IF", "certification": "IGI", "price": 2276}, {"Unnamed: 0": 207, "carat": 0.41, "colour": "I", "clarity": "VVS1", "certification": "IGI", "price": 1616}, {"Unnamed: 0": 208, "carat": 0.41, "colour": "I", "clarity": "VVS2", "certification": "IGI", "price": 1506}, {"Unnamed: 0": 209, "carat": 0.47, "colour": "F", "clarity": "VVS2", "certification": "IGI", "price": 2651}, {"Unnamed: 0": 210, "carat": 0.48, "colour": "F", "clarity": "VS1", "certification": "IGI", "price": 2383}, {"Unnamed: 0": 211, "carat": 0.5, "colour": "G", "clarity": "IF", "certification": "IGI", "price": 3652}, {"Unnamed: 0": 212, "carat": 0.51, "colour": "E", "clarity": "VVS2", "certification": "IGI", "price": 3722}, {"Unnamed: 0": 213, "carat": 0.51, "colour": "F", "clarity": "VVS1", "certification": "IGI", "price": 3722}, {"Unnamed: 0": 214, "carat": 0.52, "colour": "I", "clarity": "IF", "certification": "IGI", "price": 3095}, {"Unnamed: 0": 215, "carat": 0.55, "colour": "F", "clarity": "VVS2", "certification": "IGI", "price": 3706}, {"Unnamed: 0": 216, "carat": 0.56, "colour": "E", "clarity": "VVS2", "certification": "IGI", "price": 4070}, {"Unnamed: 0": 217, "carat": 0.56, "colour": "G", "clarity": "VVS2", "certification": "IGI", "price": 3470}, {"Unnamed: 0": 218, "carat": 0.58, "colour": "E", "clarity": "VVS1", "certification": "IGI", "price": 4831}, {"Unnamed: 0": 219, "carat": 0.58, "colour": "F", "clarity": "VVS1", "certification": "IGI", "price": 4209}, {"Unnamed: 0": 220, "carat": 0.58, "colour": "G", "clarity": "VVS1", "certification": "IGI", "price": 3821}, {"Unnamed: 0": 221, "carat": 0.7, "colour": "G", "clarity": "VVS1", "certification": "IGI", "price": 5607}, {"Unnamed: 0": 222, "carat": 0.7, "colour": "G", "clarity": "VVS2", "certification": "IGI", "price": 5326}, {"Unnamed: 0": 223, "carat": 0.71, "colour": "D", "clarity": "VS1", "certification": "IGI", "price": 6160}, {"Unnamed: 0": 224, "carat": 0.76, "colour": "F", "clarity": "VVS2", "certification": "IGI", "price": 6095}, {"Unnamed: 0": 225, "carat": 0.78, "colour": "G", "clarity": "VVS2", "certification": "IGI", "price": 5937}, {"Unnamed: 0": 226, "carat": 1.0, "colour": "H", "clarity": "VVS2", "certification": "IGI", "price": 9342}, {"Unnamed: 0": 227, "carat": 1.01, "colour": "G", "clarity": "VS1", "certification": "IGI", "price": 9713}, {"Unnamed: 0": 228, "carat": 1.01, "colour": "H", "clarity": "VS2", "certification": "IGI", "price": 8873}, {"Unnamed: 0": 229, "carat": 1.01, "colour": "I", "clarity": "VS1", "certification": "IGI", "price": 8175}, {"Unnamed: 0": 230, "carat": 0.5, "colour": "F", "clarity": "VVS1", "certification": "HRD", "price": 3778}, {"Unnamed: 0": 231, "carat": 0.5, "colour": "G", "clarity": "VVS1", "certification": "HRD", "price": 3432}, {"Unnamed: 0": 232, "carat": 0.51, "colour": "F", "clarity": "VVS1", "certification": "HRD", "price": 3851}, {"Unnamed: 0": 233, "carat": 0.52, "colour": "E", "clarity": "VS2", "certification": "HRD", "price": 3346}, {"Unnamed: 0": 234, "carat": 0.52, "colour": "H", "clarity": "VVS1", "certification": "HRD", "price": 3130}, {"Unnamed: 0": 235, "carat": 0.53, "colour": "F", "clarity": "VVS1", "certification": "HRD", "price": 3995}, {"Unnamed: 0": 236, "carat": 0.53, "colour": "F", "clarity": "VVS2", "certification": "HRD", "price": 3701}, {"Unnamed: 0": 237, "carat": 0.55, "colour": "G", "clarity": "VVS2", "certification": "HRD", "price": 3529}, {"Unnamed: 0": 238, "carat": 0.56, "colour": "F", "clarity": "VS1", "certification": "HRD", "price": 3667}, {"Unnamed: 0": 239, "carat": 0.56, "colour": "F", "clarity": "VS2", "certification": "HRD", "price": 3202}, {"Unnamed: 0": 240, "carat": 0.57, "colour": "F", "clarity": "VS2", "certification": "HRD", "price": 3256}, {"Unnamed: 0": 241, "carat": 0.57, "colour": "H", "clarity": "VVS1", "certification": "HRD", "price": 3415}, {"Unnamed: 0": 242, "carat": 0.58, "colour": "H", "clarity": "IF", "certification": "HRD", "price": 3792}, {"Unnamed: 0": 243, "carat": 0.6, "colour": "G", "clarity": "VS1", "certification": "HRD", "price": 3925}, {"Unnamed: 0": 244, "carat": 0.6, "colour": "G", "clarity": "VS2", "certification": "HRD", "price": 3421}, {"Unnamed: 0": 245, "carat": 0.6, "colour": "H", "clarity": "VVS1", "certification": "HRD", "price": 3925}, {"Unnamed: 0": 246, "carat": 0.61, "colour": "H", "clarity": "VVS2", "certification": "HRD", "price": 3616}, {"Unnamed: 0": 247, "carat": 0.62, "colour": "I", "clarity": "VVS2", "certification": "HRD", "price": 3615}, {"Unnamed: 0": 248, "carat": 0.64, "colour": "H", "clarity": "VVS2", "certification": "HRD", "price": 3785}, {"Unnamed: 0": 249, "carat": 0.65, "colour": "I", "clarity": "VVS2", "certification": "HRD", "price": 3643}, {"Unnamed: 0": 250, "carat": 0.66, "colour": "H", "clarity": "VVS1", "certification": "HRD", "price": 4300}, {"Unnamed: 0": 251, "carat": 0.7, "colour": "E", "clarity": "VVS1", "certification": "HRD", "price": 6867}, {"Unnamed: 0": 252, "carat": 0.7, "colour": "E", "clarity": "VVS2", "certification": "HRD", "price": 6285}, {"Unnamed: 0": 253, "carat": 0.7, "colour": "G", "clarity": "VVS1", "certification": "HRD", "price": 5800}, {"Unnamed: 0": 254, "carat": 0.7, "colour": "G", "clarity": "VVS2", "certification": "HRD", "price": 5510}, {"Unnamed: 0": 255, "carat": 0.7, "colour": "H", "clarity": "VS2", "certification": "HRD", "price": 4346}, {"Unnamed: 0": 256, "carat": 0.71, "colour": "G", "clarity": "IF", "certification": "HRD", "price": 6372}, {"Unnamed: 0": 257, "carat": 0.71, "colour": "H", "clarity": "VVS2", "certification": "HRD", "price": 5193}, {"Unnamed: 0": 258, "carat": 0.72, "colour": "H", "clarity": "VVS1", "certification": "HRD", "price": 5662}, {"Unnamed: 0": 259, "carat": 0.73, "colour": "F", "clarity": "VS2", "certification": "HRD", "price": 5333}, {"Unnamed: 0": 260, "carat": 0.73, "colour": "G", "clarity": "VVS1", "certification": "HRD", "price": 6041}, {"Unnamed: 0": 261, "carat": 0.74, "colour": "H", "clarity": "VVS1", "certification": "HRD", "price": 5815}, {"Unnamed: 0": 262, "carat": 0.8, "colour": "F", "clarity": "IF", "certification": "HRD", "price": 8611}, {"Unnamed: 0": 263, "carat": 0.8, "colour": "F", "clarity": "VS1", "certification": "HRD", "price": 6905}, {"Unnamed: 0": 264, "carat": 0.8, "colour": "G", "clarity": "VVS2", "certification": "HRD", "price": 6905}, {"Unnamed: 0": 265, "carat": 0.8, "colour": "H", "clarity": "VVS2", "certification": "HRD", "price": 6416}, {"Unnamed: 0": 266, "carat": 0.8, "colour": "H", "clarity": "VS1", "certification": "HRD", "price": 6051}, {"Unnamed: 0": 267, "carat": 0.81, "colour": "E", "clarity": "VVS1", "certification": "HRD", "price": 8715}, {"Unnamed: 0": 268, "carat": 0.81, "colour": "E", "clarity": "VS2", "certification": "HRD", "price": 6988}, {"Unnamed: 0": 269, "carat": 0.81, "colour": "F", "clarity": "VS1", "certification": "HRD", "price": 6988}, {"Unnamed: 0": 270, "carat": 0.81, "colour": "G", "clarity": "VS1", "certification": "HRD", "price": 6495}, {"Unnamed: 0": 271, "carat": 0.81, "colour": "H", "clarity": "IF", "certification": "HRD", "price": 7358}, {"Unnamed: 0": 272, "carat": 0.82, "colour": "F", "clarity": "VS2", "certification": "HRD", "price": 6572}, {"Unnamed: 0": 273, "carat": 0.82, "colour": "G", "clarity": "VVS2", "certification": "HRD", "price": 7072}, {"Unnamed: 0": 274, "carat": 0.85, "colour": "F", "clarity": "VVS1", "certification": "HRD", "price": 8359}, {"Unnamed: 0": 275, "carat": 0.85, "colour": "F", "clarity": "VS2", "certification": "HRD", "price": 6805}, {"Unnamed: 0": 276, "carat": 0.85, "colour": "G", "clarity": "VVS1", "certification": "HRD", "price": 7711}, {"Unnamed: 0": 277, "carat": 0.86, "colour": "H", "clarity": "VS2", "certification": "HRD", "price": 5835}, {"Unnamed: 0": 278, "carat": 1.0, "colour": "D", "clarity": "VVS2", "certification": "HRD", "price": 13775}, {"Unnamed: 0": 279, "carat": 1.0, "colour": "E", "clarity": "VVS1", "certification": "HRD", "price": 14051}, {"Unnamed: 0": 280, "carat": 1.0, "colour": "E", "clarity": "VVS2", "certification": "HRD", "price": 11419}, {"Unnamed: 0": 281, "carat": 1.0, "colour": "E", "clarity": "VS1", "certification": "HRD", "price": 10588}, {"Unnamed: 0": 282, "carat": 1.0, "colour": "F", "clarity": "VVS1", "certification": "HRD", "price": 11696}, {"Unnamed: 0": 283, "carat": 1.0, "colour": "F", "clarity": "VVS2", "certification": "HRD", "price": 10588}, {"Unnamed: 0": 284, "carat": 1.0, "colour": "G", "clarity": "VVS1", "certification": "HRD", "price": 10450}, {"Unnamed: 0": 285, "carat": 1.0, "colour": "G", "clarity": "VVS2", "certification": "HRD", "price": 9896}, {"Unnamed: 0": 286, "carat": 1.0, "colour": "G", "clarity": "VS2", "certification": "HRD", "price": 9203}, {"Unnamed: 0": 287, "carat": 1.0, "colour": "H", "clarity": "VVS1", "certification": "HRD", "price": 9480}, {"Unnamed: 0": 288, "carat": 1.0, "colour": "H", "clarity": "VS1", "certification": "HRD", "price": 9065}, {"Unnamed: 0": 289, "carat": 1.0, "colour": "H", "clarity": "VS2", "certification": "HRD", "price": 8788}, {"Unnamed: 0": 290, "carat": 1.0, "colour": "I", "clarity": "VVS1", "certification": "HRD", "price": 8788}, {"Unnamed: 0": 291, "carat": 1.0, "colour": "I", "clarity": "VVS2", "certification": "HRD", "price": 8372}, {"Unnamed: 0": 292, "carat": 1.0, "colour": "I", "clarity": "VS1", "certification": "HRD", "price": 8095}, {"Unnamed: 0": 293, "carat": 1.0, "colour": "I", "clarity": "VS2", "certification": "HRD", "price": 7818}, {"Unnamed: 0": 294, "carat": 1.01, "colour": "D", "clarity": "VVS2", "certification": "HRD", "price": 13909}, {"Unnamed: 0": 295, "carat": 1.01, "colour": "E", "clarity": "VVS2", "certification": "HRD", "price": 11531}, {"Unnamed: 0": 296, "carat": 1.01, "colour": "E", "clarity": "VS1", "certification": "HRD", "price": 10692}, {"Unnamed: 0": 297, "carat": 1.01, "colour": "F", "clarity": "VVS1", "certification": "HRD", "price": 11811}, {"Unnamed: 0": 298, "carat": 1.01, "colour": "F", "clarity": "VS1", "certification": "HRD", "price": 10272}, {"Unnamed: 0": 299, "carat": 1.01, "colour": "G", "clarity": "VVS2", "certification": "HRD", "price": 9993}, {"Unnamed: 0": 300, "carat": 1.01, "colour": "G", "clarity": "VS2", "certification": "HRD", "price": 9293}, {"Unnamed: 0": 301, "carat": 1.01, "colour": "H", "clarity": "VVS2", "certification": "HRD", "price": 9433}, {"Unnamed: 0": 302, "carat": 1.01, "colour": "H", "clarity": "VS1", "certification": "HRD", "price": 9153}, {"Unnamed: 0": 303, "carat": 1.01, "colour": "I", "clarity": "VVS1", "certification": "HRD", "price": 8873}, {"Unnamed: 0": 304, "carat": 1.01, "colour": "I", "clarity": "VS1", "certification": "HRD", "price": 8175}, {"Unnamed: 0": 305, "carat": 1.02, "colour": "F", "clarity": "VVS2", "certification": "HRD", "price": 10796}, {"Unnamed: 0": 306, "carat": 1.06, "colour": "H", "clarity": "VVS2", "certification": "HRD", "price": 9890}, {"Unnamed: 0": 307, "carat": 1.02, "colour": "H", "clarity": "VS2", "certification": "HRD", "price": 8959}, {"Unnamed: 0": 308, "carat": 1.09, "colour": "I", "clarity": "VVS2", "certification": "HRD", "price": 9107}]}}, {"mode": "vega-lite"});
 </script></div></div>
 </div>
-</div>
-<div class="section" id="plotly">
-<h2>Plotly<a class="headerlink" href="#plotly" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="plotly">
+<h2>Plotly<a class="headerlink" href="#plotly" title="Permalink to this headline">#</a></h2>
 <p><a class="reference external" href="https://plotly.com/">Plotly</a> is also a very popular library. It is in particular widely used to create interactive dashboards running on a server. The principles are again the same as for seaborn plotting:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -552,8 +635,8 @@ if (outputEl) {{
 </body>
 </html></div></div>
 </div>
-</div>
-</div>
+</section>
+</section>
 
     <script type="text/x-thebe-config">
     {
@@ -577,9 +660,11 @@ if (outputEl) {{
 
               </div>
               
-            
-                <!-- Previous / next buttons -->
-<div class='prev-next-area'> 
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
     <a class='left-prev' id="prev-link" href="17-Matplotlib_annotations.html" title="previous page">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
@@ -595,24 +680,28 @@ if (outputEl) {{
     <i class="fas fa-angle-right"></i>
     </a>
 </div>
-            
+            </footer>
         </div>
     </div>
-    <footer class="footer">
-  <p>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By Guillaume Witz<br/>
+  
+      &copy; Copyright 2022.<br/>
+</p>
+        </footer>
+    </div>
     
-      By Guillaume Witz<br/>
-    
-        &copy; Copyright 2021.<br/>
-  </p>
-</footer>
-</main>
+</div>
 
 
       </div>
     </div>
   
-  <script src="_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
 
   </body>
 </html>
