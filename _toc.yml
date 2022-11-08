@@ -1,8 +1,7 @@
 format: jb-book
 root: Readme
 chapters:
-- file: 00-Introduction
-- file: 01-Intro_Pandas_Numpy
+- file: 01-Introduction
 - file: 02-Numpy_arrays
 - file: 03-Numpy_maths
 - file: 04-Numpy_indexing
