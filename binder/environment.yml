@@ -2,26 +2,23 @@ name: DAVPy
 channels:
   - conda-forge
 dependencies:
+  - python=3.10
   - numpy
   - matplotlib
   - pandas
   - scikit-learn
   - scikit-image
   - statsmodels
-  - jupyter
   - jupyterlab
   - seaborn
-  - altair
-  - pip
   - ipywidgets
+  - pip
   - pip:
     - plotnine
     - plotly
     - xlrd
-    - ipydatagrid
+    - openpyxl
     - lckr-jupyterlab-variableinspector
     - jupyterlab-spellchecker
-    - openpyxl
-    - ipympl
     - requests
     - microfilm
