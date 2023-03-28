@@ -1,4 +1,4 @@
-name: DAVPy
+name: DAVPy2023
 channels:
   - conda-forge
 dependencies:
@@ -13,12 +13,12 @@ dependencies:
   - seaborn
   - ipywidgets
   - pip
+  - plotnine
+  - altair
   - pip:
-    - plotnine
     - plotly
-    - xlrd
     - openpyxl
-    - lckr-jupyterlab-variableinspector
-    - jupyterlab-spellchecker
     - requests
     - microfilm
+    #- lckr-jupyterlab-variableinspector
+    #- jupyterlab-spellchecker
