@@ -1,0 +1,1048 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>19. Data analysis &#8212; Introduction to Data Analysis and Visualization with Python</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=12da95d707ffb74b382d" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=12da95d707ffb74b382d" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=12da95d707ffb74b382d" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=12da95d707ffb74b382d" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=12da95d707ffb74b382d" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=12da95d707ffb74b382d" />
+
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = '20-scipy_statsmodels';</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="20. scikit-learn" href="21-scikit-learn.html" />
+    <link rel="prev" title="18. Other libraries" href="19-Alternatives.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="Readme.html">
+  
+  
+  
+  
+  
+    <p class="title logo__title">Introduction to Data Analysis and Visualization with Python</p>
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="Readme.html">
+                    Introduction to Data Analysis and Visualization with Python
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="01-Introduction.html">00. Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="02-Numpy_arrays.html">2. Numpy arrays</a></li>
+<li class="toctree-l1"><a class="reference internal" href="03-Numpy_maths.html">3. Numpy for mathematics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="04-Numpy_indexing.html">4. Numpy indexing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="05-Minimal_plotting.html">5. Minimal plotting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="06-Images_as_arrays.html">6. Images as arrays</a></li>
+<li class="toctree-l1"><a class="reference internal" href="07-Back_to_Pandas.html">6. Back to Pandas</a></li>
+<li class="toctree-l1"><a class="reference internal" href="08-Operate_on_DataFrames.html">7. Operating on DataFrames</a></li>
+<li class="toctree-l1"><a class="reference internal" href="09-DataFrame_indexing.html">8. DataFrame indexing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="10-Pandas_combine.html">9. Combining and grouping DataFrames</a></li>
+<li class="toctree-l1"><a class="reference internal" href="11-Real_world.html">10. Real-world problems and additional topics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="12-Matplotlib_content.html">11. Matplotlib: data content</a></li>
+<li class="toctree-l1"><a class="reference internal" href="13-Matplotlib_non_data_elements.html">12. Matplotlib: adjusting non-data elements</a></li>
+<li class="toctree-l1"><a class="reference internal" href="14-Seaborn_concept.html">13. Seaborn introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="15-Seaborn_distributions_relations.html">14. Seaborn: distributions and relations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="16-Seaborn_regression.html">15. Regression</a></li>
+<li class="toctree-l1"><a class="reference internal" href="17-Matplotlib_statistics.html">16. Matplotlib statistics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="18-Matplotlib_annotations.html">17. Legends and Annotations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="19-Alternatives.html">18. Other libraries</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">19. Data analysis</a></li>
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="21-scikit-learn.html">20. scikit-learn</a></li>
+<li class="toctree-l1"><a class="reference internal" href="22-Image_processing.html">21. Image processing</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/20-scipy_statsmodels.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  </button>
+`);
+</script>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>19. Data analysis</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">19. Data analysis</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#scipy">SciPy</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#optimization">Optimization</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#signal-processing">Signal processing</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#statsmodels">statsmodels</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ordinary-least-squares">Ordinary Least Squares</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#with-functions">With functions</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise">Exercise</a></li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <section id="data-analysis">
+<h1>19. Data analysis<a class="headerlink" href="#data-analysis" title="Permalink to this heading">#</a></h1>
+<p>We have seen some elements of data analysis in the previous chapters. For example, we have seen how to extract basic statistics from DataFrames or how to add some regression analysis to plots in seaborn. Here we extend this exploratory analysis and present how true modelling can be performed using SciPy and StatsModels.</p>
+</section>
+<section id="scipy">
+<h1>SciPy<a class="headerlink" href="#scipy" title="Permalink to this heading">#</a></h1>
+<p>Scipy is one of the core packages of the scientific Python ecosystem. It underlies many other domain-specific packages such as as scikit-image (Computer Vision) and implements a large number of complex numerical methods or offers an interface to existing efficient methods (LAPACK, BLAS). Here we only give a few simple examples of the possibilities offered by the package.</p>
+<section id="optimization">
+<h2>Optimization<a class="headerlink" href="#optimization" title="Permalink to this heading">#</a></h2>
+<p>Optimization is generally speaking the search for the values of parameters of a function. Typically in data analysis it is used to find the parameters best describing a dataset. Let’s say we have measurements <span class="math notranslate nohighlight">\(y_i\)</span> at positions <span class="math notranslate nohighlight">\(x_i\)</span> and a model <span class="math notranslate nohighlight">\(f(x, a)\)</span>, our goal is to minimize the distance between the values <span class="math notranslate nohighlight">\(y_i\)</span> and the predicted values <span class="math notranslate nohighlight">\(y = f(x_i)\)</span>, for example by computing <span class="math notranslate nohighlight">\(g(a) = \sum{(f(x_i, a) -y_i)^2}\)</span> and then minimizing <span class="math notranslate nohighlight">\(\min\limits_{a} g(a)\)</span>.</p>
+<p>Coming back to our diamonds dataset, we can for example try to create a model for the price vs. carat relation:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+<span class="kn">import</span> <span class="nn">scipy.optimize</span>
+
+<span class="n">diams</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;https://raw.githubusercontent.com/vincentarelbundock/Rdatasets/master/csv/Ecdat/Diamond.csv&#39;</span><span class="p">,</span> <span class="n">index_col</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">scatterplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">diams</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s1">&#39;carat&#39;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">&#39;price&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/0f9421df9aabc1d916edfce06d72c621746fa29271eb192f39c05810a7a0d4a6.png" src="_images/0f9421df9aabc1d916edfce06d72c621746fa29271eb192f39c05810a7a0d4a6.png" />
+</div>
+</div>
+<p>We can define our model as a function. Let’s try a simple line:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">fun_line</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">a</span> <span class="o">*</span> <span class="n">x</span> <span class="o">+</span> <span class="n">b</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Now we can directly use the <code class="docutils literal notranslate"><span class="pre">curve_fit</span></code> function to fit our data. We only need to specify the function, which should take as first parameter the independent variable <code class="docutils literal notranslate"><span class="pre">x</span></code> and then the fitting parameters, and the actual data <span class="math notranslate nohighlight">\(x_i\)</span>, <span class="math notranslate nohighlight">\(y_i\)</span>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fit_params</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">scipy</span><span class="o">.</span><span class="n">optimize</span><span class="o">.</span><span class="n">curve_fit</span><span class="p">(</span><span class="n">fun_line</span><span class="p">,</span> <span class="n">diams</span><span class="o">.</span><span class="n">carat</span><span class="p">,</span> <span class="n">diams</span><span class="o">.</span><span class="n">price</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fit_params</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([11598.88403958, -2298.35762217])
+</pre></div>
+</div>
+</div>
+</div>
+<p>As output we get the best guess for the fit. The <code class="docutils literal notranslate"><span class="pre">curve_fit</span></code> can take <strong>many</strong> additional options for more complex cases. For example you can choose the specific optimization method from an extensive list, specify constraints, initial parameters etc.</p>
+<p>Let’s check the quality of the fit:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ax</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">scatterplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">diams</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s1">&#39;carat&#39;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">&#39;price&#39;</span><span class="p">);</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mf">0.1</span><span class="p">,</span> <span class="mf">1.2</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">),</span> <span class="n">fun_line</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mf">0.1</span><span class="p">,</span> <span class="mf">1.2</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">),</span> <span class="o">*</span><span class="n">fit_params</span><span class="p">),</span> <span class="s1">&#39;r-&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/054d73e9b5972e4601fca8a0f6227a9ccfb889e4f711385a4189b8b281fb0079.png" src="_images/054d73e9b5972e4601fca8a0f6227a9ccfb889e4f711385a4189b8b281fb0079.png" />
+</div>
+</div>
+</section>
+</section>
+<section id="signal-processing">
+<h1>Signal processing<a class="headerlink" href="#signal-processing" title="Permalink to this heading">#</a></h1>
+<p>SciPy offers an entire module dedicated to signal processing where you can find a large variety of function for filtering, splines, Fourier transforms etc. For example if you have a signal corrupted by additive noise you can use the Wiener filter out of the box. Let’s create some artificial noisy data:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x_vect</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">20</span><span class="p">,</span><span class="mf">0.1</span><span class="p">)</span>
+<span class="n">y_vect</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">x_vect</span><span class="p">)</span> <span class="o">+</span> <span class="mf">0.5</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">x_vect</span><span class="p">))</span>
+
+<span class="n">sns</span><span class="o">.</span><span class="n">lineplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">x_vect</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="n">y_vect</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;data&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/4289cddaa37d0f192905643b82eb020ff3c05ce53da50e761d11a6fb07fe41fa.png" src="_images/4289cddaa37d0f192905643b82eb020ff3c05ce53da50e761d11a6fb07fe41fa.png" />
+</div>
+</div>
+<p>Now we create a filtered version of the data using the Wiener filter:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">scipy.signal</span>
+
+<span class="n">filterd_y</span> <span class="o">=</span> <span class="n">scipy</span><span class="o">.</span><span class="n">signal</span><span class="o">.</span><span class="n">wiener</span><span class="p">(</span><span class="n">y_vect</span><span class="p">,</span> <span class="mi">20</span><span class="p">)</span>
+<span class="n">ax</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">lineplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">x_vect</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="n">y_vect</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;data&#39;</span><span class="p">)</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">lineplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">x_vect</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="n">filterd_y</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;filtered&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/cd8d8526833c067f3bbaace75514fcbfca5ae293f3547875b260a0283705f6a0.png" src="_images/cd8d8526833c067f3bbaace75514fcbfca5ae293f3547875b260a0283705f6a0.png" />
+</div>
+</div>
+<p>The package contains also useful analysis functions e.g. to find peaks in a signal. For example, let’s try to find peaks in our noisy signal above:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">peaks</span><span class="p">,</span> <span class="n">props</span> <span class="o">=</span> <span class="n">scipy</span><span class="o">.</span><span class="n">signal</span><span class="o">.</span><span class="n">find_peaks</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">y_vect</span><span class="p">)</span> 
+</pre></div>
+</div>
+</div>
+</div>
+<p>What is returned here is a list of indices where a local maximum was found. We can use that list to plot them:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ax</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">lineplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">x_vect</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="n">y_vect</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;data&#39;</span><span class="p">)</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">scatterplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">x_vect</span><span class="p">[</span><span class="n">peaks</span><span class="p">],</span> <span class="n">y</span><span class="o">=</span><span class="n">y_vect</span><span class="p">[</span><span class="n">peaks</span><span class="p">],</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;peaks&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/751a1cbb631cc2583503d622c90442a55af4224c6a7ff47ac780c96cdead6aeb.png" src="_images/751a1cbb631cc2583503d622c90442a55af4224c6a7ff47ac780c96cdead6aeb.png" />
+</div>
+</div>
+<p>We can then use options proposed in the function to improve the results. For example we can set a window within which to search for local maxima and a minimal height:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">peaks</span><span class="p">,</span> <span class="n">props</span> <span class="o">=</span> <span class="n">scipy</span><span class="o">.</span><span class="n">signal</span><span class="o">.</span><span class="n">find_peaks</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">y_vect</span><span class="p">,</span> <span class="n">distance</span><span class="o">=</span><span class="mi">30</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">ax</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">lineplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">x_vect</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="n">y_vect</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;data&#39;</span><span class="p">)</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">scatterplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">x_vect</span><span class="p">[</span><span class="n">peaks</span><span class="p">],</span> <span class="n">y</span><span class="o">=</span><span class="n">y_vect</span><span class="p">[</span><span class="n">peaks</span><span class="p">],</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;peaks&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/00666828ffebabb8eecc58ab5713d84966fc8af52bc7d564e645853150bdb96e.png" src="_images/00666828ffebabb8eecc58ab5713d84966fc8af52bc7d564e645853150bdb96e.png" />
+</div>
+</div>
+</section>
+<section id="statsmodels">
+<h1>statsmodels<a class="headerlink" href="#statsmodels" title="Permalink to this heading">#</a></h1>
+<p>The statsmodels package is entirely dedicated to regression, statistical analysis and test. Of course it partially overlaps with other packages (for example curve fitting in SciPy), but it provides in a simple way standard statistical information not readily available otherwise.</p>
+<section id="ordinary-least-squares">
+<h2>Ordinary Least Squares<a class="headerlink" href="#ordinary-least-squares" title="Permalink to this heading">#</a></h2>
+<p>OLS allow one to fit linear models (liner in the coefficients) to datasets and estimate the quality of the fit. For example we can perform the same fit as we did above for the price vs. carat data. First we load the main module:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">statsmodels.api</span> <span class="k">as</span> <span class="nn">sm</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>For our fit, we need now to provide a dependent (price) and an independent variable (carat). Our model does not necessarily reduce to a <em>simple linear model</em> but could have dependencies on multiple variables. All variables can be passed to the fitting model as Pandas DataFrames or Series. For the start let’s just use price and carat in our OLS model:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">model</span> <span class="o">=</span> <span class="n">sm</span><span class="o">.</span><span class="n">OLS</span><span class="p">(</span><span class="n">diams</span><span class="o">.</span><span class="n">price</span><span class="p">,</span> <span class="n">diams</span><span class="o">.</span><span class="n">carat</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>This returns a <code class="docutils literal notranslate"><span class="pre">model</span></code> object (similarly to scikit-learn), and now we have to <em>execute</em> the fit:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">res</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">fit</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>The <code class="docutils literal notranslate"><span class="pre">res</span></code> object contains all the information about our fit. In particular we can have a look at a summary:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">res</span><span class="o">.</span><span class="n">summary</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><table class="simpletable">
+<caption>OLS Regression Results</caption>
+<tr>
+  <th>Dep. Variable:</th>          <td>price</td>      <th>  R-squared (uncentered):</th>      <td>   0.943</td> 
+</tr>
+<tr>
+  <th>Model:</th>                   <td>OLS</td>       <th>  Adj. R-squared (uncentered):</th> <td>   0.943</td> 
+</tr>
+<tr>
+  <th>Method:</th>             <td>Least Squares</td>  <th>  F-statistic:       </th>          <td>   5081.</td> 
+</tr>
+<tr>
+  <th>Date:</th>             <td>Tue, 28 Mar 2023</td> <th>  Prob (F-statistic):</th>          <td>4.65e-193</td>
+</tr>
+<tr>
+  <th>Time:</th>                 <td>10:46:27</td>     <th>  Log-Likelihood:    </th>          <td> -2678.4</td> 
+</tr>
+<tr>
+  <th>No. Observations:</th>      <td>   308</td>      <th>  AIC:               </th>          <td>   5359.</td> 
+</tr>
+<tr>
+  <th>Df Residuals:</th>          <td>   307</td>      <th>  BIC:               </th>          <td>   5362.</td> 
+</tr>
+<tr>
+  <th>Df Model:</th>              <td>     1</td>      <th>                     </th>              <td> </td>    
+</tr>
+<tr>
+  <th>Covariance Type:</th>      <td>nonrobust</td>    <th>                     </th>              <td> </td>    
+</tr>
+</table>
+<table class="simpletable">
+<tr>
+    <td></td>       <th>coef</th>     <th>std err</th>      <th>t</th>      <th>P>|t|</th>  <th>[0.025</th>    <th>0.975]</th>  
+</tr>
+<tr>
+  <th>carat</th> <td> 8543.7399</td> <td>  119.855</td> <td>   71.284</td> <td> 0.000</td> <td> 8307.899</td> <td> 8779.581</td>
+</tr>
+</table>
+<table class="simpletable">
+<tr>
+  <th>Omnibus:</th>       <td>173.273</td> <th>  Durbin-Watson:     </th> <td>   0.734</td> 
+</tr>
+<tr>
+  <th>Prob(Omnibus):</th> <td> 0.000</td>  <th>  Jarque-Bera (JB):  </th> <td>1029.681</td> 
+</tr>
+<tr>
+  <th>Skew:</th>          <td> 2.348</td>  <th>  Prob(JB):          </th> <td>2.56e-224</td>
+</tr>
+<tr>
+  <th>Kurtosis:</th>      <td>10.627</td>  <th>  Cond. No.          </th> <td>    1.00</td> 
+</tr>
+</table><br/><br/>Notes:<br/>[1] R² is computed without centering (uncentered) since the model does not contain a constant.<br/>[2] Standard Errors assume that the covariance matrix of the errors is correctly specified.</div></div>
+</div>
+<p>We can alos use the fitting information to generate a plot e.g. by using the <code class="docutils literal notranslate"><span class="pre">predict</span></code> method:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">diams</span><span class="o">.</span><span class="n">carat</span><span class="p">,</span> <span class="n">diams</span><span class="o">.</span><span class="n">price</span><span class="p">,</span> <span class="s2">&quot;b.&quot;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;data&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mf">0.1</span><span class="p">,</span><span class="mf">1.25</span><span class="p">,</span><span class="mf">0.1</span><span class="p">),</span> <span class="n">res</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mf">0.1</span><span class="p">,</span><span class="mf">1.25</span><span class="p">,</span><span class="mf">0.1</span><span class="p">)),</span> <span class="s2">&quot;r-&quot;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;OLS&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x15327c790&gt;
+</pre></div>
+</div>
+<img alt="_images/7a98ee126635625b3f9f2f9263191040676f33a85ae9a06a963705c97ecbc4dc.png" src="_images/7a98ee126635625b3f9f2f9263191040676f33a85ae9a06a963705c97ecbc4dc.png" />
+</div>
+</div>
+<p>We see that our model is too high. The reason for this is that at the moment, our model is simply <span class="math notranslate nohighlight">\(y=a*x\)</span> and thus the intercept is at 0. We can add an intercept to the model by adding a constant column to our independent variables:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">indep_var</span> <span class="o">=</span> <span class="n">sm</span><span class="o">.</span><span class="n">add_constant</span><span class="p">(</span><span class="n">diams</span><span class="o">.</span><span class="n">carat</span><span class="p">,</span> <span class="n">prepend</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="n">indep_var</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>carat</th>
+      <th>const</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>1</th>
+      <td>0.30</td>
+      <td>1.0</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>0.30</td>
+      <td>1.0</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>0.30</td>
+      <td>1.0</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>0.30</td>
+      <td>1.0</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>0.31</td>
+      <td>1.0</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>Now we can fit again. Note that for the prediction, we need to create an array (or dataframe) with the correct dimensions, here two columns, one for the carat, the other for the constant.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">model</span> <span class="o">=</span> <span class="n">sm</span><span class="o">.</span><span class="n">OLS</span><span class="p">(</span><span class="n">diams</span><span class="o">.</span><span class="n">price</span><span class="p">,</span> <span class="n">indep_var</span><span class="p">)</span>
+<span class="n">res</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">fit</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">diams</span><span class="o">.</span><span class="n">carat</span><span class="p">,</span> <span class="n">diams</span><span class="o">.</span><span class="n">price</span><span class="p">,</span> <span class="s2">&quot;b.&quot;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;data&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mf">0.1</span><span class="p">,</span><span class="mf">1.25</span><span class="p">,</span><span class="mi">10</span><span class="p">),</span> <span class="n">res</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">column_stack</span><span class="p">((</span><span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mf">0.1</span><span class="p">,</span><span class="mf">1.25</span><span class="p">,</span><span class="mi">10</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="mi">10</span><span class="p">)))),</span> <span class="s2">&quot;r-&quot;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;OLS&quot;</span><span class="p">);</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">();</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/4add39d77ca7a5f4c114c7cece5807ed147d7b9f4deec3b91f47ec98b251033a.png" src="_images/4add39d77ca7a5f4c114c7cece5807ed147d7b9f4deec3b91f47ec98b251033a.png" />
+</div>
+</div>
+<p>Finally, we can try to use a more complex model. Remember that we have a linear model in the <em>coefficients</em> but we can use a more complex model like <span class="math notranslate nohighlight">\(y = a * x + b * x^2 + c\)</span>. For this we add ourselves a quadratic variable in the table:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">indep_var</span><span class="p">[</span><span class="s1">&#39;sq&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">diams</span><span class="o">.</span><span class="n">carat</span><span class="o">**</span><span class="mi">2</span>
+<span class="n">indep_var</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>carat</th>
+      <th>const</th>
+      <th>sq</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>1</th>
+      <td>0.30</td>
+      <td>1.0</td>
+      <td>0.0900</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>0.30</td>
+      <td>1.0</td>
+      <td>0.0900</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>0.30</td>
+      <td>1.0</td>
+      <td>0.0900</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>0.30</td>
+      <td>1.0</td>
+      <td>0.0900</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>0.31</td>
+      <td>1.0</td>
+      <td>0.0961</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">model</span> <span class="o">=</span> <span class="n">sm</span><span class="o">.</span><span class="n">OLS</span><span class="p">(</span><span class="n">diams</span><span class="o">.</span><span class="n">price</span><span class="p">,</span> <span class="n">indep_var</span><span class="p">)</span>
+<span class="n">res</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">fit</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">diams</span><span class="o">.</span><span class="n">carat</span><span class="p">,</span> <span class="n">diams</span><span class="o">.</span><span class="n">price</span><span class="p">,</span> <span class="s2">&quot;b.&quot;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;data&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mf">0.1</span><span class="p">,</span><span class="mf">1.25</span><span class="p">,</span><span class="mi">10</span><span class="p">),</span> <span class="n">res</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">column_stack</span><span class="p">((</span><span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mf">0.1</span><span class="p">,</span><span class="mf">1.25</span><span class="p">,</span><span class="mi">10</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="mi">10</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mf">0.1</span><span class="p">,</span><span class="mf">1.25</span><span class="p">,</span><span class="mi">10</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="p">))),</span> <span class="s2">&quot;r-&quot;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;OLS&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">();</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/32d7e96637ba4afce558cb8c3081044770fc54a802ac37ff749e63d7e8b73ecd.png" src="_images/32d7e96637ba4afce558cb8c3081044770fc54a802ac37ff749e63d7e8b73ecd.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">res</span><span class="o">.</span><span class="n">summary</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><table class="simpletable">
+<caption>OLS Regression Results</caption>
+<tr>
+  <th>Dep. Variable:</th>          <td>price</td>      <th>  R-squared:         </th> <td>   0.911</td> 
+</tr>
+<tr>
+  <th>Model:</th>                   <td>OLS</td>       <th>  Adj. R-squared:    </th> <td>   0.911</td> 
+</tr>
+<tr>
+  <th>Method:</th>             <td>Least Squares</td>  <th>  F-statistic:       </th> <td>   1565.</td> 
+</tr>
+<tr>
+  <th>Date:</th>             <td>Tue, 28 Mar 2023</td> <th>  Prob (F-statistic):</th> <td>4.29e-161</td>
+</tr>
+<tr>
+  <th>Time:</th>                 <td>10:46:42</td>     <th>  Log-Likelihood:    </th> <td> -2568.4</td> 
+</tr>
+<tr>
+  <th>No. Observations:</th>      <td>   308</td>      <th>  AIC:               </th> <td>   5143.</td> 
+</tr>
+<tr>
+  <th>Df Residuals:</th>          <td>   305</td>      <th>  BIC:               </th> <td>   5154.</td> 
+</tr>
+<tr>
+  <th>Df Model:</th>              <td>     2</td>      <th>                     </th>     <td> </td>    
+</tr>
+<tr>
+  <th>Covariance Type:</th>      <td>nonrobust</td>    <th>                     </th>     <td> </td>    
+</tr>
+</table>
+<table class="simpletable">
+<tr>
+    <td></td>       <th>coef</th>     <th>std err</th>      <th>t</th>      <th>P>|t|</th>  <th>[0.025</th>    <th>0.975]</th>  
+</tr>
+<tr>
+  <th>carat</th> <td> 2786.0994</td> <td> 1119.615</td> <td>    2.488</td> <td> 0.013</td> <td>  582.953</td> <td> 4989.246</td>
+</tr>
+<tr>
+  <th>const</th> <td>  -42.5072</td> <td>  316.369</td> <td>   -0.134</td> <td> 0.893</td> <td> -665.050</td> <td>  580.036</td>
+</tr>
+<tr>
+  <th>sq</th>    <td> 6961.7059</td> <td>  868.825</td> <td>    8.013</td> <td> 0.000</td> <td> 5252.055</td> <td> 8671.357</td>
+</tr>
+</table>
+<table class="simpletable">
+<tr>
+  <th>Omnibus:</th>       <td>178.954</td> <th>  Durbin-Watson:     </th> <td>   1.443</td>
+</tr>
+<tr>
+  <th>Prob(Omnibus):</th> <td> 0.000</td>  <th>  Jarque-Bera (JB):  </th> <td>1680.735</td>
+</tr>
+<tr>
+  <th>Skew:</th>          <td> 2.232</td>  <th>  Prob(JB):          </th> <td>    0.00</td>
+</tr>
+<tr>
+  <th>Kurtosis:</th>      <td>13.538</td>  <th>  Cond. No.          </th> <td>    32.4</td>
+</tr>
+</table><br/><br/>Notes:<br/>[1] Standard Errors assume that the covariance matrix of the errors is correctly specified.</div></div>
+</div>
+</section>
+<section id="with-functions">
+<h2>With functions<a class="headerlink" href="#with-functions" title="Permalink to this heading">#</a></h2>
+<p>We can achieve the same results as above by explicitly defining a function using the ols submodule similarly to what you can do in the R world:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">statsmodels.formula.api</span> <span class="kn">import</span> <span class="n">ols</span>
+
+<span class="n">res</span> <span class="o">=</span> <span class="n">ols</span><span class="p">(</span><span class="s2">&quot;price ~  carat + I(carat**2)&quot;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">diams</span><span class="p">)</span><span class="o">.</span><span class="n">fit</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">diams</span><span class="o">.</span><span class="n">carat</span><span class="p">,</span> <span class="n">diams</span><span class="o">.</span><span class="n">price</span><span class="p">,</span> <span class="s2">&quot;b.&quot;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;data&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mf">0.1</span><span class="p">,</span><span class="mf">1.25</span><span class="p">,</span><span class="mi">10</span><span class="p">),</span> <span class="n">res</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">column_stack</span><span class="p">((</span><span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="mi">10</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mf">0.1</span><span class="p">,</span><span class="mf">1.25</span><span class="p">,</span><span class="mi">10</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mf">0.1</span><span class="p">,</span><span class="mf">1.25</span><span class="p">,</span><span class="mi">10</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="p">)),</span> <span class="n">transform</span><span class="o">=</span><span class="kc">False</span><span class="p">),</span> <span class="s2">&quot;r-&quot;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;OLS&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">();</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/32d7e96637ba4afce558cb8c3081044770fc54a802ac37ff749e63d7e8b73ecd.png" src="_images/32d7e96637ba4afce558cb8c3081044770fc54a802ac37ff749e63d7e8b73ecd.png" />
+</div>
+</div>
+<p>Now that we have a fit, we can check for its quality. For example, we can have a look at the residuals:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">diams</span><span class="o">.</span><span class="n">carat</span><span class="p">,</span> <span class="n">res</span><span class="o">.</span><span class="n">resid</span><span class="p">,</span><span class="s1">&#39;o&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/1ba4270d1adb14c4a25b0d33c2504ddf77b3871612dcb39cf63c74fa85bb6971.png" src="_images/1ba4270d1adb14c4a25b0d33c2504ddf77b3871612dcb39cf63c74fa85bb6971.png" />
+</div>
+</div>
+<p>The package also offers a stats module that contains a large collection of statistical test. For example we can check whether our residuals are distributed following a normal distribution using the Jarque-Bera test:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">statsmodels.stats.api</span> <span class="k">as</span> <span class="nn">sms</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">test</span> <span class="o">=</span> <span class="n">sms</span><span class="o">.</span><span class="n">jarque_bera</span><span class="p">(</span><span class="n">res</span><span class="o">.</span><span class="n">resid</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">test</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(1680.7354277013305, 0.0, 2.2315668112919496, 13.537876220126195)
+</pre></div>
+</div>
+</div>
+</div>
+<p>This is just a very short introduction to statstmodels which contains many more models, tools for times series analysis, advanced statistics, tools for plots etc.</p>
+</section>
+</section>
+<section id="exercise">
+<h1>Exercise<a class="headerlink" href="#exercise" title="Permalink to this heading">#</a></h1>
+<ol class="arabic simple">
+<li><p>Use <code class="docutils literal notranslate"><span class="pre">scipy.optimize.curve_fit</span></code> to fit now a parabola (with a <span class="math notranslate nohighlight">\(x^2\)</span> term) to the price vs. carat data. Import the data with:</p></li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="n">diams</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;https://raw.githubusercontent.com/vincentarelbundock/Rdatasets/master/csv/Ecdat/Diamond.csv&#39;</span><span class="p">,</span> <span class="n">index_col</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<ol class="arabic simple" start="2">
+<li><p>You are given the noise data below. Try to find the local <em>minima</em> by first without then with filtering the data with a Wiener filter.</p></li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x_vect</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">20</span><span class="p">,</span><span class="mf">0.1</span><span class="p">)</span>
+<span class="n">y_vect</span> <span class="o">=</span> <span class="mi">2</span><span class="o">*</span><span class="n">x_vect</span> <span class="o">+</span> <span class="mi">3</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">x_vect</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">x_vect</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<ol class="arabic simple" start="3">
+<li><p>Try to do an ordinary least square fit of the signal knowing there’s a <code class="docutils literal notranslate"><span class="pre">cos</span></code> component:</p></li>
+</ol>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+                <footer class="bd-footer-article">
+                  <!-- Previous / next buttons -->
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="19-Alternatives.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">18. Other libraries</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="21-scikit-learn.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">20. scikit-learn</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">19. Data analysis</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#scipy">SciPy</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#optimization">Optimization</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#signal-processing">Signal processing</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#statsmodels">statsmodels</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ordinary-least-squares">Ordinary Least Squares</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#with-functions">With functions</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise">Exercise</a></li>
+</ul>
+
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            <div class="bd-footer-content__inner">
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Guillaume Witz
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2022.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div></div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=12da95d707ffb74b382d"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=12da95d707ffb74b382d"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

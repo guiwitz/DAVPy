@@ -1,0 +1,2174 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>6. Back to Pandas &#8212; Introduction to Data Analysis and Visualization with Python</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=12da95d707ffb74b382d" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=12da95d707ffb74b382d" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=12da95d707ffb74b382d" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=12da95d707ffb74b382d" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=12da95d707ffb74b382d" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=12da95d707ffb74b382d" />
+
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = '07-Back_to_Pandas';</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="7. Operating on DataFrames" href="08-Operate_on_DataFrames.html" />
+    <link rel="prev" title="6. Images as arrays" href="06-Images_as_arrays.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="Readme.html">
+  
+  
+  
+  
+  
+    <p class="title logo__title">Introduction to Data Analysis and Visualization with Python</p>
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="Readme.html">
+                    Introduction to Data Analysis and Visualization with Python
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="01-Introduction.html">00. Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="02-Numpy_arrays.html">2. Numpy arrays</a></li>
+<li class="toctree-l1"><a class="reference internal" href="03-Numpy_maths.html">3. Numpy for mathematics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="04-Numpy_indexing.html">4. Numpy indexing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="05-Minimal_plotting.html">5. Minimal plotting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="06-Images_as_arrays.html">6. Images as arrays</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">6. Back to Pandas</a></li>
+<li class="toctree-l1"><a class="reference internal" href="08-Operate_on_DataFrames.html">7. Operating on DataFrames</a></li>
+<li class="toctree-l1"><a class="reference internal" href="09-DataFrame_indexing.html">8. DataFrame indexing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="10-Pandas_combine.html">9. Combining and grouping DataFrames</a></li>
+<li class="toctree-l1"><a class="reference internal" href="11-Real_world.html">10. Real-world problems and additional topics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="12-Matplotlib_content.html">11. Matplotlib: data content</a></li>
+<li class="toctree-l1"><a class="reference internal" href="13-Matplotlib_non_data_elements.html">12. Matplotlib: adjusting non-data elements</a></li>
+<li class="toctree-l1"><a class="reference internal" href="14-Seaborn_concept.html">13. Seaborn introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="15-Seaborn_distributions_relations.html">14. Seaborn: distributions and relations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="16-Seaborn_regression.html">15. Regression</a></li>
+<li class="toctree-l1"><a class="reference internal" href="17-Matplotlib_statistics.html">16. Matplotlib statistics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="18-Matplotlib_annotations.html">17. Legends and Annotations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="19-Alternatives.html">18. Other libraries</a></li>
+<li class="toctree-l1"><a class="reference internal" href="20-scipy_statsmodels.html">19. Data analysis</a></li>
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="21-scikit-learn.html">20. scikit-learn</a></li>
+<li class="toctree-l1"><a class="reference internal" href="22-Image_processing.html">21. Image processing</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/07-Back_to_Pandas.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  </button>
+`);
+</script>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>6. Back to Pandas</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#creating-dataframes">Creating Dataframes</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#from-a-numpy-array">From a Numpy array</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#from-a-dictionary">From a dictionary</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#index-and-column">Index and column</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#changing-indices">Changing indices</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#adding-columns">Adding columns</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#droping-items">Droping items</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#importing-data">Importing data</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#setting-indices">Setting indices</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#skipping-rows">Skipping rows</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#format-specific-options">Format-specific options</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#saving-tables">Saving tables</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercises">Exercises</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="back-to-pandas">
+<h1>6. Back to Pandas<a class="headerlink" href="#back-to-pandas" title="Permalink to this heading">#</a></h1>
+<p>We have started this course by importing a DataFrame, briefly exploring it and discovering that Numpy was underlying these structures. Then we explored in more details those Numpy arrays. Now we come back to these DataFrames and will see that we can re-use many concepts from Numpy in Pandas.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+</pre></div>
+</div>
+</div>
+</div>
+<section id="creating-dataframes">
+<h2>Creating Dataframes<a class="headerlink" href="#creating-dataframes" title="Permalink to this heading">#</a></h2>
+<p>We have seen that we could extract Numpy arrays from a DataFrame, but we can also do the reverse: create a DataFrame from an array. While most of the time you will import data as DataFrames, sometimes it is useful to explicitly create an DataFrame.</p>
+<section id="from-a-numpy-array">
+<h3>From a Numpy array<a class="headerlink" href="#from-a-numpy-array" title="Permalink to this heading">#</a></h3>
+<p>We know how to create a 2D Numpy array, for example:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">my_array</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="p">((</span><span class="mi">3</span><span class="p">,</span><span class="mi">5</span><span class="p">)))</span>
+<span class="n">my_array</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[69,  0,  1, 91, 15],
+       [68, 89, 69, 58, 50],
+       [28, 94, 55, 40, 63]])
+</pre></div>
+</div>
+</div>
+</div>
+<p>We can simply transform this array into a DataFrame using the <code class="docutils literal notranslate"><span class="pre">pd.DataFrame</span></code> function:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">my_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">my_array</span><span class="p">)</span>
+<span class="n">my_df</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>0</th>
+      <th>1</th>
+      <th>2</th>
+      <th>3</th>
+      <th>4</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>69</td>
+      <td>0</td>
+      <td>1</td>
+      <td>91</td>
+      <td>15</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>68</td>
+      <td>89</td>
+      <td>69</td>
+      <td>58</td>
+      <td>50</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>28</td>
+      <td>94</td>
+      <td>55</td>
+      <td>40</td>
+      <td>63</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>We will see that many of the operations that we have used on Numpy arrays before also work for Pandas. As a start, you can for example get the shape of a DataFrame:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">my_df</span><span class="o">.</span><span class="n">shape</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(3, 5)
+</pre></div>
+</div>
+</div>
+</div>
+<p>By default, Pandas uses a numerical index for each row and each column, but if we want we can override this by explicitly providing lists for the <code class="docutils literal notranslate"><span class="pre">index</span></code> and <code class="docutils literal notranslate"><span class="pre">columns</span></code> options.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">my_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">my_array</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;row a&#39;</span><span class="p">,</span><span class="s1">&#39;row b&#39;</span><span class="p">,</span><span class="s1">&#39;row c&#39;</span><span class="p">],</span> <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;col A&#39;</span><span class="p">,</span> <span class="s1">&#39;col B&#39;</span><span class="p">,</span> <span class="s1">&#39;col C&#39;</span><span class="p">,</span><span class="s1">&#39;col D&#39;</span><span class="p">,</span><span class="s1">&#39;col E&#39;</span><span class="p">])</span>
+<span class="n">my_df</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>col A</th>
+      <th>col B</th>
+      <th>col C</th>
+      <th>col D</th>
+      <th>col E</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>row a</th>
+      <td>69</td>
+      <td>0</td>
+      <td>1</td>
+      <td>91</td>
+      <td>15</td>
+    </tr>
+    <tr>
+      <th>row b</th>
+      <td>68</td>
+      <td>89</td>
+      <td>69</td>
+      <td>58</td>
+      <td>50</td>
+    </tr>
+    <tr>
+      <th>row c</th>
+      <td>28</td>
+      <td>94</td>
+      <td>55</td>
+      <td>40</td>
+      <td>63</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+</section>
+<section id="from-a-dictionary">
+<h3>From a dictionary<a class="headerlink" href="#from-a-dictionary" title="Permalink to this heading">#</a></h3>
+<p>There are multiple ways to create DataFrames. One of the most “natural” ones is to transform a <strong>dictionary of lists</strong> into an array. Here each element of the dictionary defines a column. For example:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dict_of_list</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s1">&#39;birth&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">1860</span><span class="p">,</span> <span class="mi">1770</span><span class="p">,</span> <span class="mi">1858</span><span class="p">,</span> <span class="mi">1906</span><span class="p">],</span>
+    <span class="s1">&#39;death&#39;</span><span class="p">:[</span><span class="mi">1911</span><span class="p">,</span> <span class="mi">1827</span><span class="p">,</span> <span class="mi">1924</span><span class="p">,</span> <span class="mi">1975</span><span class="p">],</span> 
+    <span class="s1">&#39;city&#39;</span><span class="p">:[</span><span class="s1">&#39;Kaliste&#39;</span><span class="p">,</span> <span class="s1">&#39;Bonn&#39;</span><span class="p">,</span> <span class="s1">&#39;Lucques&#39;</span><span class="p">,</span> <span class="s1">&#39;Saint-Petersburg&#39;</span><span class="p">]</span>
+    <span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">dict_of_list</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>birth</th>
+      <th>death</th>
+      <th>city</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>1860</td>
+      <td>1911</td>
+      <td>Kaliste</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>1770</td>
+      <td>1827</td>
+      <td>Bonn</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>1858</td>
+      <td>1924</td>
+      <td>Lucques</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>1906</td>
+      <td>1975</td>
+      <td>Saint-Petersburg</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+</section>
+</section>
+<section id="index-and-column">
+<h2>Index and column<a class="headerlink" href="#index-and-column" title="Permalink to this heading">#</a></h2>
+<p>One of the main differences between Numpy arrays and Pandas DataFrames is that the elements in the table are not located by their “numerical position” but by their corresponding index and column. These two elements are in fact just list of values:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">my_df</span><span class="o">.</span><span class="n">index</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Index([&#39;row a&#39;, &#39;row b&#39;, &#39;row c&#39;], dtype=&#39;object&#39;)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">my_df</span><span class="o">.</span><span class="n">columns</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Index([&#39;col A&#39;, &#39;col B&#39;, &#39;col C&#39;, &#39;col D&#39;, &#39;col E&#39;], dtype=&#39;object&#39;)
+</pre></div>
+</div>
+</div>
+</div>
+<section id="changing-indices">
+<h3>Changing indices<a class="headerlink" href="#changing-indices" title="Permalink to this heading">#</a></h3>
+<p>One can change these properties of the DataFrame directly by reassigning a new list. For example:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">my_df</span><span class="o">.</span><span class="n">index</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="s1">&#39;x&#39;</span><span class="p">,</span><span class="s1">&#39;y&#39;</span><span class="p">,</span><span class="s1">&#39;z&#39;</span><span class="p">])</span>
+<span class="n">my_df</span><span class="o">.</span><span class="n">columns</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="s1">&#39;new A&#39;</span><span class="p">,</span><span class="s1">&#39;new B&#39;</span><span class="p">,</span><span class="s1">&#39;new C&#39;</span><span class="p">,</span><span class="s1">&#39;new D&#39;</span><span class="p">,</span><span class="s1">&#39;new E&#39;</span><span class="p">])</span>
+<span class="n">my_df</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>new A</th>
+      <th>new B</th>
+      <th>new C</th>
+      <th>new D</th>
+      <th>new E</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>x</th>
+      <td>69</td>
+      <td>0</td>
+      <td>1</td>
+      <td>91</td>
+      <td>15</td>
+    </tr>
+    <tr>
+      <th>y</th>
+      <td>68</td>
+      <td>89</td>
+      <td>69</td>
+      <td>58</td>
+      <td>50</td>
+    </tr>
+    <tr>
+      <th>z</th>
+      <td>28</td>
+      <td>94</td>
+      <td>55</td>
+      <td>40</td>
+      <td>63</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>Alternatively, one can use dedicated functions that give us more flexibility. For example we can change just one column or index name by using a dictionary old -&gt; new and the <code class="docutils literal notranslate"><span class="pre">.rename()</span></code> method. We also have to specify which <code class="docutils literal notranslate"><span class="pre">axis</span></code> we want to rename, either the <code class="docutils literal notranslate"><span class="pre">'columns'</span></code> or the <code class="docutils literal notranslate"><span class="pre">'rows'</span></code>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">my_df</span> <span class="o">=</span> <span class="n">my_df</span><span class="o">.</span><span class="n">rename</span><span class="p">({</span><span class="s1">&#39;new A&#39;</span><span class="p">:</span> <span class="s1">&#39;re-name A&#39;</span><span class="p">},</span><span class="n">axis</span><span class="o">=</span><span class="s1">&#39;columns&#39;</span><span class="p">)</span>
+<span class="n">my_df</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>re-name A</th>
+      <th>new B</th>
+      <th>new C</th>
+      <th>new D</th>
+      <th>new E</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>x</th>
+      <td>69</td>
+      <td>0</td>
+      <td>1</td>
+      <td>91</td>
+      <td>15</td>
+    </tr>
+    <tr>
+      <th>y</th>
+      <td>68</td>
+      <td>89</td>
+      <td>69</td>
+      <td>58</td>
+      <td>50</td>
+    </tr>
+    <tr>
+      <th>z</th>
+      <td>28</td>
+      <td>94</td>
+      <td>55</td>
+      <td>40</td>
+      <td>63</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">my_df</span> <span class="o">=</span> <span class="n">my_df</span><span class="o">.</span><span class="n">rename</span><span class="p">({</span><span class="s1">&#39;x&#39;</span><span class="p">:</span> <span class="s1">&#39;new x&#39;</span><span class="p">},</span><span class="n">axis</span><span class="o">=</span><span class="s1">&#39;rows&#39;</span><span class="p">)</span>
+<span class="n">my_df</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>re-name A</th>
+      <th>new B</th>
+      <th>new C</th>
+      <th>new D</th>
+      <th>new E</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>new x</th>
+      <td>69</td>
+      <td>0</td>
+      <td>1</td>
+      <td>91</td>
+      <td>15</td>
+    </tr>
+    <tr>
+      <th>y</th>
+      <td>68</td>
+      <td>89</td>
+      <td>69</td>
+      <td>58</td>
+      <td>50</td>
+    </tr>
+    <tr>
+      <th>z</th>
+      <td>28</td>
+      <td>94</td>
+      <td>55</td>
+      <td>40</td>
+      <td>63</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+</section>
+<section id="adding-columns">
+<h3>Adding columns<a class="headerlink" href="#adding-columns" title="Permalink to this heading">#</a></h3>
+<p>It is also very easy to add a new column to an existing DataFrame. For that you just assign a list or a single value to a not yet existing column:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">my_df</span><span class="p">[</span><span class="s1">&#39;new column&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="n">my_df</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>re-name A</th>
+      <th>new B</th>
+      <th>new C</th>
+      <th>new D</th>
+      <th>new E</th>
+      <th>new column</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>new x</th>
+      <td>69</td>
+      <td>0</td>
+      <td>1</td>
+      <td>91</td>
+      <td>15</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>y</th>
+      <td>68</td>
+      <td>89</td>
+      <td>69</td>
+      <td>58</td>
+      <td>50</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>z</th>
+      <td>28</td>
+      <td>94</td>
+      <td>55</td>
+      <td>40</td>
+      <td>63</td>
+      <td>1</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>We have seen before that DataFrame can contain different types of data, so we can also fill a column with text:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">my_df</span><span class="p">[</span><span class="s1">&#39;text column&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="s1">&#39;c&#39;</span><span class="p">]</span>
+<span class="n">my_df</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>re-name A</th>
+      <th>new B</th>
+      <th>new C</th>
+      <th>new D</th>
+      <th>new E</th>
+      <th>new column</th>
+      <th>text column</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>new x</th>
+      <td>69</td>
+      <td>0</td>
+      <td>1</td>
+      <td>91</td>
+      <td>15</td>
+      <td>1</td>
+      <td>a</td>
+    </tr>
+    <tr>
+      <th>y</th>
+      <td>68</td>
+      <td>89</td>
+      <td>69</td>
+      <td>58</td>
+      <td>50</td>
+      <td>1</td>
+      <td>b</td>
+    </tr>
+    <tr>
+      <th>z</th>
+      <td>28</td>
+      <td>94</td>
+      <td>55</td>
+      <td>40</td>
+      <td>63</td>
+      <td>1</td>
+      <td>c</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+</section>
+<section id="droping-items">
+<h3>Droping items<a class="headerlink" href="#droping-items" title="Permalink to this heading">#</a></h3>
+<p>Inversely we can remove columns by using the <code class="docutils literal notranslate"><span class="pre">drop()</span></code> function. Here also we have to say with <code class="docutils literal notranslate"><span class="pre">axis</span></code> if we want to affect <code class="docutils literal notranslate"><span class="pre">'rows'</span></code> or <code class="docutils literal notranslate"><span class="pre">'columns'</span></code>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">my_df</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">labels</span><span class="o">=</span><span class="s1">&#39;new B&#39;</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="s1">&#39;columns&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>re-name A</th>
+      <th>new C</th>
+      <th>new D</th>
+      <th>new E</th>
+      <th>new column</th>
+      <th>text column</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>new x</th>
+      <td>69</td>
+      <td>1</td>
+      <td>91</td>
+      <td>15</td>
+      <td>1</td>
+      <td>a</td>
+    </tr>
+    <tr>
+      <th>y</th>
+      <td>68</td>
+      <td>69</td>
+      <td>58</td>
+      <td>50</td>
+      <td>1</td>
+      <td>b</td>
+    </tr>
+    <tr>
+      <th>z</th>
+      <td>28</td>
+      <td>55</td>
+      <td>40</td>
+      <td>63</td>
+      <td>1</td>
+      <td>c</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">my_df</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">labels</span><span class="o">=</span><span class="s1">&#39;y&#39;</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="s1">&#39;rows&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>re-name A</th>
+      <th>new B</th>
+      <th>new C</th>
+      <th>new D</th>
+      <th>new E</th>
+      <th>new column</th>
+      <th>text column</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>new x</th>
+      <td>69</td>
+      <td>0</td>
+      <td>1</td>
+      <td>91</td>
+      <td>15</td>
+      <td>1</td>
+      <td>a</td>
+    </tr>
+    <tr>
+      <th>z</th>
+      <td>28</td>
+      <td>94</td>
+      <td>55</td>
+      <td>40</td>
+      <td>63</td>
+      <td>1</td>
+      <td>c</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+</section>
+</section>
+<section id="importing-data">
+<h2>Importing data<a class="headerlink" href="#importing-data" title="Permalink to this heading">#</a></h2>
+<p>Until now we have always used the <code class="docutils literal notranslate"><span class="pre">reader_XXX</span></code> functions with default options. However these functions have many options, in particular regarding the choice of indices and column names. For example, we can specify if we want to use <strong>one of the columns as index</strong> when importing data. Each data format will present its own challenges, and we present here some core concepts.</p>
+<p>Here we are using the dataset that you can find <a class="reference external" href="https://github.com/guiwitz/NumpyPandas_course/blob/master/Data/composers.xlsx">here</a>. It is a simple collection of Excel sheet with information regarding classical composers. These simple and rather short dataset will allow us to explore many of the problems that you might encounter with “real” datasets.</p>
+<p>First we need a new importer function for Excel:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">file_url</span> <span class="o">=</span> <span class="s1">&#39;https://github.com/guiwitz/NumpyPandas_course/blob/master/Data/composers.xlsx?raw=true&#39;</span>
+<span class="n">composers</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_excel</span><span class="p">(</span><span class="n">file_url</span><span class="p">)</span>
+<span class="n">composers</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>composer</th>
+      <th>birth</th>
+      <th>death</th>
+      <th>city</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Mahler</td>
+      <td>1860</td>
+      <td>1911</td>
+      <td>Kaliste</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Beethoven</td>
+      <td>1770</td>
+      <td>1827</td>
+      <td>Bonn</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>Puccini</td>
+      <td>1858</td>
+      <td>1924</td>
+      <td>Lucques</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>Shostakovich</td>
+      <td>1906</td>
+      <td>1975</td>
+      <td>Saint-Petersburg</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<section id="setting-indices">
+<h3>Setting indices<a class="headerlink" href="#setting-indices" title="Permalink to this heading">#</a></h3>
+<p>Again, by default Pandas sets a numerical index. However here each composer name is unique, so we could use that as an index. We can specify this to our importer with the <code class="docutils literal notranslate"><span class="pre">index_col</span></code> option:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">composers</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_excel</span><span class="p">(</span><span class="n">file_url</span><span class="p">,</span> <span class="n">index_col</span><span class="o">=</span><span class="s1">&#39;composer&#39;</span><span class="p">)</span>
+<span class="n">composers</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>birth</th>
+      <th>death</th>
+      <th>city</th>
+    </tr>
+    <tr>
+      <th>composer</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>Mahler</th>
+      <td>1860</td>
+      <td>1911</td>
+      <td>Kaliste</td>
+    </tr>
+    <tr>
+      <th>Beethoven</th>
+      <td>1770</td>
+      <td>1827</td>
+      <td>Bonn</td>
+    </tr>
+    <tr>
+      <th>Puccini</th>
+      <td>1858</td>
+      <td>1924</td>
+      <td>Lucques</td>
+    </tr>
+    <tr>
+      <th>Shostakovich</th>
+      <td>1906</td>
+      <td>1975</td>
+      <td>Saint-Petersburg</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+</section>
+<section id="skipping-rows">
+<h3>Skipping rows<a class="headerlink" href="#skipping-rows" title="Permalink to this heading">#</a></h3>
+<p>Instead of dropping certains rows at the start or end of the table, we can also directly do that at import time by specifying the <code class="docutils literal notranslate"><span class="pre">skipfooter</span></code>  and <code class="docutils literal notranslate"><span class="pre">skiprows</span></code> arguments. Let’s for example remove the first line:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">composers</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_excel</span><span class="p">(</span><span class="n">file_url</span><span class="p">,</span> <span class="n">index_col</span><span class="o">=</span><span class="s1">&#39;composer&#39;</span><span class="p">,</span> <span class="n">skiprows</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+<span class="n">composers</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">ValueError</span><span class="g g-Whitespace">                                </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">19</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">composers</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_excel</span><span class="p">(</span><span class="n">file_url</span><span class="p">,</span> <span class="n">index_col</span><span class="o">=</span><span class="s1">&#39;composer&#39;</span><span class="p">,</span> <span class="n">skiprows</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="n">composers</span>
+
+<span class="nn">File ~/mambaforge/envs/DAVPy2023/lib/python3.10/site-packages/pandas/util/_decorators.py:211,</span> in <span class="ni">deprecate_kwarg.&lt;locals&gt;._deprecate_kwarg.&lt;locals&gt;.wrapper</span><span class="nt">(*args, **kwargs)</span>
+<span class="g g-Whitespace">    </span><span class="mi">209</span>     <span class="k">else</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">210</span>         <span class="n">kwargs</span><span class="p">[</span><span class="n">new_arg_name</span><span class="p">]</span> <span class="o">=</span> <span class="n">new_arg_value</span>
+<span class="ne">--&gt; </span><span class="mi">211</span> <span class="k">return</span> <span class="n">func</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+
+<span class="nn">File ~/mambaforge/envs/DAVPy2023/lib/python3.10/site-packages/pandas/util/_decorators.py:331,</span> in <span class="ni">deprecate_nonkeyword_arguments.&lt;locals&gt;.decorate.&lt;locals&gt;.wrapper</span><span class="nt">(*args, **kwargs)</span>
+<span class="g g-Whitespace">    </span><span class="mi">325</span> <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">args</span><span class="p">)</span> <span class="o">&gt;</span> <span class="n">num_allow_args</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">326</span>     <span class="n">warnings</span><span class="o">.</span><span class="n">warn</span><span class="p">(</span>
+<span class="g g-Whitespace">    </span><span class="mi">327</span>         <span class="n">msg</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">arguments</span><span class="o">=</span><span class="n">_format_argument_list</span><span class="p">(</span><span class="n">allow_args</span><span class="p">)),</span>
+<span class="g g-Whitespace">    </span><span class="mi">328</span>         <span class="ne">FutureWarning</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">329</span>         <span class="n">stacklevel</span><span class="o">=</span><span class="n">find_stack_level</span><span class="p">(),</span>
+<span class="g g-Whitespace">    </span><span class="mi">330</span>     <span class="p">)</span>
+<span class="ne">--&gt; </span><span class="mi">331</span> <span class="k">return</span> <span class="n">func</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+
+<span class="nn">File ~/mambaforge/envs/DAVPy2023/lib/python3.10/site-packages/pandas/io/excel/_base.py:490,</span> in <span class="ni">read_excel</span><span class="nt">(io, sheet_name, header, names, index_col, usecols, squeeze, dtype, engine, converters, true_values, false_values, skiprows, nrows, na_values, keep_default_na, na_filter, verbose, parse_dates, date_parser, thousands, decimal, comment, skipfooter, convert_float, mangle_dupe_cols, storage_options)</span>
+<span class="g g-Whitespace">    </span><span class="mi">484</span>     <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
+<span class="g g-Whitespace">    </span><span class="mi">485</span>         <span class="s2">&quot;Engine should not be specified when passing &quot;</span>
+<span class="g g-Whitespace">    </span><span class="mi">486</span>         <span class="s2">&quot;an ExcelFile - ExcelFile already has the engine set&quot;</span>
+<span class="g g-Whitespace">    </span><span class="mi">487</span>     <span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">489</span> <span class="k">try</span><span class="p">:</span>
+<span class="ne">--&gt; </span><span class="mi">490</span>     <span class="n">data</span> <span class="o">=</span> <span class="n">io</span><span class="o">.</span><span class="n">parse</span><span class="p">(</span>
+<span class="g g-Whitespace">    </span><span class="mi">491</span>         <span class="n">sheet_name</span><span class="o">=</span><span class="n">sheet_name</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">492</span>         <span class="n">header</span><span class="o">=</span><span class="n">header</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">493</span>         <span class="n">names</span><span class="o">=</span><span class="n">names</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">494</span>         <span class="n">index_col</span><span class="o">=</span><span class="n">index_col</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">495</span>         <span class="n">usecols</span><span class="o">=</span><span class="n">usecols</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">496</span>         <span class="n">squeeze</span><span class="o">=</span><span class="n">squeeze</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">497</span>         <span class="n">dtype</span><span class="o">=</span><span class="n">dtype</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">498</span>         <span class="n">converters</span><span class="o">=</span><span class="n">converters</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">499</span>         <span class="n">true_values</span><span class="o">=</span><span class="n">true_values</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">500</span>         <span class="n">false_values</span><span class="o">=</span><span class="n">false_values</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">501</span>         <span class="n">skiprows</span><span class="o">=</span><span class="n">skiprows</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">502</span>         <span class="n">nrows</span><span class="o">=</span><span class="n">nrows</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">503</span>         <span class="n">na_values</span><span class="o">=</span><span class="n">na_values</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">504</span>         <span class="n">keep_default_na</span><span class="o">=</span><span class="n">keep_default_na</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">505</span>         <span class="n">na_filter</span><span class="o">=</span><span class="n">na_filter</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">506</span>         <span class="n">verbose</span><span class="o">=</span><span class="n">verbose</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">507</span>         <span class="n">parse_dates</span><span class="o">=</span><span class="n">parse_dates</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">508</span>         <span class="n">date_parser</span><span class="o">=</span><span class="n">date_parser</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">509</span>         <span class="n">thousands</span><span class="o">=</span><span class="n">thousands</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">510</span>         <span class="n">decimal</span><span class="o">=</span><span class="n">decimal</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">511</span>         <span class="n">comment</span><span class="o">=</span><span class="n">comment</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">512</span>         <span class="n">skipfooter</span><span class="o">=</span><span class="n">skipfooter</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">513</span>         <span class="n">convert_float</span><span class="o">=</span><span class="n">convert_float</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">514</span>         <span class="n">mangle_dupe_cols</span><span class="o">=</span><span class="n">mangle_dupe_cols</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">515</span>     <span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">516</span> <span class="k">finally</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">517</span>     <span class="c1"># make sure to close opened file handles</span>
+<span class="g g-Whitespace">    </span><span class="mi">518</span>     <span class="k">if</span> <span class="n">should_close</span><span class="p">:</span>
+
+<span class="nn">File ~/mambaforge/envs/DAVPy2023/lib/python3.10/site-packages/pandas/io/excel/_base.py:1734,</span> in <span class="ni">ExcelFile.parse</span><span class="nt">(self, sheet_name, header, names, index_col, usecols, squeeze, converters, true_values, false_values, skiprows, nrows, na_values, parse_dates, date_parser, thousands, comment, skipfooter, convert_float, mangle_dupe_cols, **kwds)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1700</span> <span class="k">def</span> <span class="nf">parse</span><span class="p">(</span>
+<span class="g g-Whitespace">   </span><span class="mi">1701</span>     <span class="bp">self</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">1702</span>     <span class="n">sheet_name</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="nb">int</span> <span class="o">|</span> <span class="nb">list</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">|</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span>
+   <span class="p">(</span><span class="o">...</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1721</span>     <span class="o">**</span><span class="n">kwds</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">1722</span> <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">DataFrame</span> <span class="o">|</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">DataFrame</span><span class="p">]</span> <span class="o">|</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="n">DataFrame</span><span class="p">]:</span>
+<span class="g g-Whitespace">   </span><span class="mi">1723</span><span class="w">     </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="g g-Whitespace">   </span><span class="mi">1724</span><span class="sd">     Parse specified sheet(s) into a DataFrame.</span>
+<span class="g g-Whitespace">   </span><span class="mi">1725</span><span class="sd"> </span>
+<span class="sd">   (...)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1732</span><span class="sd">         DataFrame from the passed in Excel file.</span>
+<span class="g g-Whitespace">   </span><span class="mi">1733</span><span class="sd">     &quot;&quot;&quot;</span>
+<span class="ne">-&gt; </span><span class="mi">1734</span>     <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_reader</span><span class="o">.</span><span class="n">parse</span><span class="p">(</span>
+<span class="g g-Whitespace">   </span><span class="mi">1735</span>         <span class="n">sheet_name</span><span class="o">=</span><span class="n">sheet_name</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">1736</span>         <span class="n">header</span><span class="o">=</span><span class="n">header</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">1737</span>         <span class="n">names</span><span class="o">=</span><span class="n">names</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">1738</span>         <span class="n">index_col</span><span class="o">=</span><span class="n">index_col</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">1739</span>         <span class="n">usecols</span><span class="o">=</span><span class="n">usecols</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">1740</span>         <span class="n">squeeze</span><span class="o">=</span><span class="n">squeeze</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">1741</span>         <span class="n">converters</span><span class="o">=</span><span class="n">converters</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">1742</span>         <span class="n">true_values</span><span class="o">=</span><span class="n">true_values</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">1743</span>         <span class="n">false_values</span><span class="o">=</span><span class="n">false_values</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">1744</span>         <span class="n">skiprows</span><span class="o">=</span><span class="n">skiprows</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">1745</span>         <span class="n">nrows</span><span class="o">=</span><span class="n">nrows</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">1746</span>         <span class="n">na_values</span><span class="o">=</span><span class="n">na_values</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">1747</span>         <span class="n">parse_dates</span><span class="o">=</span><span class="n">parse_dates</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">1748</span>         <span class="n">date_parser</span><span class="o">=</span><span class="n">date_parser</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">1749</span>         <span class="n">thousands</span><span class="o">=</span><span class="n">thousands</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">1750</span>         <span class="n">comment</span><span class="o">=</span><span class="n">comment</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">1751</span>         <span class="n">skipfooter</span><span class="o">=</span><span class="n">skipfooter</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">1752</span>         <span class="n">convert_float</span><span class="o">=</span><span class="n">convert_float</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">1753</span>         <span class="n">mangle_dupe_cols</span><span class="o">=</span><span class="n">mangle_dupe_cols</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">1754</span>         <span class="o">**</span><span class="n">kwds</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">1755</span>     <span class="p">)</span>
+
+<span class="nn">File ~/mambaforge/envs/DAVPy2023/lib/python3.10/site-packages/pandas/io/excel/_base.py:891,</span> in <span class="ni">BaseExcelReader.parse</span><span class="nt">(self, sheet_name, header, names, index_col, usecols, squeeze, dtype, true_values, false_values, skiprows, nrows, na_values, verbose, parse_dates, date_parser, thousands, decimal, comment, skipfooter, convert_float, mangle_dupe_cols, **kwds)</span>
+<span class="g g-Whitespace">    </span><span class="mi">865</span> <span class="k">try</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">866</span>     <span class="n">parser</span> <span class="o">=</span> <span class="n">TextParser</span><span class="p">(</span>
+<span class="g g-Whitespace">    </span><span class="mi">867</span>         <span class="n">data</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">868</span>         <span class="n">names</span><span class="o">=</span><span class="n">names</span><span class="p">,</span>
+   <span class="p">(</span><span class="o">...</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">888</span>         <span class="o">**</span><span class="n">kwds</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">889</span>     <span class="p">)</span>
+<span class="ne">--&gt; </span><span class="mi">891</span>     <span class="n">output</span><span class="p">[</span><span class="n">asheetname</span><span class="p">]</span> <span class="o">=</span> <span class="n">parser</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="n">nrows</span><span class="o">=</span><span class="n">nrows</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">893</span>     <span class="k">if</span> <span class="ow">not</span> <span class="n">squeeze</span> <span class="ow">or</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">output</span><span class="p">[</span><span class="n">asheetname</span><span class="p">],</span> <span class="n">DataFrame</span><span class="p">):</span>
+<span class="g g-Whitespace">    </span><span class="mi">894</span>         <span class="k">if</span> <span class="n">header_names</span><span class="p">:</span>
+
+<span class="nn">File ~/mambaforge/envs/DAVPy2023/lib/python3.10/site-packages/pandas/io/parsers/readers.py:1778,</span> in <span class="ni">TextFileReader.read</span><span class="nt">(self, nrows)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1771</span> <span class="n">nrows</span> <span class="o">=</span> <span class="n">validate_integer</span><span class="p">(</span><span class="s2">&quot;nrows&quot;</span><span class="p">,</span> <span class="n">nrows</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1772</span> <span class="k">try</span><span class="p">:</span>
+<span class="g g-Whitespace">   </span><span class="mi">1773</span>     <span class="c1"># error: &quot;ParserBase&quot; has no attribute &quot;read&quot;</span>
+<span class="g g-Whitespace">   </span><span class="mi">1774</span>     <span class="p">(</span>
+<span class="g g-Whitespace">   </span><span class="mi">1775</span>         <span class="n">index</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">1776</span>         <span class="n">columns</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">1777</span>         <span class="n">col_dict</span><span class="p">,</span>
+<span class="ne">-&gt; </span><span class="mi">1778</span>     <span class="p">)</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_engine</span><span class="o">.</span><span class="n">read</span><span class="p">(</span>  <span class="c1"># type: ignore[attr-defined]</span>
+<span class="g g-Whitespace">   </span><span class="mi">1779</span>         <span class="n">nrows</span>
+<span class="g g-Whitespace">   </span><span class="mi">1780</span>     <span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1781</span> <span class="k">except</span> <span class="ne">Exception</span><span class="p">:</span>
+<span class="g g-Whitespace">   </span><span class="mi">1782</span>     <span class="bp">self</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+
+<span class="nn">File ~/mambaforge/envs/DAVPy2023/lib/python3.10/site-packages/pandas/io/parsers/python_parser.py:288,</span> in <span class="ni">PythonParser.read</span><span class="nt">(self, rows)</span>
+<span class="g g-Whitespace">    </span><span class="mi">285</span> <span class="n">conv_data</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_convert_data</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">286</span> <span class="n">columns</span><span class="p">,</span> <span class="n">conv_data</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_do_date_conversions</span><span class="p">(</span><span class="n">columns</span><span class="p">,</span> <span class="n">conv_data</span><span class="p">)</span>
+<span class="ne">--&gt; </span><span class="mi">288</span> <span class="n">index</span><span class="p">,</span> <span class="n">result_columns</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_make_index</span><span class="p">(</span>
+<span class="g g-Whitespace">    </span><span class="mi">289</span>     <span class="n">conv_data</span><span class="p">,</span> <span class="n">alldata</span><span class="p">,</span> <span class="n">columns</span><span class="p">,</span> <span class="n">indexnamerow</span>
+<span class="g g-Whitespace">    </span><span class="mi">290</span> <span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">292</span> <span class="k">return</span> <span class="n">index</span><span class="p">,</span> <span class="n">result_columns</span><span class="p">,</span> <span class="n">conv_data</span>
+
+<span class="nn">File ~/mambaforge/envs/DAVPy2023/lib/python3.10/site-packages/pandas/io/parsers/base_parser.py:379,</span> in <span class="ni">ParserBase._make_index</span><span class="nt">(self, data, alldata, columns, indexnamerow)</span>
+<span class="g g-Whitespace">    </span><span class="mi">376</span>     <span class="n">index</span> <span class="o">=</span> <span class="kc">None</span>
+<span class="g g-Whitespace">    </span><span class="mi">378</span> <span class="k">elif</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">_has_complex_date_col</span><span class="p">:</span>
+<span class="ne">--&gt; </span><span class="mi">379</span>     <span class="n">simple_index</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_simple_index</span><span class="p">(</span><span class="n">alldata</span><span class="p">,</span> <span class="n">columns</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">380</span>     <span class="n">index</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_agg_index</span><span class="p">(</span><span class="n">simple_index</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">381</span> <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">_has_complex_date_col</span><span class="p">:</span>
+
+<span class="nn">File ~/mambaforge/envs/DAVPy2023/lib/python3.10/site-packages/pandas/io/parsers/base_parser.py:411,</span> in <span class="ni">ParserBase._get_simple_index</span><span class="nt">(self, data, columns)</span>
+<span class="g g-Whitespace">    </span><span class="mi">409</span> <span class="n">index</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="g g-Whitespace">    </span><span class="mi">410</span> <span class="k">for</span> <span class="n">idx</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">index_col</span><span class="p">:</span>
+<span class="ne">--&gt; </span><span class="mi">411</span>     <span class="n">i</span> <span class="o">=</span> <span class="n">ix</span><span class="p">(</span><span class="n">idx</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">412</span>     <span class="n">to_remove</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">413</span>     <span class="n">index</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+
+<span class="nn">File ~/mambaforge/envs/DAVPy2023/lib/python3.10/site-packages/pandas/io/parsers/base_parser.py:406,</span> in <span class="ni">ParserBase._get_simple_index.&lt;locals&gt;.ix</span><span class="nt">(col)</span>
+<span class="g g-Whitespace">    </span><span class="mi">404</span> <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">col</span><span class="p">,</span> <span class="nb">str</span><span class="p">):</span>
+<span class="g g-Whitespace">    </span><span class="mi">405</span>     <span class="k">return</span> <span class="n">col</span>
+<span class="ne">--&gt; </span><span class="mi">406</span> <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Index </span><span class="si">{</span><span class="n">col</span><span class="si">}</span><span class="s2"> invalid&quot;</span><span class="p">)</span>
+
+<span class="ne">ValueError</span>: Index composer invalid
+</pre></div>
+</div>
+</div>
+</div>
+<p>We ran into trouble, because we skipped the first row which in reality is just the row with the column names! To skip the actual first row we need:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">composers</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_excel</span><span class="p">(</span><span class="n">file_url</span><span class="p">,</span> <span class="n">index_col</span><span class="o">=</span><span class="s1">&#39;composer&#39;</span><span class="p">,</span> <span class="n">skiprows</span><span class="o">=</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+<span class="n">composers</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>birth</th>
+      <th>death</th>
+      <th>city</th>
+    </tr>
+    <tr>
+      <th>composer</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>Beethoven</th>
+      <td>1770</td>
+      <td>1827</td>
+      <td>Bonn</td>
+    </tr>
+    <tr>
+      <th>Puccini</th>
+      <td>1858</td>
+      <td>1924</td>
+      <td>Lucques</td>
+    </tr>
+    <tr>
+      <th>Shostakovich</th>
+      <td>1906</td>
+      <td>1975</td>
+      <td>Saint-Petersburg</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>We can also specify a list of columns that we actually want to use with the <code class="docutils literal notranslate"><span class="pre">usecols</span></code> option. For example we could skip the <code class="docutils literal notranslate"><span class="pre">city</span></code>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">composers</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_excel</span><span class="p">(</span><span class="n">file_url</span><span class="p">,</span> <span class="n">index_col</span><span class="o">=</span><span class="s1">&#39;composer&#39;</span><span class="p">,</span> <span class="n">usecols</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;composer&#39;</span><span class="p">,</span><span class="s1">&#39;birth&#39;</span><span class="p">,</span> <span class="s1">&#39;death&#39;</span><span class="p">])</span>
+<span class="n">composers</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>birth</th>
+      <th>death</th>
+    </tr>
+    <tr>
+      <th>composer</th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>Mahler</th>
+      <td>1860</td>
+      <td>1911</td>
+    </tr>
+    <tr>
+      <th>Beethoven</th>
+      <td>1770</td>
+      <td>1827</td>
+    </tr>
+    <tr>
+      <th>Puccini</th>
+      <td>1858</td>
+      <td>1924</td>
+    </tr>
+    <tr>
+      <th>Shostakovich</th>
+      <td>1906</td>
+      <td>1975</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+</section>
+<section id="format-specific-options">
+<h3>Format-specific options<a class="headerlink" href="#format-specific-options" title="Permalink to this heading">#</a></h3>
+<p>Finally, for each importer, we have specific options only available in that format. For example with the Excel importer we can specify sheets to import. By default it imports the first one, but we can also indicate the position of the sheet or its name:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">composers</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_excel</span><span class="p">(</span><span class="n">file_url</span><span class="p">,</span> <span class="n">sheet_name</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
+<span class="n">composers</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>composer</th>
+      <th>birth</th>
+      <th>death</th>
+      <th>period</th>
+      <th>country</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Mahler</td>
+      <td>1860</td>
+      <td>1911.0</td>
+      <td>post-romantic</td>
+      <td>Austria</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Beethoven</td>
+      <td>1770</td>
+      <td>1827.0</td>
+      <td>romantic</td>
+      <td>Germany</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>Puccini</td>
+      <td>1858</td>
+      <td>1924.0</td>
+      <td>post-romantic</td>
+      <td>Italy</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>Shostakovich</td>
+      <td>1906</td>
+      <td>1975.0</td>
+      <td>modern</td>
+      <td>Russia</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>Verdi</td>
+      <td>1813</td>
+      <td>1901.0</td>
+      <td>romantic</td>
+      <td>Italy</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>Dvorak</td>
+      <td>1841</td>
+      <td>1904.0</td>
+      <td>romantic</td>
+      <td>Czechia</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>Schumann</td>
+      <td>1810</td>
+      <td>1856.0</td>
+      <td>romantic</td>
+      <td>Germany</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>Stravinsky</td>
+      <td>1882</td>
+      <td>1971.0</td>
+      <td>modern</td>
+      <td>Russia</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>Sibelius</td>
+      <td>1865</td>
+      <td>1957.0</td>
+      <td>post-romantic</td>
+      <td>Finland</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>Haydn</td>
+      <td>1732</td>
+      <td>1809.0</td>
+      <td>classic</td>
+      <td>Austria</td>
+    </tr>
+    <tr>
+      <th>10</th>
+      <td>Mozart</td>
+      <td>1756</td>
+      <td>1791.0</td>
+      <td>classic</td>
+      <td>Austria</td>
+    </tr>
+    <tr>
+      <th>11</th>
+      <td>Messiaen</td>
+      <td>1908</td>
+      <td>1992.0</td>
+      <td>modern</td>
+      <td>France</td>
+    </tr>
+    <tr>
+      <th>12</th>
+      <td>Prokofiev</td>
+      <td>1891</td>
+      <td>1953.0</td>
+      <td>modern</td>
+      <td>RUssia</td>
+    </tr>
+    <tr>
+      <th>13</th>
+      <td>Monteverdi</td>
+      <td>1567</td>
+      <td>1643.0</td>
+      <td>renaissance</td>
+      <td>Italy</td>
+    </tr>
+    <tr>
+      <th>14</th>
+      <td>Haendel</td>
+      <td>1685</td>
+      <td>1759.0</td>
+      <td>baroque</td>
+      <td>Germany</td>
+    </tr>
+    <tr>
+      <th>15</th>
+      <td>Brahms</td>
+      <td>1833</td>
+      <td>1897.0</td>
+      <td>romantic</td>
+      <td>Germany</td>
+    </tr>
+    <tr>
+      <th>16</th>
+      <td>Purcell</td>
+      <td>1659</td>
+      <td>1695.0</td>
+      <td>baroque</td>
+      <td>England</td>
+    </tr>
+    <tr>
+      <th>17</th>
+      <td>Charpentier</td>
+      <td>1643</td>
+      <td>1704.0</td>
+      <td>baroque</td>
+      <td>France</td>
+    </tr>
+    <tr>
+      <th>18</th>
+      <td>Bruckner</td>
+      <td>1824</td>
+      <td>1896.0</td>
+      <td>post-romantic</td>
+      <td>Austria</td>
+    </tr>
+    <tr>
+      <th>19</th>
+      <td>Berg</td>
+      <td>1885</td>
+      <td>1935.0</td>
+      <td>modern</td>
+      <td>Austria</td>
+    </tr>
+    <tr>
+      <th>20</th>
+      <td>Couperin</td>
+      <td>1626</td>
+      <td>1661.0</td>
+      <td>baroque</td>
+      <td>France</td>
+    </tr>
+    <tr>
+      <th>21</th>
+      <td>Rameau</td>
+      <td>1683</td>
+      <td>1764.0</td>
+      <td>baroque</td>
+      <td>France</td>
+    </tr>
+    <tr>
+      <th>22</th>
+      <td>Berlioz</td>
+      <td>1803</td>
+      <td>1869.0</td>
+      <td>romantic</td>
+      <td>France</td>
+    </tr>
+    <tr>
+      <th>23</th>
+      <td>Gounod</td>
+      <td>1818</td>
+      <td>1893.0</td>
+      <td>romantic</td>
+      <td>France</td>
+    </tr>
+    <tr>
+      <th>24</th>
+      <td>Massenet</td>
+      <td>1842</td>
+      <td>1912.0</td>
+      <td>romantic</td>
+      <td>France</td>
+    </tr>
+    <tr>
+      <th>25</th>
+      <td>Boulez</td>
+      <td>1925</td>
+      <td>2016.0</td>
+      <td>modern</td>
+      <td>France</td>
+    </tr>
+    <tr>
+      <th>26</th>
+      <td>Palestrina</td>
+      <td>1525</td>
+      <td>1594.0</td>
+      <td>renaissance</td>
+      <td>Italy</td>
+    </tr>
+    <tr>
+      <th>27</th>
+      <td>Gesualdo</td>
+      <td>1566</td>
+      <td>1613.0</td>
+      <td>renaissance</td>
+      <td>Italy</td>
+    </tr>
+    <tr>
+      <th>28</th>
+      <td>Caldara</td>
+      <td>1670</td>
+      <td>1736.0</td>
+      <td>baroque</td>
+      <td>Italy</td>
+    </tr>
+    <tr>
+      <th>29</th>
+      <td>Pergolesi</td>
+      <td>1710</td>
+      <td>1736.0</td>
+      <td>baroque</td>
+      <td>Italy</td>
+    </tr>
+    <tr>
+      <th>30</th>
+      <td>Scarlatti</td>
+      <td>1685</td>
+      <td>1757.0</td>
+      <td>baroque</td>
+      <td>Italy</td>
+    </tr>
+    <tr>
+      <th>31</th>
+      <td>Caccini</td>
+      <td>1587</td>
+      <td>1640.0</td>
+      <td>baroque</td>
+      <td>Italy</td>
+    </tr>
+    <tr>
+      <th>32</th>
+      <td>Cimarosa</td>
+      <td>1749</td>
+      <td>1801.0</td>
+      <td>classic</td>
+      <td>Italy</td>
+    </tr>
+    <tr>
+      <th>33</th>
+      <td>Donizetti</td>
+      <td>1797</td>
+      <td>1848.0</td>
+      <td>romantic</td>
+      <td>Italy</td>
+    </tr>
+    <tr>
+      <th>34</th>
+      <td>Leoncavallo</td>
+      <td>1858</td>
+      <td>1919.0</td>
+      <td>romantic</td>
+      <td>Italy</td>
+    </tr>
+    <tr>
+      <th>35</th>
+      <td>Bellini</td>
+      <td>1801</td>
+      <td>1835.0</td>
+      <td>romantic</td>
+      <td>Italy</td>
+    </tr>
+    <tr>
+      <th>36</th>
+      <td>Dufay</td>
+      <td>1397</td>
+      <td>1474.0</td>
+      <td>renaissance</td>
+      <td>Belgium</td>
+    </tr>
+    <tr>
+      <th>37</th>
+      <td>Lassus</td>
+      <td>1532</td>
+      <td>1594.0</td>
+      <td>renaissance</td>
+      <td>Belgium</td>
+    </tr>
+    <tr>
+      <th>38</th>
+      <td>Borodin</td>
+      <td>1833</td>
+      <td>1887.0</td>
+      <td>romantic</td>
+      <td>Russia</td>
+    </tr>
+    <tr>
+      <th>39</th>
+      <td>Mussorsgsky</td>
+      <td>1839</td>
+      <td>1881.0</td>
+      <td>romantic</td>
+      <td>Russia</td>
+    </tr>
+    <tr>
+      <th>40</th>
+      <td>Soler</td>
+      <td>1754</td>
+      <td>1806.0</td>
+      <td>classic</td>
+      <td>Spain</td>
+    </tr>
+    <tr>
+      <th>41</th>
+      <td>Albeniz</td>
+      <td>1860</td>
+      <td>1909.0</td>
+      <td>romantic</td>
+      <td>Spain</td>
+    </tr>
+    <tr>
+      <th>42</th>
+      <td>Granados</td>
+      <td>1867</td>
+      <td>1916.0</td>
+      <td>romantic</td>
+      <td>Spain</td>
+    </tr>
+    <tr>
+      <th>43</th>
+      <td>Dowland</td>
+      <td>1563</td>
+      <td>1626.0</td>
+      <td>renaissance</td>
+      <td>England</td>
+    </tr>
+    <tr>
+      <th>44</th>
+      <td>Byrd</td>
+      <td>1540</td>
+      <td>1623.0</td>
+      <td>renaissance</td>
+      <td>England</td>
+    </tr>
+    <tr>
+      <th>45</th>
+      <td>Walton</td>
+      <td>1902</td>
+      <td>1983.0</td>
+      <td>modern</td>
+      <td>England</td>
+    </tr>
+    <tr>
+      <th>46</th>
+      <td>Adès</td>
+      <td>1971</td>
+      <td>NaN</td>
+      <td>modern</td>
+      <td>England</td>
+    </tr>
+    <tr>
+      <th>47</th>
+      <td>Bach</td>
+      <td>1685</td>
+      <td>1750.0</td>
+      <td>baroque</td>
+      <td>Germany</td>
+    </tr>
+    <tr>
+      <th>48</th>
+      <td>Wagner</td>
+      <td>1813</td>
+      <td>1883.0</td>
+      <td>romantic</td>
+      <td>Germany</td>
+    </tr>
+    <tr>
+      <th>49</th>
+      <td>Strauss</td>
+      <td>1864</td>
+      <td>1949.0</td>
+      <td>post-romantic</td>
+      <td>Germany</td>
+    </tr>
+    <tr>
+      <th>50</th>
+      <td>Orff</td>
+      <td>1895</td>
+      <td>1982.0</td>
+      <td>modern</td>
+      <td>Germany</td>
+    </tr>
+    <tr>
+      <th>51</th>
+      <td>Dusek</td>
+      <td>1731</td>
+      <td>1799.0</td>
+      <td>classic</td>
+      <td>Czechia</td>
+    </tr>
+    <tr>
+      <th>52</th>
+      <td>Smetana</td>
+      <td>1824</td>
+      <td>1884.0</td>
+      <td>romantic</td>
+      <td>Czechia</td>
+    </tr>
+    <tr>
+      <th>53</th>
+      <td>Janacek</td>
+      <td>1854</td>
+      <td>1928.0</td>
+      <td>modern</td>
+      <td>Czechia</td>
+    </tr>
+    <tr>
+      <th>54</th>
+      <td>Copland</td>
+      <td>1900</td>
+      <td>1990.0</td>
+      <td>modern</td>
+      <td>USA</td>
+    </tr>
+    <tr>
+      <th>55</th>
+      <td>Bernstein</td>
+      <td>1918</td>
+      <td>1990.0</td>
+      <td>modern</td>
+      <td>USA</td>
+    </tr>
+    <tr>
+      <th>56</th>
+      <td>Glass</td>
+      <td>1937</td>
+      <td>NaN</td>
+      <td>modern</td>
+      <td>USA</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+</section>
+</section>
+<section id="saving-tables">
+<h2>Saving tables<a class="headerlink" href="#saving-tables" title="Permalink to this heading">#</a></h2>
+<p>Most commonly, you don’t save many tables. You just keep a notebook or a script for processing and only keep the final output such as a statistics or a plot. However sometimes you want to keep intermediary steps. For that we can use the reverse of the <code class="docutils literal notranslate"><span class="pre">read_XXX</span></code> function, i.e the <code class="docutils literal notranslate"><span class="pre">to_XXX</span></code> function. Here again, you have plenty of options that you can explore. For example you can avoid saving the index and use <code class="docutils literal notranslate"><span class="pre">;</span></code> as separator:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">composers</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="s1">&#39;export_test.csv&#39;</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s1">&#39;;&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="exercises">
+<h2>Exercises<a class="headerlink" href="#exercises" title="Permalink to this heading">#</a></h2>
+<ol class="arabic simple">
+<li><p>Import the penguin dataset <a class="reference external" href="https://raw.githubusercontent.com/allisonhorst/palmerpenguins/master/inst/extdata/penguins.csv">https://raw.githubusercontent.com/allisonhorst/palmerpenguins/master/inst/extdata/penguins.csv</a></p></li>
+<li><p>Rename the <code class="docutils literal notranslate"><span class="pre">bill_length_mm</span></code> and <code class="docutils literal notranslate"><span class="pre">bill_depth_mm</span></code> colums into <code class="docutils literal notranslate"><span class="pre">length</span></code> and <code class="docutils literal notranslate"><span class="pre">depth</span></code>.</p></li>
+<li><p>Check that the names of the DataFrame have changed. If not, do you understand why?</p></li>
+<li><p>Add a column with name <code class="docutils literal notranslate"><span class="pre">my_column</span></code> and fill it with default value ‘test’.</p></li>
+<li><p>We have seen how to remove a given row. Can you find out how to remove the 10 first rows?</p></li>
+<li><p>What do you observe happened with the index?</p></li>
+<li><p>Import again the data but this time only the 10 first rows. Can you find an option of the <code class="docutils literal notranslate"><span class="pre">read_csv</span></code> function to do that?</p></li>
+</ol>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+                <footer class="bd-footer-article">
+                  <!-- Previous / next buttons -->
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="06-Images_as_arrays.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">6. Images as arrays</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="08-Operate_on_DataFrames.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">7. Operating on DataFrames</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#creating-dataframes">Creating Dataframes</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#from-a-numpy-array">From a Numpy array</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#from-a-dictionary">From a dictionary</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#index-and-column">Index and column</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#changing-indices">Changing indices</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#adding-columns">Adding columns</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#droping-items">Droping items</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#importing-data">Importing data</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#setting-indices">Setting indices</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#skipping-rows">Skipping rows</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#format-specific-options">Format-specific options</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#saving-tables">Saving tables</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercises">Exercises</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            <div class="bd-footer-content__inner">
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Guillaume Witz
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2022.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div></div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=12da95d707ffb74b382d"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=12da95d707ffb74b382d"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

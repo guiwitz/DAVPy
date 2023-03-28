@@ -1,0 +1,916 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>6. Images as arrays &#8212; Introduction to Data Analysis and Visualization with Python</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=12da95d707ffb74b382d" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=12da95d707ffb74b382d" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=12da95d707ffb74b382d" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=12da95d707ffb74b382d" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=12da95d707ffb74b382d" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=12da95d707ffb74b382d" />
+
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = '06-Images_as_arrays';</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="6. Back to Pandas" href="07-Back_to_Pandas.html" />
+    <link rel="prev" title="5. Minimal plotting" href="05-Minimal_plotting.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="Readme.html">
+  
+  
+  
+  
+  
+    <p class="title logo__title">Introduction to Data Analysis and Visualization with Python</p>
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="Readme.html">
+                    Introduction to Data Analysis and Visualization with Python
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="01-Introduction.html">00. Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="02-Numpy_arrays.html">2. Numpy arrays</a></li>
+<li class="toctree-l1"><a class="reference internal" href="03-Numpy_maths.html">3. Numpy for mathematics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="04-Numpy_indexing.html">4. Numpy indexing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="05-Minimal_plotting.html">5. Minimal plotting</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">6. Images as arrays</a></li>
+<li class="toctree-l1"><a class="reference internal" href="07-Back_to_Pandas.html">6. Back to Pandas</a></li>
+<li class="toctree-l1"><a class="reference internal" href="08-Operate_on_DataFrames.html">7. Operating on DataFrames</a></li>
+<li class="toctree-l1"><a class="reference internal" href="09-DataFrame_indexing.html">8. DataFrame indexing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="10-Pandas_combine.html">9. Combining and grouping DataFrames</a></li>
+<li class="toctree-l1"><a class="reference internal" href="11-Real_world.html">10. Real-world problems and additional topics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="12-Matplotlib_content.html">11. Matplotlib: data content</a></li>
+<li class="toctree-l1"><a class="reference internal" href="13-Matplotlib_non_data_elements.html">12. Matplotlib: adjusting non-data elements</a></li>
+<li class="toctree-l1"><a class="reference internal" href="14-Seaborn_concept.html">13. Seaborn introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="15-Seaborn_distributions_relations.html">14. Seaborn: distributions and relations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="16-Seaborn_regression.html">15. Regression</a></li>
+<li class="toctree-l1"><a class="reference internal" href="17-Matplotlib_statistics.html">16. Matplotlib statistics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="18-Matplotlib_annotations.html">17. Legends and Annotations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="19-Alternatives.html">18. Other libraries</a></li>
+<li class="toctree-l1"><a class="reference internal" href="20-scipy_statsmodels.html">19. Data analysis</a></li>
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="21-scikit-learn.html">20. scikit-learn</a></li>
+<li class="toctree-l1"><a class="reference internal" href="22-Image_processing.html">21. Image processing</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/06-Images_as_arrays.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  </button>
+`);
+</script>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>6. Images as arrays</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#importing-data">Importing data</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#multi-dimensional-images">Multi-dimensional images</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cropping">Cropping</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#operations-on-images">Operations on images</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#projections">Projections</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#operations-between-arrays">Operations between arrays</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#image-processing-operations">Image processing operations</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#masking">Masking</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#further">Further</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise">Exercise</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="images-as-arrays">
+<h1>6. Images as arrays<a class="headerlink" href="#images-as-arrays" title="Permalink to this heading">#</a></h1>
+<p>In the previous chapters, we have learned about Numpy arrays in general. These structures can hold any type of data but they are particularly ideal to store image data. Indeed in fields such as biomedical imaging or satellite imagery, multi-dimensional data are acquired that easy to process as arrays. In this chapter, we make therefore a small detour to see how to use arrays for images (if you are only interested in dealing with tabular data, you can skip this chapter).</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+</pre></div>
+</div>
+</div>
+</div>
+<section id="importing-data">
+<h2>Importing data<a class="headerlink" href="#importing-data" title="Permalink to this heading">#</a></h2>
+<p>There are many libraries to open image data. Some are more general and some dedicated to specific fields with specific image formats. However most of them have in common that they import those various image formats as Numpy arrays.</p>
+<p>Here we use the import module of scikit-image which is a general purpose image processing library for Python. We import an image directly from the internet but any local image can also be opened by using its path. Here we have a fluorescence microscopy image of Saccharomyces cerevisiae with a signal accumulating in the vacuoles.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">skimage</span>
+<span class="kn">import</span> <span class="nn">skimage.io</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">image</span> <span class="o">=</span> <span class="n">skimage</span><span class="o">.</span><span class="n">io</span><span class="o">.</span><span class="n">imread</span><span class="p">(</span><span class="s1">&#39;https://cildata.crbs.ucsd.edu/media/images/13901/13901.tif&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">image</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[219, 225, 220, ..., 256, 258, 272],
+       [218, 211, 217, ..., 270, 268, 278],
+       [217, 217, 214, ..., 263, 268, 262],
+       ...,
+       [337, 343, 321, ..., 266, 287, 285],
+       [320, 323, 339, ..., 268, 295, 281],
+       [329, 353, 335, ..., 276, 281, 291]], dtype=uint16)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">type</span><span class="p">(</span><span class="n">image</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>numpy.ndarray
+</pre></div>
+</div>
+</div>
+</div>
+<p>We see above that the tif file was indeed imported as a Numpy array. In addition we see that the pixels hare unsigned integer 16 bits, a common format for iamges.</p>
+<p>We can now check how many pixels and dimensions we have:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">image</span><span class="o">.</span><span class="n">shape</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(1024, 1360)
+</pre></div>
+</div>
+</div>
+</div>
+<p>These numbers tell us that our array has 1024 lines and 1360 columns but no other dimensions. So we have a plain gray-scale image. We have just seen that we could use Matplotlib to plot e.g. scatterplots and histograms. We can also use it to simply display 2D arrays, i.e. images, using the <code class="docutils literal notranslate"><span class="pre">imshow</span></code> function:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">image</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;gray&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/28a12cc9aa79193fdb33c62c8f22f1c038081633309ffc8840eae61c4699101d.png" src="_images/28a12cc9aa79193fdb33c62c8f22f1c038081633309ffc8840eae61c4699101d.png" />
+</div>
+</div>
+<p>In addition to the <code class="docutils literal notranslate"><span class="pre">image</span></code> input we also used an <em>optional</em> parameter called <code class="docutils literal notranslate"><span class="pre">cmap</span></code> here and that allows us to set a certain colormap, here a gray one. You can find more here: <a class="reference external" href="https://matplotlib.org/stable/tutorials/colors/colormaps.html#sequential">https://matplotlib.org/stable/tutorials/colors/colormaps.html#sequential</a></p>
+</section>
+<section id="multi-dimensional-images">
+<h2>Multi-dimensional images<a class="headerlink" href="#multi-dimensional-images" title="Permalink to this heading">#</a></h2>
+<p>Let’s import now another image:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">image_multi</span> <span class="o">=</span> <span class="n">skimage</span><span class="o">.</span><span class="n">io</span><span class="o">.</span><span class="n">imread</span><span class="p">(</span><span class="s1">&#39;https://github.com/guiwitz/microfilm/raw/master/demodata/coli_nucl_ori_ter.tif&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">image_multi</span><span class="o">.</span><span class="n">shape</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(3, 30, 220, 169)
+</pre></div>
+</div>
+</div>
+</div>
+<p>Now this image has more than just rows and columns of pixels. In total we have 4 dimensions, the last two corresponding to pixels. The two first correspond to different channels (3) and time-points (30). If we want to access and plot a given 2D image, we have to use indexing. For example, let’s display the 2nd channel of the 10th time point:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">im_singleplane</span> <span class="o">=</span> <span class="n">image_multi</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">9</span><span class="p">]</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">im_singleplane</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;gray&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/a8ceab2b22f4962db3448cbb3bc00febb344274cd6e2de98ba6727519afb3618.png" src="_images/a8ceab2b22f4962db3448cbb3bc00febb344274cd6e2de98ba6727519afb3618.png" />
+</div>
+</div>
+</section>
+<section id="cropping">
+<h2>Cropping<a class="headerlink" href="#cropping" title="Permalink to this heading">#</a></h2>
+<p>A common operation is to only consider part of an image for further analysis. We have learned in the previous chapters that we could use indexing to extract only part of an array which for an image is called cropping. For example, we might want to focus on the rows around 110 and columns around 50:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">im_crop</span> <span class="o">=</span> <span class="n">im_singleplane</span><span class="p">[</span><span class="mi">90</span><span class="p">:</span><span class="mi">130</span><span class="p">,</span> <span class="mi">30</span><span class="p">:</span><span class="mi">70</span><span class="p">]</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">im_crop</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;gray&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/0d29b6976288699bf8394cfbc924296cb0e087e701d1439b75b5b92920ab9f02.png" src="_images/0d29b6976288699bf8394cfbc924296cb0e087e701d1439b75b5b92920ab9f02.png" />
+</div>
+</div>
+<p><strong>Note that we additionally use here the <code class="docutils literal notranslate"><span class="pre">copy</span></code> method. This ensures that whatever modification we make to the cropped version doesn’t affect the original image!</strong>.</p>
+<p>We can also check again the size of this cropped image. We expect 130 rows and 200 columns:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">im_crop</span><span class="o">.</span><span class="n">shape</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(40, 40)
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="operations-on-images">
+<h2>Operations on images<a class="headerlink" href="#operations-on-images" title="Permalink to this heading">#</a></h2>
+<p>All the operations we have seen for arrays in general are of course still valid for images. So we can do simple calculus or apply functions to images:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">im_crop_plus_three</span> <span class="o">=</span> <span class="n">im_crop</span> <span class="o">+</span> <span class="mi">3</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">im_crop_plus_three</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[102, 102, 102, ..., 103, 103, 103],
+       [103, 102, 103, ..., 103, 103, 103],
+       [103, 103, 103, ..., 103, 103, 104],
+       ...,
+       [103, 103, 103, ..., 103, 104, 104],
+       [102, 103, 103, ..., 103, 104, 104],
+       [102, 102, 102, ..., 104, 105, 105]], dtype=uint16)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">im_crop</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[ 99,  99,  99, ..., 100, 100, 100],
+       [100,  99, 100, ..., 100, 100, 100],
+       [100, 100, 100, ..., 100, 100, 101],
+       ...,
+       [100, 100, 100, ..., 100, 101, 101],
+       [ 99, 100, 100, ..., 100, 101, 101],
+       [ 99,  99,  99, ..., 101, 102, 102]], dtype=uint16)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">im_crop</span> <span class="o">*</span> <span class="mi">3</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[297, 297, 297, ..., 300, 300, 300],
+       [300, 297, 300, ..., 300, 300, 300],
+       [300, 300, 300, ..., 300, 300, 303],
+       ...,
+       [300, 300, 300, ..., 300, 303, 303],
+       [297, 300, 300, ..., 300, 303, 303],
+       [297, 297, 297, ..., 303, 306, 306]], dtype=uint16)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">im_crop</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[4.59512  , 4.59512  , 4.59512  , ..., 4.6051702, 4.6051702,
+        4.6051702],
+       [4.6051702, 4.59512  , 4.6051702, ..., 4.6051702, 4.6051702,
+        4.6051702],
+       [4.6051702, 4.6051702, 4.6051702, ..., 4.6051702, 4.6051702,
+        4.6151204],
+       ...,
+       [4.6051702, 4.6051702, 4.6051702, ..., 4.6051702, 4.6151204,
+        4.6151204],
+       [4.59512  , 4.6051702, 4.6051702, ..., 4.6051702, 4.6151204,
+        4.6151204],
+       [4.59512  , 4.59512  , 4.59512  , ..., 4.6151204, 4.624973 ,
+        4.624973 ]], dtype=float32)
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="projections">
+<h2>Projections<a class="headerlink" href="#projections" title="Permalink to this heading">#</a></h2>
+<p>When handling images, the <code class="docutils literal notranslate"><span class="pre">min</span></code>, <code class="docutils literal notranslate"><span class="pre">max</span></code> are very relevant as they implement the common <strong>projections</strong> that one often performs on multi-dimensional data. For example if we wanted to project all time-points on a single plane using mean intensity projection, we would write:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">image_multi</span><span class="o">.</span><span class="n">shape</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(3, 30, 220, 169)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">im_proj</span> <span class="o">=</span> <span class="n">image_multi</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">im_proj</span><span class="o">.</span><span class="n">shape</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(3, 220, 169)
+</pre></div>
+</div>
+</div>
+</div>
+<p>We see that the time-axis has been compressed to a single image, and we are left with just the three channels projected across time:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">im_proj</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;gray&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/0bd42d1e928615ae11c726794af86a507bc52a13dab7394b6ac007208609fe4f.png" src="_images/0bd42d1e928615ae11c726794af86a507bc52a13dab7394b6ac007208609fe4f.png" />
+</div>
+</div>
+<section id="operations-between-arrays">
+<h3>Operations between arrays<a class="headerlink" href="#operations-between-arrays" title="Permalink to this heading">#</a></h3>
+<p>Operations between array now become operations between images. For example, we could add some noise to an image to test the quality of a denoising algorithm. First we create a noise image:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">im_noise</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="n">im_singleplane</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">im_singleplane_noisy</span> <span class="o">=</span> <span class="n">im_singleplane</span> <span class="o">+</span> <span class="n">im_noise</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">im_singleplane</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;gray&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/a8ceab2b22f4962db3448cbb3bc00febb344274cd6e2de98ba6727519afb3618.png" src="_images/a8ceab2b22f4962db3448cbb3bc00febb344274cd6e2de98ba6727519afb3618.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">im_singleplane_noisy</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;gray&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/f3c19b3e8d73514240604b0f84a64dc7732cb01b9617a5218b1364a3c941e7b0.png" src="_images/f3c19b3e8d73514240604b0f84a64dc7732cb01b9617a5218b1364a3c941e7b0.png" />
+</div>
+</div>
+</section>
+</section>
+<section id="image-processing-operations">
+<h2>Image processing operations<a class="headerlink" href="#image-processing-operations" title="Permalink to this heading">#</a></h2>
+<p>In addition to the standard mathematical operations provided by Numpy, we can of course also apply operations which are specifically designed for images. Such functions are typically provided by libraries like scikit-image. A classical example is the blurring of an image using a Gaussian filter:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">im_gauss</span> <span class="o">=</span> <span class="n">skimage</span><span class="o">.</span><span class="n">filters</span><span class="o">.</span><span class="n">gaussian</span><span class="p">(</span><span class="n">im_singleplane</span><span class="p">,</span> <span class="n">sigma</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">preserve_range</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">im_gauss</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;gray&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/d5ad5bcdfa9668eabe647a42697edeec70591fc8db0244de9a9fc5e728fa4c6d.png" src="_images/d5ad5bcdfa9668eabe647a42697edeec70591fc8db0244de9a9fc5e728fa4c6d.png" />
+</div>
+</div>
+</section>
+<section id="masking">
+<h2>Masking<a class="headerlink" href="#masking" title="Permalink to this heading">#</a></h2>
+<p>Finally, we have seen that we could create boolean arrays by applying inequality operations to arrays. In the world of images, this is typically used to thereshold an image, i.e. extracting only parts of the image which have an intensity higher that a given threshold. For example on the last example above:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">im_thresholded</span> <span class="o">=</span> <span class="n">im_gauss</span> <span class="o">&gt;</span> <span class="mi">102</span>
+<span class="n">im_thresholded</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[False, False, False, ..., False, False, False],
+       [False, False, False, ..., False, False, False],
+       [False, False, False, ..., False, False, False],
+       ...,
+       [False, False, False, ..., False, False, False],
+       [False, False, False, ..., False, False, False],
+       [False, False, False, ..., False, False, False]])
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">im_thresholded</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;gray&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/61393922e4d43dfffeb6a051aade34c05e50cda01c8332ed9987482793015879.png" src="_images/61393922e4d43dfffeb6a051aade34c05e50cda01c8332ed9987482793015879.png" />
+</div>
+</div>
+<p>We see that we obtain a boolean array that we can still plot using <code class="docutils literal notranslate"><span class="pre">imshow</span></code> and that gives us a binary image with bright regions (above 103) shown as white (<code class="docutils literal notranslate"><span class="pre">True</span></code>) and darker ones as black (<code class="docutils literal notranslate"><span class="pre">False</span></code>). As before, we could now extract the values of those pixels by using logical indexing:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">im_gauss</span><span class="p">[</span><span class="n">im_thresholded</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([102.04097686, 102.08858084, 102.01750254, ..., 102.22472114,
+       102.26016955, 102.17046093])
+</pre></div>
+</div>
+</div>
+</div>
+<p>Finally we could compute the average values of these pixels:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">im_gauss</span><span class="p">[</span><span class="n">im_thresholded</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>102.97284930525916
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="further">
+<h2>Further<a class="headerlink" href="#further" title="Permalink to this heading">#</a></h2>
+<p>Image processing and computer vision is an entire field of research outside the scope of this introductory course. Common next steps are object detection, measurements, tracking etc. For an introduction to image processing you can check the course on GitHub <a class="reference external" href="https://github.com/guiwitz/PyImageCourse_beginner">PyImageCourse_beginner</a>.</p>
+</section>
+<section id="exercise">
+<h2>Exercise<a class="headerlink" href="#exercise" title="Permalink to this heading">#</a></h2>
+<ol class="arabic simple">
+<li><p>Try to import this image: <a class="reference external" href="https://upload.wikimedia.org/wikipedia/commons/5/5b/Serengeti_Elefantenherde1.jpg?download">https://upload.wikimedia.org/wikipedia/commons/5/5b/Serengeti_Elefantenherde1.jpg?download</a></p></li>
+</ol>
+<ol class="arabic simple" start="2">
+<li><p>What are the dimensions of the image? Do you know what the dimensions are ?</p></li>
+</ol>
+<ol class="arabic simple" start="3">
+<li><p>Display just the last channel:</p></li>
+</ol>
+<ol class="arabic simple" start="4">
+<li><p>Try to crop the left-most elefant and display it in the first channel:</p></li>
+</ol>
+<ol class="arabic simple" start="5">
+<li><p>Create a thresholed image where only the elefant tooth is visible</p></li>
+</ol>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+                <footer class="bd-footer-article">
+                  <!-- Previous / next buttons -->
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="05-Minimal_plotting.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">5. Minimal plotting</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="07-Back_to_Pandas.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">6. Back to Pandas</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#importing-data">Importing data</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#multi-dimensional-images">Multi-dimensional images</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cropping">Cropping</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#operations-on-images">Operations on images</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#projections">Projections</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#operations-between-arrays">Operations between arrays</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#image-processing-operations">Image processing operations</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#masking">Masking</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#further">Further</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise">Exercise</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            <div class="bd-footer-content__inner">
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Guillaume Witz
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2022.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div></div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=12da95d707ffb74b382d"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=12da95d707ffb74b382d"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

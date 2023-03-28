@@ -1,0 +1,24 @@
+name: DAVPy2023
+channels:
+  - conda-forge
+dependencies:
+  - python=3.10
+  - numpy
+  - matplotlib
+  - pandas
+  - scikit-learn
+  - scikit-image
+  - statsmodels
+  - jupyterlab
+  - seaborn
+  - ipywidgets
+  - pip
+  - plotnine
+  - altair
+  - pip:
+    - plotly
+    - openpyxl
+    - requests
+    - microfilm
+    #- lckr-jupyterlab-variableinspector
+    #- jupyterlab-spellchecker
