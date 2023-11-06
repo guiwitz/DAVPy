@@ -15,10 +15,10 @@ dependencies:
   - pip
   - plotnine
   - altair
+  - plotly
+  - microfilm
   - pip:
-    - plotly
     - openpyxl
     - requests
-    - microfilm
     #- lckr-jupyterlab-variableinspector
     #- jupyterlab-spellchecker
