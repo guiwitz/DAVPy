@@ -1,8 +1,8 @@
-name: DAVPy2023
+name: DAVPy2024
 channels:
   - conda-forge
 dependencies:
-  - python=3.10
+  - python=3.12
   - numpy
   - matplotlib
   - pandas
@@ -17,6 +17,7 @@ dependencies:
   - altair
   - plotly
   - microfilm
+  - jupyter-ai
   - pip:
     - openpyxl
     - requests
