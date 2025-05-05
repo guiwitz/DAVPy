@@ -1,4 +1,4 @@
-name: DAVPy2024
+name: DAVPy2025
 channels:
   - conda-forge
 dependencies:
@@ -9,7 +9,8 @@ dependencies:
   - scikit-learn
   - scikit-image
   - statsmodels
-  - jupyterlab
+  - jupyterlab>=4.0
+  - jupyter-ai
   - seaborn
   - ipywidgets
   - pip
