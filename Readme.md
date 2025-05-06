@@ -27,7 +27,7 @@ All the course material is offered in the form of interactive notebooks that can
 ## Installation
 ### Local installation
 #### Using conda
-To run Python and Jupyter we strongly recommend to install the necessary software via conda. Conda is an environment manager that allows you to create for each of your projects a specific environment on your computer in which you can then install combinations of Python packages without interference between projects. If you don't have conda installed, follow [these instructions](https://docs.conda.io/en/latest/miniconda.html) to install a minimal version called miniconda. You can also install [Anaconda](https://docs.anaconda.com/anaconda/install/) which on top of conda also installs a graphical interface and a long list of useful software (including non-Python software like RStudio). It takes however quite some space on disk.
+To run Python and Jupyter we strongly recommend to install the necessary software via conda. Conda is an environment manager that allows you to create for each of your projects a specific environment on your computer in which you can then install combinations of Python packages without interference between projects. Conda comes in many flavours but we strongly recommend to use Miniforge and follow the instructions on the [Miniforge website](https://github.com/conda-forge/miniforge#install). Miniforge contains a minimal version of conda and is an open-source project, ensuring that by default your packages will also come from an open-source package repository (conda-forge), avoiding potential licensing issues with Anaconda.
 
 #### Getting the course material
 
