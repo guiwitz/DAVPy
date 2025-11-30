@@ -1,1 +1,1 @@
-jupyter-book>=0.7.0b
+jupyter-book<2.0.0

@@ -1,25 +1,33 @@
 format: jb-book
 root: Readme
 chapters:
-- file: 01-Introduction
-- file: 02-Numpy_arrays
-- file: 03-Numpy_maths
-- file: 04-Numpy_indexing
-- file: 05-Minimal_plotting
-- file: 06-Images_as_arrays
-- file: 07-Back_to_Pandas
-- file: 08-Operate_on_DataFrames
-- file: 09-DataFrame_indexing
-- file: 10-Pandas_combine
-- file: 11-Real_world
-- file: 12-Matplotlib_content
-- file: 13-Matplotlib_non_data_elements
-- file: 14-Seaborn_concept
-- file: 15-Seaborn_distributions_relations
-- file: 16-Seaborn_regression
-- file: 17-Matplotlib_statistics
-- file: 18-Matplotlib_annotations
-- file: 19-Alternatives
-- file: 20-scipy_statsmodels
-- file: 21-scikit-learn
-- file: 22-Image_processing
+  - file: 01-Introduction
+  - file: 02-Notebooks
+  - file: 03-Variables
+  - file: 04-Functions_packages
+  - file: 05-Data_structures
+  - file: 06-File_handling
+  - file: 07-Flow_control
+  - file: 08-Classes
+  - file: 09-Numpy_arrays
+  - file: 10-Numpy_maths
+  - file: 11-Numpy_indexing
+  - file: 12-Minimal_plotting
+  - file: 13-Images_as_arrays
+  - file: 14-Back_to_Pandas
+  - file: 15-Operate_on_DataFrames
+  - file: 16-DataFrame_indexing
+  - file: 17-Pandas_combine
+  - file: 18-Real_world
+  - file: 19-Matplotlib_content
+  - file: 20-Matplotlib_non_data_elements
+  - file: 21-Seaborn_concept
+  - file: 22-Seaborn_distributions_relations
+  - file: 23-Seaborn_regression
+  - file: 24-Matplotlib_statistics
+  - file: 25-Matplotlib_annotations
+  - file: 26-Alternatives
+  - file: 27-scipy_statsmodels
+  - file: 28-scikit-learn
+  - file: 29-Image_processing
+  - file: 30-AI_assistants
