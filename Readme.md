@@ -1,4 +1,3 @@
-[![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/guiwitz/DAVPy/master?urlpath=lab)
 [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/guiwitz/DAVPy/blob/master)
 [![CC BY 4.0][cc-by-shield]][cc-by]
 
@@ -13,7 +12,7 @@ Before covering scientific programming, the course starts with an introduction t
 - using Jupyter notebooks for interactive programming
 - using VSCode as a code editor
 - using AI-coding assistants like [GitHub Copilot](https://github.com/features/copilot) or chatGPT
-- basics of Python for scientific programming. This typically only cover essential data types and structures as well as flow control. This basic material can be found in the [DAVPy_intro](https://github.com/guiwitz/DAVPy_intro) repository.
+- Then chapters 2-8 cover the basics of Python for scientific programming. The content is not exhaustive and includes only essential data types and structures as well as flow control.
 
 The core of the course then focuses on scientific computing and data analysis in three parts:
 1. The core packages [NumPy](https://numpy.org/) and [Pandas](https://pandas.pydata.org/). These packages offer additional data structures necessary to do efficient numerical computations (NumPy arrays) and process mixed-type tabular data (Pandas dataframes).
@@ -39,7 +38,7 @@ git clone https://github.com/guiwitz/DAVPy.git
 
 #### Installing the environment
 
-Now you need to create a conda environment where then you can install the necessary packages for this course. You can do this by using the provided [environment.yml](binder/environment.yml) file. If you look into it you will see that it lists a series of packages, including e.g. Numpy and Pandas, and creates an environment called ```DAVPy``` (top of the file). To create this environment, open a terminal, move to binder folder of the downloaded repository and type:
+Now you need to create a conda environment where then you can install the necessary packages for this course. You can do this by using the provided [environment.yml](environment.yml) file. If you look into it you will see that it lists a series of packages, including e.g. Numpy and Pandas, and creates an environment called ```DAVPy``` (top of the file). To create this environment, open a terminal, move to the main folder of the downloaded repository and type:
 
 ```
 conda env create -f environment.yml
