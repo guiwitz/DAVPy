@@ -1,0 +1,24 @@
+# This is an example configuration file
+# To learn more, see the full config.yaml reference: https://docs.continue.dev/reference
+
+name: UniBE Config
+version: 1.0.0
+schema: v1
+
+# Define which models can be used
+# https://docs.continue.dev/customization/models
+models:
+  - name: qwen2
+    provider: openai
+    model: qwen2.5-coder-7b
+    apiBase: https://gpustack.unibe.ch/v1
+    apiKey: xxxxxxxxxxx
+    roles:
+      - autocomplete
+  - name: qwen3
+    provider: openai
+    model: qwen3-coder-30b-a3b-instruct
+    apiBase: https://gpustack.unibe.ch/v1
+    apiKey: xxxxxxxxxxx
+    roles:
+      - chat
