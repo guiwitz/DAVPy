@@ -26,7 +26,7 @@ All the course material is offered in the form of interactive notebooks that can
 ## Installation
 ### Local installation
 #### Using conda
-To run Python and Jupyter we strongly recommend to install the necessary software via conda. Conda is an environment manager that allows you to create for each of your projects a specific environment on your computer in which you can then install combinations of Python packages without interference between projects. Conda comes in many flavours but we strongly recommend to use Miniforge and follow the instructions on the [Miniforge website](https://github.com/conda-forge/miniforge#install). Miniforge contains a minimal version of conda and is an open-source project, ensuring that by default your packages will also come from an open-source package repository (conda-forge), avoiding potential licensing issues with Anaconda.
+To run Python and Jupyter we strongly recommend to install the necessary software via conda or pixi. These two software are environment managers that allow you to create for each of your projects a specific environment on your computer in which you can then install combinations of Python packages without interference between projects. Conda comes in many flavours but we strongly recommend to use Miniforge and follow the instructions on the [Miniforge website](https://github.com/conda-forge/miniforge#install). Miniforge contains a minimal version of conda and is an open-source project, ensuring that by default your packages will also come from an open-source package repository (conda-forge), avoiding potential licensing issues with Anaconda. [Pixi](https://pixi.prefix.dev/latest/) is a newer environment manager that is also open-source and can be used as an alternative to conda. In particular it allows for a simpler tracking of dependencies, especially across conda and pypi.
 
 #### Getting the course material
 
@@ -38,7 +38,19 @@ git clone https://github.com/guiwitz/DAVPy.git
 
 #### Installing the environment
 
-Now you need to create a conda environment where then you can install the necessary packages for this course. You can do this by using the provided [environment.yml](environment.yml) file. If you look into it you will see that it lists a series of packages, including e.g. Numpy and Pandas, and creates an environment called ```DAVPy``` (top of the file). To create this environment, open a terminal, move to the main folder of the downloaded repository and type:
+Now you need to create a conda environment where then you can install the necessary packages for this course. You can do this by using the provided [environment.yml](environment.yml) file for conda or [pixi.toml](pixi.toml) file for pixi. If you look into those files you will see that they lists a series of packages, including e.g. Numpy and Pandas. To create this environment, open a terminal and move to the main folder of the downloaded repository. Then for pixi you can type:
+
+```
+pixi install
+```
+
+To then run Jupyter you can type:
+
+```
+pixi run jupyter lab
+```
+
+For conda you can type:
 
 ```
 conda env create -f environment.yml
