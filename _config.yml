@@ -1,6 +1,0 @@
-# Book settings
-title: Introduction to Data Analysis and Visualization with Python
-author: Guillaume Witz
-#logo: 'logo.png'
-execute:
-  execute_notebooks: "off"
