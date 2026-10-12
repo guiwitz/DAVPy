@@ -38,3 +38,5 @@ project:
     - file: 29-Image_processing
 site:
   template: book-theme
+  options:
+      logo: images/course_logo.png
