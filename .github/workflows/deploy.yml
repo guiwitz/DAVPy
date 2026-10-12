@@ -6,7 +6,7 @@ on:
   push:
     # Runs on pushes targeting the default branch
     branches: 
-        - main
+        - master
   workflow_dispatch:
 env:
   BASE_URL: /${{ github.event.repository.name }}
