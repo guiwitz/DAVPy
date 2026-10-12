@@ -1,8 +1,8 @@
-name: DAVPy2025
+name: DAVPy2026
 channels:
   - conda-forge
 dependencies:
-  - python=3.12
+  - python=3.14
   - numpy
   - matplotlib
   - pandas
@@ -10,7 +10,6 @@ dependencies:
   - scikit-image
   - statsmodels
   - jupyterlab>=4.0
-  - jupyter-ai
   - seaborn
   - ipywidgets
   - pip
@@ -18,7 +17,6 @@ dependencies:
   - altair
   - plotly
   - microfilm
-  - jupyter-ai
   - pip:
     - openpyxl
     - requests
